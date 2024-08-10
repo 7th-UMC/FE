@@ -20,7 +20,7 @@ const IntroLogoImg = styled.img`
 
     @media screen and (max-width: 430px) {
         width: 4.8rem;
-        content: url(${IntroLogo2})l
+        content: url(${IntroLogo2});
     }
 `
 
@@ -54,7 +54,7 @@ const IntroP2 = styled.p`
 `
 
 const IntroP3 = styled.p`
-    width: 84.1rem;
+    width: 83.1rem;
     font-size: 2.4rem;
     font-weight: 600;
     line-height: 4rem;
@@ -67,7 +67,7 @@ const IntroP3 = styled.p`
     }
 
     @media screen and (max-width: 430px) {
-        width: 38.3rem;
+        width: 37.5rem;
         font-size: 1.4rem;
         line-height: 2rem;
         margin-top: 0.774rem;
