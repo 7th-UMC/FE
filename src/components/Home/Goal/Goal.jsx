@@ -47,6 +47,7 @@ const CircleContainer = styled.div`
     display: flex;
     gap: 2.8rem;
     align-items: center;
+    justify-content: center;
 
     @media screen and (max-width: 430px) {
         gap: 1rem;
