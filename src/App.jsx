@@ -6,6 +6,10 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 
 import Home from './pages/Home/Home';
+import Project from './pages/Project/Project';
+import Qna from './pages/Qna/Qna';
+import Photo from './pages/Photo/Photo';
+import Recruit from './pages/Recruit/Recruit';
 
 function App() {
   return (
@@ -15,6 +19,10 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/project" element={<Project />} />
+          <Route path="/qna" element={<Qna />} />
+          <Route path="/photo" element={<Photo />} />
+          <Route path="/recruit" element={<Recruit />} />
         </Routes>
         <Footer />
       </Router>
