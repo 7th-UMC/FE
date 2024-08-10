@@ -22,6 +22,9 @@ const colors = {
     footerColor2: "#DDDDDD",
     footerColor3: "#8E8E8E",
 
+    menuBackground: "#08123E",
+    menuColor: "#868B93",
+
     white: "#FFFFFF",
     black: "#000000"
 };
