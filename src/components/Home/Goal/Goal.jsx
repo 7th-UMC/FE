@@ -20,7 +20,7 @@ const GoalInnerContainer = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-itema: center;
+    align-items: center;
     text-align: center;
 
     @media screen and (max-width: 430px) {
