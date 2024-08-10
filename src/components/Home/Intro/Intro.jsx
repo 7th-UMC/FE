@@ -54,6 +54,7 @@ const IntroP2 = styled.p`
 `
 
 const IntroP3 = styled.p`
+    width: 84.1rem;
     font-size: 2.4rem;
     font-weight: 600;
     line-height: 4rem;
@@ -66,6 +67,7 @@ const IntroP3 = styled.p`
     }
 
     @media screen and (max-width: 430px) {
+        width: 38.3rem;
         font-size: 1.4rem;
         line-height: 2rem;
         margin-top: 0.774rem;
@@ -81,10 +83,7 @@ const Intro = () => {
             <IntroP2>앱&웹 서비스 런칭에 도전하는 대학생 IT 연합동아리</IntroP2>
             <IntroP3>
                 University MakeUs Challenge[UMC]
-                <span>
-                    는 2021년 8월을 시작으로, IT 프로젝트 경험과<br/>
-                    네트워킹 기회를 제공하기 위해 결성되었습니다. 서비스를 직접 기획하고 개발할 수 있는<br/>
-                    기회를 얻을 수 있으며, IT 역량 향상과 UX/UI 실무 경험을 축적할 수 있습니다.
+                <span>는 2021년 8월을 시작으로, IT 프로젝트 경험과 네트워킹 기회를 제공하기 위해 결성되었습니다. 서비스를 직접 기획하고 개발할 수 있는 기회를 얻을 수 있으며, IT 역량 향상과 UX/UI 실무 경험을 축적할 수 있습니다.
                 </span>
             </IntroP3>
         </IntroContainer>
