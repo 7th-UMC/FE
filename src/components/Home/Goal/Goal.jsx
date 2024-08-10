@@ -45,8 +45,11 @@ const GoalP = styled.p`
 const CircleContainer = styled.div`
     width: 100%;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    gap: 2.8rem;
+
+    @media screen and (max-width: 430px) {
+        gap: 1rem;
+    }
 `
 
 const CircleDiv = styled.div`
