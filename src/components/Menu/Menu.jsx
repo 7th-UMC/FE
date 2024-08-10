@@ -32,7 +32,7 @@ const MenuContainer2 = styled.div`
     margin-top: 3rem;
 
     @media screen and (max-width: 430px) {
-        width: 92%;
+        width: 89%;
         margin-top: 2.941rem;
     }
 `;
