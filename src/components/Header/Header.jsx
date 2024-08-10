@@ -10,7 +10,7 @@ import HeaderBar2 from "../../assets/images/Header/headerBar2.png";
 import HeaderMenu1 from "../../assets/images/Header/headerMenu1.png";
 import HeaderMenu2 from "../../assets/images/Header/headerMenu2.png";
 
-import Menu from "../Menu/Menu";
+import Menu from "./Menu/Menu";
 
 const HeaderContainer = styled.div`
     width: 100%;
