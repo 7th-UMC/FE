@@ -14,7 +14,7 @@ const HeaderContainer = styled.div`
 
     @media screen and (max-width: 430px) {
         height: 7.659rem;
-    } 
+    }
 `
 
 const HeaderInnerContainer = styled.div`
