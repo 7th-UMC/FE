@@ -108,6 +108,18 @@ const GlobalStyle = createGlobalStyle`
             font-size: 30%;
         }
     }
+
+    @media screen and (max-width: 430px) {
+        html {
+            font-size: 62.5%;
+        }
+    }
+
+    @media screen and (max-width: 375px) {
+        html {
+            font-size: 50%;
+        }
+    }
     
     ul, li {
         padding-left: 0rem;
