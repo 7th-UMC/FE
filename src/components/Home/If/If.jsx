@@ -23,7 +23,6 @@ const BackgroundContainer = styled.div`
 
 const BackgroundImg = styled.img`
     width: 35rem;
-    margin-top: -3rem;
     z-index: -1;
 
     @media screen and (max-width: 430px) {
