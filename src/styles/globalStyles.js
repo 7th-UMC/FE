@@ -150,6 +150,10 @@ const GlobalStyle = createGlobalStyle`
         -ms-overflow-style: none; /* 인터넷 익스플로러 */
         scrollbar-width: none; /* 파이어폭스 */
     }
+
+    .pageContainer {
+        min-height: calc(100vh - 6rem);
+    }
 `;
 
 export default GlobalStyle;

@@ -9,6 +9,19 @@ const colors = {
     bannerBackground4: "#089EBF",
     bannerBackground5: "#00FFD1",
 
+    introColor: "#F3F3F3",
+    introColor2: "#E7E7E7",
+
+    goalColor: "#001223",
+    goalColor2: "#003F7D",
+
+    stageColor: "#42C0C8",
+    stageColor2: "#D9D9D9",
+
+    footerColor: "#000629",
+    footerColor2: "#DDDDDD",
+    footerColor3: "#8E8E8E",
+
     white: "#FFFFFF",
     black: "#000000"
 };
