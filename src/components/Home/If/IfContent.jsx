@@ -155,13 +155,13 @@ const IfP3 = styled.p`
 const IfP4 = styled.p`
     font-size: 2.2rem;
     font-weight: 400;
-    line-height: 4rem;
+    line-height: 3.5rem;
     text-align: justified;
     color: ${colors.white};
 
     @media screen and (max-width: 430px) {
         font-size: 1.1rem;
-        line-height: 2rem;
+        line-height: 1.5rem;
     }
 `
 
