@@ -83,7 +83,7 @@ const GlobalStyle = createGlobalStyle`
 
     }
 
-    @media screen and (max-width:1799px) {
+    /* @media screen and (max-width:1799px) {
         /* 데스크탑 */
         html {
             font-size: 50%;
@@ -107,7 +107,7 @@ const GlobalStyle = createGlobalStyle`
         html {
             font-size: 30%;
         }
-    }
+    } */
     
     ul, li {
         padding-left: 0rem;
