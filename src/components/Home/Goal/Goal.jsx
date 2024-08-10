@@ -20,7 +20,7 @@ const GoalInnerContainer = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-item: center;
+    align-itema: center;
     text-align: center;
 
     @media screen and (max-width: 430px) {
@@ -46,7 +46,6 @@ const CircleContainer = styled.div`
     width: 100%;
     display: flex;
     gap: 2.8rem;
-    justify-content: center;
     align-items: center;
 
     @media screen and (max-width: 430px) {
