@@ -492,8 +492,11 @@ Error generating stack: `+o.message+`
 `,h0=R.div`
     width: 100%;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    gap: 2.8rem;
+
+    @media screen and (max-width: 430px) {
+        gap: 1rem;
+    }
 `,pl=R.div`
     border: 0.1rem solid ${D.white};
     padding: 2.4rem 4rem;
@@ -786,7 +789,7 @@ Error generating stack: `+o.message+`
         border-radius: 0.4rem;
         content: url(${K0});
     }
-`,ev=R.img`
+`,e1=R.img`
     width: 50rem;
     border-radius: 0.6rem;
 
@@ -829,12 +832,12 @@ Error generating stack: `+o.message+`
         font-size: 1.1rem;
         line-height: 2rem;
     }
-`,tv=()=>v.jsxs(W0,{children:[v.jsxs(J0,{children:[v.jsx(X0,{children:"HSU UMC"}),v.jsx(Z0,{children:"챌린저가 된다면,"})]}),v.jsxs(q0,{children:[v.jsxs(di,{children:[v.jsx(_0,{src:L0,alt:"if"}),v.jsxs(pi,{children:[v.jsx(hi,{children:"파트별 스터디"}),v.jsx(mi,{children:"기획, 디자인, 서버, 안드로이드, 웹, iOS 등 6개의 파트로 주 1회 스터디를 진행합니다."})]})]}),v.jsxs(di,{children:[v.jsx($0,{src:F0,alt:"if"}),v.jsxs(pi,{children:[v.jsx(hi,{children:"아이디어톤"}),v.jsx(mi,{children:"아이디어를 바탕으로 다양한 파트의 팀원이 모여 함께 기획을 발전시킵니다."})]})]}),v.jsxs(di,{children:[v.jsx(b0,{src:V0,alt:"if"}),v.jsxs(pi,{children:[v.jsx(hi,{children:"해커톤"}),v.jsx(mi,{children:"주어진 시간에 팀이 모여 새로운 아이디어를 발전시키고, 하나의 프로젝트를 개발합니다."})]})]}),v.jsxs(di,{children:[v.jsx(ev,{src:G0,alt:"if"}),v.jsxs(pi,{children:[v.jsx(hi,{children:"데모데이"}),v.jsx(mi,{children:"학생들이 기획 · 디자인 · 개발한 서비스를 동료 학생들 앞에서 시연 및 선보입니다."})]})]})]})]}),nv=R.div`
+`,t1=()=>v.jsxs(W0,{children:[v.jsxs(J0,{children:[v.jsx(X0,{children:"HSU UMC"}),v.jsx(Z0,{children:"챌린저가 된다면,"})]}),v.jsxs(q0,{children:[v.jsxs(di,{children:[v.jsx(_0,{src:L0,alt:"if"}),v.jsxs(pi,{children:[v.jsx(hi,{children:"파트별 스터디"}),v.jsx(mi,{children:"기획, 디자인, 서버, 안드로이드, 웹, iOS 등 6개의 파트로 주 1회 스터디를 진행합니다."})]})]}),v.jsxs(di,{children:[v.jsx($0,{src:F0,alt:"if"}),v.jsxs(pi,{children:[v.jsx(hi,{children:"아이디어톤"}),v.jsx(mi,{children:"아이디어를 바탕으로 다양한 파트의 팀원이 모여 함께 기획을 발전시킵니다."})]})]}),v.jsxs(di,{children:[v.jsx(b0,{src:V0,alt:"if"}),v.jsxs(pi,{children:[v.jsx(hi,{children:"해커톤"}),v.jsx(mi,{children:"주어진 시간에 팀이 모여 새로운 아이디어를 발전시키고, 하나의 프로젝트를 개발합니다."})]})]}),v.jsxs(di,{children:[v.jsx(e1,{src:G0,alt:"if"}),v.jsxs(pi,{children:[v.jsx(hi,{children:"데모데이"}),v.jsx(mi,{children:"학생들이 기획 · 디자인 · 개발한 서비스를 동료 학생들 앞에서 시연 및 선보입니다."})]})]})]})]}),n1=R.div`
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-`,rv=R.div`
+`,r1=R.div`
     width: 70%;
     position: relative;
     display: flex;
@@ -843,7 +846,7 @@ Error generating stack: `+o.message+`
     @media screen and (max-width: 430px) { 
         width: 100%;
     }
-`,iv=R.img`
+`,i1=R.img`
     width: 35rem;
     margin-top: -3rem;
     z-index: -1;
@@ -852,4 +855,4 @@ Error generating stack: `+o.message+`
         width: 12.2rem;
         content: url(${M0});
     }
-`,ov=()=>v.jsxs(nv,{children:[v.jsx(rv,{children:v.jsx(iv,{src:D0,alt:"if"})}),v.jsx(tv,{})]}),lv=()=>v.jsxs("div",{className:"pageContainer",children:[v.jsx(n0,{}),v.jsx(c0,{}),v.jsx(m0,{}),v.jsx(U0,{}),v.jsx(ov,{})]});function uv(){return v.jsxs(v.Fragment,{children:[v.jsx(Sg,{}),v.jsxs(CA,{children:[v.jsx(zg,{}),v.jsx(vA,{children:v.jsx(Bd,{path:"/",element:v.jsx(lv,{})})}),v.jsx(Yg,{})]})]})}md(document.getElementById("root")).render(v.jsx(j.StrictMode,{children:v.jsx(uv,{})}));
+`,o1=()=>v.jsxs(n1,{children:[v.jsx(r1,{children:v.jsx(i1,{src:D0,alt:"if"})}),v.jsx(t1,{})]}),l1=()=>v.jsxs("div",{className:"pageContainer",children:[v.jsx(n0,{}),v.jsx(c0,{}),v.jsx(m0,{}),v.jsx(U0,{}),v.jsx(o1,{})]});function u1(){return v.jsxs(v.Fragment,{children:[v.jsx(Sg,{}),v.jsxs(CA,{children:[v.jsx(zg,{}),v.jsx(vA,{children:v.jsx(Bd,{path:"/",element:v.jsx(l1,{})})}),v.jsx(Yg,{})]})]})}md(document.getElementById("root")).render(v.jsx(j.StrictMode,{children:v.jsx(u1,{})}));
