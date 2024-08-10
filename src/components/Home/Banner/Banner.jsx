@@ -7,7 +7,7 @@ import BannerLogo2 from "../../../assets/images/Home/Banner/bannerLogo2.png";
 
 const BanenrContainer = styled.div`
     width: 100%;
-    height: 102rem;
+    //height: 102rem;
     position: relative;
     display: flex;
     justify-content: center;
@@ -16,13 +16,13 @@ const BanenrContainer = styled.div`
 
 
     @media screen and (max-width: 430px) {
-        height: 19.695rem;
+        //height: 19.695rem;
     }
 `
 
 const BannerBackImg = styled.img`
     width: 100%;
-    height: 100%;
+    //height: 100%;
 
     @media screen and (max-width: 430px) {
         content: url(${BannerBackground2});
@@ -33,14 +33,11 @@ const BannerInnerContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
     position: absolute;
     width: 71.2rem;
-    height: 36.842rem;
 
     @media screen and (max-width: 430px) {
         width: 22.923rem;
-        height: 12.898rem;
     }
 `
 
@@ -51,7 +48,6 @@ const BannerP = styled.p`
     text-align: center;
     font-family: Shippori Antique B1;
     color: ${colors.white};
-    opacity: 0.85;
 
     @media screen and (max-width: 430px) {
         font-size: 1.8rem;
@@ -61,9 +57,11 @@ const BannerP = styled.p`
 
 const BannerImg = styled.img`
     width: 100%;
+    margin-top: 0.793rem;
 
     @media screen and (max-width: 430px) {
         content: url(${BannerLogo2});
+        margin-top: 0rem;
     }
 `
 
@@ -72,11 +70,13 @@ const BannerP2 = styled.p`
     font-weight: 600;
     line-height: 4.296rem;
     color: ${colors.white};
-    opacity: 0.8;
+    opacity: 0.95;
+    margin-top: 0.799rem;
 
     @media screen and (max-width: 430px) {
         font-size: 1.1rem;
         line-height: 1.313rem;
+        margin-top: 0.849rem;
     }
 `
 
