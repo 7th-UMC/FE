@@ -22,7 +22,6 @@ const IfContainer = styled.div`
 `
 
 const IfBox = styled.div`
-    width: 25.4rem;
     height: 8.5rem;
     display: flex;
     flex-direction: column;
@@ -30,7 +29,6 @@ const IfBox = styled.div`
     align-items: center;
 
     @media screen and (max-width: 430px) {
-        width: 14.1rem;
         height: 4.917rem;
     }
 `
