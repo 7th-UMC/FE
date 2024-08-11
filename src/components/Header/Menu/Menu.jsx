@@ -77,24 +77,26 @@ const Menu = ({ onClose }) => {
     const location = useLocation();
 
     const routes = [
-        "/",
-        "/project",
-        "/qna",
-        "/photo",
-        "/recruit"
+        { path: "/", name: "About UMC" },
+        { path: "/project", name: "Project" },
+        { path: "/qna", name: "Q&A" },
+        { path: "/photo", name: "UMC Frame Photo" },
+        { path: "/recruit", name: "Recruit" }
     ];
 
     const iconsOff = [MenuOff1, MenuOff2, MenuOff3, MenuOff4, MenuOff5];
     const iconsOn = [MenuOn1, MenuOn2, MenuOn3, MenuOn4, MenuOn5];
 
     const handleMenu = (index) => {
-        navigate(routes[index]);
+        navigate(routes[index].path);
         onClose();
     };
 
     useEffect(() => {
         const currentPath = location.pathname;
-        const index = routes.indexOf(currentPath);
+        const index = routes.findIndex(route => 
+            currentPath === route.path || currentPath.startsWith(route.path + "/")
+        );
         setHoveredIndex(index);
     }, [location.pathname, routes]);
 
@@ -108,14 +110,14 @@ const Menu = ({ onClose }) => {
                             onMouseEnter={() => setHoveredIndex(index)}
                             onMouseLeave={() => setHoveredIndex(null)}
                             onClick={() => handleMenu(index)}
-                            isactive={location.pathname === route ? 'true' : 'false'}
+                            isactive={hoveredIndex === index ? 'true' : 'false'}
                             ishovered={hoveredIndex === index ? 'true' : 'false'}
                         >
                             <MenuIcon
-                                src={hoveredIndex === index || location.pathname === route ? iconsOn[index] : iconsOff[index]}
+                                src={hoveredIndex === index || location.pathname.startsWith(route.path) ? iconsOn[index] : iconsOff[index]}
                                 alt={`icon${index + 1}`}
                             />
-                            {['About UMC', 'Project', 'Q&A', 'UMC Frame Photo', 'Recruit'][index]}
+                            {route.name}
                         </MenuDetailContainer>
                     ))}
                 </MenuInnerContainer>
