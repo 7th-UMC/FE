@@ -83,6 +83,9 @@ const Header = () => {
 
     const handleHomeClick = () => {
         navigate("/");
+        
+        if (menuOpen) 
+            setMenuOpen(false);
     }
 
     const toggleMenu = () => {
