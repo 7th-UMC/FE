@@ -3,13 +3,13 @@ import { images } from "./loadImages";
 const ProjectData = [
     { 
         "id": 1, 
-        "projectWeb": images['project1'],
-        "projectMobile": images['project2'],
-        "projectDetailWeb": images['projectDetail1'],
-        "projectDetailMobile": images['projectDetail2'],
-        "title": "서비스명1",
-        "explain": "서비스1의 설명입니다.",
-        "people": [
+        "projectWeb": images['project1'],   // "/project" 주소에 나오는 웹버전 이미지
+        "projectMobile": images['project2'],    // "/project" 주소에 나오는 모바일버전 이미지
+        "projectDetailWeb": images['projectDetail1'],   // "project/1" 주소에 나오는 웹버전 이미지
+        "projectDetailMobile": images['projectDetail2'],    // "project/1" 주소에 나오는 모바일버전 이미지
+        "title": "서비스명1",   // 서비스명
+        "explain": "서비스1의 설명입니다.", // 서비스 설명
+        "people": [ // 참여 인원
             {
                 "id": "1",
                 "part": "기획",
@@ -43,7 +43,7 @@ const ProjectData = [
                 ]
             }
         ],
-        "feel": [
+        "feel": [   // 소감
             {
                 "id": "1",
                 "nickname": "에리얼",
