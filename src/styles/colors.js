@@ -25,6 +25,12 @@ const colors = {
     menuBackground: "#08123E",
     menuColor: "#868B93",
 
+    recruitColor: "#C4C4C4",
+    recruitColor2: "#78E5D8",
+    recruitColor3: "#001223",
+    recruitColor4: "#003F7D",
+    recruitColor5: "#071038",
+
     white: "#FFFFFF",
     black: "#000000"
 };
