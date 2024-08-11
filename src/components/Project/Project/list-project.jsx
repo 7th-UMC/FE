@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react';
 import styled from "styled-components";
-import axios from 'axios';
 import ItemProject from './item-project';
+import ProjectData from '../../../utils/Project/projectData';
 
 const ListContainer = styled.div`
     width: 100%;
@@ -14,37 +13,23 @@ const ListContainer = styled.div`
         margin-top: 2.6rem;
         gap: 1.2rem;
     }
-`
+`;
 
 const ListProject = () => {
-    const [projects, setProjects] = useState([]);
-
-    useEffect(() => {
-        const fetchProjects = async () => {
-            try {
-                const response = await axios.get('https://jsonplaceholder.typicode.com/users');
-                setProjects(response.data);
-                //console.log(response.data);
-            } catch (err) {
-                setError(err);
-            }
-        };
-
-        fetchProjects();
-    }, []);
-
     return (
         <ListContainer>
-            {projects.map(projects => (
+            {ProjectData.map((item, index) => (
                 <ItemProject 
-                    key={projects.id}
-                    id={projects.id}
-                    name={projects.name}
-                    email={projects.email}
+                    key={index}
+                    id={item.id}
+                    projectWeb={item.projectWeb}
+                    projectMobile={item.projectMobile}
+                    title={item.title}
+                    explain={item.explain}
                 />
             ))}
         </ListContainer>
-    )
-}
+    );
+};
 
 export default ListProject;

@@ -13,21 +13,21 @@ const FooterContainer = styled.div`
 
 const FooterInnerContainer = styled.div`
     width: 60%;
+    height: 16rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
     @media screen and (max-width: 430px) {
         width: 92%;
+        height: 10rem;
     }
 `
 
 const TopContainer = styled.div`
     display: flex;
-    margin-top: 1.5rem;
     align-items: center;
     gap: 0.4rem;
-
-    @media screen and (max-width: 430px) {
-        margin-top: 2.128rem;
-    }
 `
 
 const FooterLogoImg = styled.img`
@@ -56,11 +56,9 @@ const FooterContainer2 = styled.div`
     display: flex;
     justify-content: space-between;
     margin-top: 1.5rem;
-    margin-bottom: 3.4rem;
 
     @media screen and (max-width: 430px) {
         margin-top: 0.927rem;
-        margin-bottom: 1.856rem;
     }
 `
 
