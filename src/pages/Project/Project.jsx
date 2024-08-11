@@ -1,6 +1,8 @@
+import React, { useEffect, useState } from 'react';
 import styled from "styled-components";
 import colors from "../../styles/colors";
 import ListProject from "../../components/Project/Project/list-project";
+import ProjectData from "../../utils/Project/projectData.js";
 
 const ProjectContainer = styled.div`
     width: 100%;
@@ -32,14 +34,23 @@ const ProjectP = styled.p`
 `
 
 const Project = () => {
-    return (
-        <ProjectContainer>
-            <ProjectInnerContainer>
-                <ProjectP>Project</ProjectP>
+    const [projectData, setProjectData] = useState(ProjectData);
 
-                <ListProject />
-            </ProjectInnerContainer>
-        </ProjectContainer>
+    useEffect(() => {
+        setProjectData(ProjectData);
+        //console.log(projectData);
+    }, []);
+
+    return (
+        <div className="pageContainer">
+            <ProjectContainer>
+                <ProjectInnerContainer>
+                    <ProjectP>Project</ProjectP>
+
+                    <ListProject data={projectData}/>
+                </ProjectInnerContainer>
+            </ProjectContainer>
+        </div>
     )
 }
 

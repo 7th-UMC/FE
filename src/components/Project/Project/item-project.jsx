@@ -1,7 +1,5 @@
 import styled from "styled-components";
 import colors from "../../../styles/colors";
-import Project1 from "../../../assets/images/Project/Project/project1.png";
-import Project2 from "../../../assets/images/Project/Project/project2.png";
 import { useNavigate } from "react-router-dom";
 
 const ItemContainer = styled.div`
@@ -20,10 +18,6 @@ const ItemContainer = styled.div`
 const BackgroundImg = styled.img`
     width: 100%;
     cursor: pointer;
-
-    @media screen and (max-width: 430px) {
-        content: url(${Project2});
-    }
 `
 
 const ProjectP = styled.p`
@@ -60,20 +54,21 @@ const ProjectP2 = styled.p`
     }
 `
 
-const ItemProject = ({ id, name, email }) => {
+const ItemProject = ({ id, projectMobile, projectWeb, title, explain }) => {
     const navigate = useNavigate();
 
     const handleDetail = () => {
+        //console.log(id);
         navigate(`/project/${id}`);
-    }
+    };
 
     return (
         <ItemContainer>
-            <BackgroundImg src={Project1} alt="project" onClick={handleDetail}/>
-            <ProjectP>{name}</ProjectP>
-            <ProjectP2>{email}</ProjectP2>
+            <BackgroundImg src={window.innerWidth <= 430 ? projectMobile : projectWeb} alt="project" onClick={handleDetail}/>
+            <ProjectP>{title}</ProjectP>
+            <ProjectP2>{explain}</ProjectP2>
         </ItemContainer>
-    )
-}
+    );
+};
 
 export default ItemProject;
