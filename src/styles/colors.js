@@ -35,6 +35,10 @@ const colors = {
     staffLoginColor: "#E4E4E4",
     staffLoginColor2: "#040B2C",
 
+    qnaColor: "#D2D2D2",
+    qnaColor2: "#DFE3E8",
+    qnaColor3: "#00FFD1",
+
     white: "#FFFFFF",
     black: "#000000"
 };
