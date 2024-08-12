@@ -54,6 +54,11 @@ const RecruitButton = styled.button`
     margin: 13.898rem 0 8rem 0;
     cursor: pointer;
 
+    &:hover {
+        background-color: ${colors.footerColor};
+        color: ${colors.white};
+    }
+
     @media screen and (max-width: 430px) {
         width: 20rem;
         height: 4.4rem;

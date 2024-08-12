@@ -3,7 +3,7 @@ import colors from "../../../styles/colors";
 
 const ItemContainer = styled.div`
     padding: 0.8rem 2rem;
-    border: 0.1rem solid ${colors.recruitColor2};
+    border: 0.1rem solid ${colors.white};
     border-radius: 50rem;
     display: flex;
     justify-content: center;
@@ -12,7 +12,7 @@ const ItemContainer = styled.div`
     font-size: 2.4rem;
     font-weight: 500;
     line-height: 2.864rem;
-    color: ${colors.recruitColor2};
+    color: ${colors.white};
 
     @media screen and (max-width: 430px) {
         font-size: 1.2rem;
