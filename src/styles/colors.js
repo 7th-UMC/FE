@@ -30,6 +30,7 @@ const colors = {
     recruitColor3: "#001223",
     recruitColor4: "#003F7D",
     recruitColor5: "#071038",
+    recruitColor6: "#86FFF0",
 
     staffLoginColor: "#E4E4E4",
     staffLoginColor2: "#040B2C",

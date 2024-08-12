@@ -4,10 +4,10 @@ import ItemVacation from "./item-vacation";
 
 const ListContainer = styled.div`
     width: 100%;
-    margin-top: 8rem;
+    margin-top: 6rem;
 
     @media screen and (max-width: 430px) {
-        margin-top: 4rem;
+        margin-top: 2rem;
     }
 `
 
