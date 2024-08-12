@@ -21,7 +21,7 @@ const HeaderContainer = styled.div`
     @media screen and (max-width: 430px) {
         height: 7.659rem;
     }
-`
+`;
 
 const HeaderInnerContainer = styled.div`
     width: 60%;
@@ -31,15 +31,15 @@ const HeaderInnerContainer = styled.div`
 
     @media screen and (max-width: 430px) {
         width: 92%;
-    } 
-`
+    }
+`;
 
 const HeaderLeft = styled.div`
     display: flex;
     gap: 0.8rem;
     align-items: center;
     cursor: pointer;
-`
+`;
 
 const HeaderLeftLogoImg = styled.img`
     width: 2.8rem;
@@ -47,15 +47,39 @@ const HeaderLeftLogoImg = styled.img`
     @media screen and (max-width: 430px) {
         width: 3.6rem;
         content: url(${HeaderLogo2});
-    } 
-`
+    }
+`;
 
 const HeaderLeftP = styled.p`
     font-weight: 700;
     font-size: 1.6rem;
     line-height: 1.909rem;
     color: ${colors.white};
-`
+`;
+
+const RightContainer = styled.div`
+    display: flex;
+    gap: 3.822rem;
+    align-items: center;
+
+    @media screen and (max-width: 430px) {
+        gap: 2.04rem;
+    }
+`;
+
+const LogoutP = styled.p`
+    cursor: pointer;
+    color: ${colors.white};
+    font-size: 1.6rem;
+    line-height: 1.909rem;
+    font-weight: 600;
+
+    @media screen and (max-width: 430px) {
+        font-size: 1.4rem;
+        line-height: 2rem;
+        font-weight: 400;
+    }
+`;
 
 const HeaderRightImg = styled.img`
     cursor: pointer;
@@ -65,7 +89,7 @@ const HeaderRightImg = styled.img`
         width: 3.6rem;
         content: url(${HeaderBar2});
     }
-`
+`;
 
 const HeaderRightImg2 = styled.img`
     cursor: pointer;
@@ -75,26 +99,32 @@ const HeaderRightImg2 = styled.img`
         width: 3.6rem;
         content: url(${HeaderMenu2});
     }
-`
+`;
 
 const Header = () => {
     const [menuOpen, setMenuOpen] = useState(false);
     const navigate = useNavigate();
+    const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
 
     const handleHomeClick = () => {
         navigate("/");
-        
         if (menuOpen) 
             setMenuOpen(false);
-    }
+    };
 
     const toggleMenu = () => {
         setMenuOpen(prev => !prev);
-    }
+    };
 
     const closeMenu = () => {
         setMenuOpen(false);
-    }
+    };
+
+    const handleLogout = () => {
+        localStorage.removeItem('isLoggedIn');
+        alert("로그아웃 되었습니다.");
+        navigate('/');
+    };
 
     return (
         <>
@@ -104,17 +134,22 @@ const Header = () => {
                         <HeaderLeftLogoImg src={HeaderLogo1} alt="logo" />
                         <HeaderLeftP>HSU UMC</HeaderLeftP>
                     </HeaderLeft>
-                    {menuOpen ? (
-                        <HeaderRightImg2 src={HeaderMenu1} alt="headerMenu" onClick={toggleMenu} />
-                    ) : (
-                        <HeaderRightImg src={HeaderBar1} alt="headerBar" onClick={toggleMenu} />
-                    )}
+                    <RightContainer>
+                        {isLoggedIn && (
+                            <LogoutP onClick={handleLogout}>로그아웃</LogoutP>
+                        )}
+                        {menuOpen ? (
+                            <HeaderRightImg2 src={HeaderMenu1} alt="headerMenu" onClick={toggleMenu} />
+                        ) : (
+                            <HeaderRightImg src={HeaderBar1} alt="headerBar" onClick={toggleMenu} />
+                        )}
+                    </RightContainer>
                 </HeaderInnerContainer>
             </HeaderContainer>
 
-            {menuOpen && <Menu onClose={closeMenu}/>}
+            {menuOpen && <Menu onClose={closeMenu} />}
         </>
-    )
-}
+    );
+};
 
 export default Header;

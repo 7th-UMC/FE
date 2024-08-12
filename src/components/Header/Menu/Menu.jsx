@@ -76,11 +76,12 @@ const Menu = ({ onClose }) => {
     const [activeIndex, setActiveIndex] = useState(null);
     const navigate = useNavigate();
     const location = useLocation();
+    const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
 
     const routes = [
         { path: "/", name: "About UMC" },
         { path: "/project", name: "Project" },
-        { path: "/qna", name: "Q&A" },
+        { path: isLoggedIn ? "/staffqna" : "/qna", name: "Q&A" },
         { path: "/photo", name: "UMC Frame Photo" },
         { path: "/recruit", name: "Recruit" }
     ];

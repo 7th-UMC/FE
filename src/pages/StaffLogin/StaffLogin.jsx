@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import styled from "styled-components";
 import colors from "../../styles/colors";
+import { useNavigate } from "react-router-dom";
 
 const StaffLoginContainer = styled.div`
     width: 60%;
@@ -111,13 +112,17 @@ const LoginButton = styled.button`
 const StaffLogin = () => {
     const [userId, setUserId] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate();
 
     const handleLogin = async () => {
         try {
             const response = await axios.post('https://jsonplaceholder.typicode.com/users', { userId, password });
             console.log(response.data);
+            localStorage.setItem('isLoggedIn', 'true');
+            navigate("/");
         } catch (error) {
             console.error('로그인 오류:', error);
+            localStorage.setItem('isLoggedIn', 'false');
         }
     };
 
