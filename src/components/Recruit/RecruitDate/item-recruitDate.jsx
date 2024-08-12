@@ -25,7 +25,7 @@ const NumberCircle = styled.div`
     @media screen and (max-width: 430px) {
         width: 2rem;
         height: 2rem;
-        font-size: 1.4rem;
+        font-size: 1.6rem;
         line-height: 1.671rem;
         margin-right: 0.8rem;
     }
@@ -36,12 +36,12 @@ const ItemP = styled.p`
     font-weight: 600;
     line-height: 2.387rem;
     color: ${colors.white};
-    min-width: 29.382rem;
+    min-width: 30.382rem;
 
     @media screen and (max-width: 430px) {
-        font-size: 1.4rem;
+        font-size: 1.6rem;
         line-height: 1.671rem;
-        min-width: 18.125rem;
+        min-width: 19.125rem;
     }
 `
 
@@ -52,7 +52,7 @@ const ItemP2 = styled.p`
     color: ${colors.white};
 
     @media screen and (max-width: 430px) {
-        font-size: 1.1rem;
+        font-size: 1.2rem;
         line-height: 1.313rem;
     }
 `

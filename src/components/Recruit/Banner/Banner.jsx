@@ -46,7 +46,7 @@ const BannerP = styled.p`
     color: ${colors.white};
 
     @media screen and (max-width: 430px) {
-        font-size: 1.4rem;
+        font-size: 1.6rem;
         line-height: 1.671rem;
     }
 `
@@ -56,7 +56,7 @@ const Banner = () => {
         <BannerContainer>
             <BannerInnerContainer>
                 <BannerImg src={BannerLogo1} alt="banner" />
-                <BannerP>IT 연합 사이드 프로젝트 동아리 한성대 UMC 7기를 모집합니다!</BannerP>
+                <BannerP>IT 연합 사이드 프로젝트 동아리 한성대 UMC 7기 모집!</BannerP>
             </BannerInnerContainer>
         </BannerContainer>
     )

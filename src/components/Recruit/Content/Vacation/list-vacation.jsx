@@ -19,7 +19,7 @@ const ListP = styled.p`
     margin-bottom: 2rem;
 
     @media screen and (max-width: 430px) {
-        font-size: 1.4rem;
+        font-size: 1.6rem;
         line-height: 1.671rem;
         margin-bottom: 1.4rem;
     }
