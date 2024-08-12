@@ -3,7 +3,7 @@ import colors from "../../../styles/colors";
 
 const ItemP = styled.p`
     font-size: 2rem;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 3.8rem;
     color: ${colors.white};
 

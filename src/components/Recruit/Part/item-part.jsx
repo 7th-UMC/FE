@@ -10,7 +10,7 @@ const ItemContainer = styled.div`
     align-items: center;
     text-align: center;
     font-size: 2.4rem;
-    font-weight: 600;
+    font-weight: 500;
     line-height: 2.864rem;
     color: ${colors.recruitColor2};
 
