@@ -43,7 +43,7 @@ const RecruitData = [
         "activeDate": 
             {
                 "start": "2024.08",
-                "end": "2024.02",
+                "end": "2025.02",
                 "period": "약 6개월"
             }
         ,
