@@ -12,6 +12,8 @@ import Qna from './pages/Qna/Qna';
 import Photo from './pages/Photo/Photo';
 import Recruit from './pages/Recruit/Recruit';
 
+import StaffLogin from "./pages/StaffLogin/StaffLogin";
+
 function App() {
   return (
     <>
@@ -25,6 +27,8 @@ function App() {
           <Route path="/qna" element={<Qna />} />
           <Route path="/photo" element={<Photo />} />
           <Route path="/recruit" element={<Recruit />} />
+
+          <Route path="/stafflogin" element={<StaffLogin />} />
         </Routes>
         <Footer />
       </Router>

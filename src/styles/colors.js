@@ -31,6 +31,9 @@ const colors = {
     recruitColor4: "#003F7D",
     recruitColor5: "#071038",
 
+    staffLoginColor: "#E4E4E4",
+    staffLoginColor2: "#040B2C",
+
     white: "#FFFFFF",
     black: "#000000"
 };
