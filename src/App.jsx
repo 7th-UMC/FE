@@ -13,6 +13,7 @@ import Photo from './pages/Photo/Photo';
 import Recruit from './pages/Recruit/Recruit';
 
 import StaffLogin from "./pages/StaffLogin/StaffLogin";
+import StaffQna from "./pages/StaffQna/StaffQna";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           <Route path="/recruit" element={<Recruit />} />
 
           <Route path="/stafflogin" element={<StaffLogin />} />
+          <Route path="/staffqna" element={<StaffQna />} />
         </Routes>
         <Footer />
       </Router>
