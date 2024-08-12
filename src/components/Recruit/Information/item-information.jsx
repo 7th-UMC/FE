@@ -27,7 +27,7 @@ const ItemImg = styled.img`
 
 const ItemP = styled.p`
     font-size: 2rem;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 2.387rem;
     color: ${colors.white};
 

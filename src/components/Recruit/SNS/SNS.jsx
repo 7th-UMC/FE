@@ -26,7 +26,7 @@ const SNSP = styled.p`
 
 const SNSP2 = styled.p`
     font-size: 2rem;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 2.387rem;
     color: ${colors.recruitColor};
 

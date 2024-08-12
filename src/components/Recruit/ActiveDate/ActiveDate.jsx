@@ -28,13 +28,13 @@ const ActiveP = styled.p`
 `
 
 const ActiveP2 = styled.p`
-    font-size: 2rem;
-    font-weight: 400;
+    font-size: 2.2rem;
+    font-weight: 300;
     line-height: 2.387rem;
     color: ${colors.white};
 
     @media screen and (max-width: 430px) {
-        font-size: 1.4rem;
+        font-size: 1.5rem;
         line-height: 1.432rem;
     }
 `
