@@ -22,7 +22,7 @@ const ActiveP = styled.p`
     color: ${colors.white};
 
     @media screen and (max-width: 430px) {
-        font-size: 1.6rem;
+        font-size: 1.8rem;
         line-height: 1.909rem;
     }
 `
@@ -34,7 +34,7 @@ const ActiveP2 = styled.p`
     color: ${colors.white};
 
     @media screen and (max-width: 430px) {
-        font-size: 1.2rem;
+        font-size: 1.4rem;
         line-height: 1.432rem;
     }
 `

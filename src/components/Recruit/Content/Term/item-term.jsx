@@ -32,7 +32,7 @@ const ContentP = styled.p`
     color: ${colors.white};
 
     @media screen and (max-width: 430px) {
-        font-size: 1.1rem;
+        font-size: 1.2rem;
         line-height: 1.6rem;
     }
 `

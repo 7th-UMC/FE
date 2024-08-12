@@ -13,7 +13,7 @@ const ListP = styled.p`
     color: ${colors.recruitColor};
 
     @media screen and (max-width: 430px) {
-        font-size: 1.1rem;
+        font-size: 1.2rem;
         line-height: 1.313rem;
     }
 `

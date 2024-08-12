@@ -73,6 +73,7 @@ const MenuIcon = styled.img`
 
 const Menu = ({ onClose }) => {
     const [hoveredIndex, setHoveredIndex] = useState(null);
+    const [activeIndex, setActiveIndex] = useState(null);
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -95,10 +96,10 @@ const Menu = ({ onClose }) => {
     useEffect(() => {
         const currentPath = location.pathname;
         const index = routes.findIndex(route => 
-            currentPath === route.path || currentPath.startsWith(route.path + "/")
+            currentPath === route.path
         );
-        setHoveredIndex(index);
-    }, [location.pathname, routes]);
+        setActiveIndex(index);
+    }, [location.pathname]);
 
     return (
         <MenuContainer>
@@ -110,11 +111,11 @@ const Menu = ({ onClose }) => {
                             onMouseEnter={() => setHoveredIndex(index)}
                             onMouseLeave={() => setHoveredIndex(null)}
                             onClick={() => handleMenu(index)}
-                            isactive={hoveredIndex === index ? 'true' : 'false'}
+                            isactive={activeIndex === index ? 'true' : 'false'}
                             ishovered={hoveredIndex === index ? 'true' : 'false'}
                         >
                             <MenuIcon
-                                src={hoveredIndex === index || location.pathname.startsWith(route.path) ? iconsOn[index] : iconsOff[index]}
+                                src={hoveredIndex === index || activeIndex === index ? iconsOn[index] : iconsOff[index]}
                                 alt={`icon${index + 1}`}
                             />
                             {route.name}

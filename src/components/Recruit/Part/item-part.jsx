@@ -15,7 +15,7 @@ const ItemContainer = styled.div`
     color: ${colors.recruitColor2};
 
     @media screen and (max-width: 430px) {
-        font-size: 1.1rem;
+        font-size: 1.2rem;
         line-height: 1.313rem;
     }
 `
