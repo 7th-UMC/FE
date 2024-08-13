@@ -39,6 +39,9 @@ const colors = {
     qnaColor2: "#DFE3E8",
     qnaColor3: "#00FFD1",
 
+    modalColor: "#1E1E1E",
+    modalColor2: "#E3E3E3",
+
     white: "#FFFFFF",
     black: "#000000"
 };

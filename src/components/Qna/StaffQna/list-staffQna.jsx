@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import colors from "../../../styles/colors";
 import ItemStaffQna from "./item-staffQna";
@@ -94,7 +94,7 @@ const ArrowImg = styled.img`
     }
 `;
 
-const ListStaffQna = ({ data, currentPage, currentSet, onPageChange, onSetChange }) => {
+const ListStaffQna = ({ data, currentPage, currentSet, onPageChange, onSetChange, onTrashClick }) => {
     const postsPerPage = 10;
     const maxPagesToShow = 3;
 
@@ -145,6 +145,7 @@ const ListStaffQna = ({ data, currentPage, currentSet, onPageChange, onSetChange
                         id={item.id}
                         title={item.title}
                         body={item.body}
+                        onTrashClick={onTrashClick}
                     />
                 ))}
             </ListContainer>

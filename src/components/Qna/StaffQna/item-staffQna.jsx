@@ -101,7 +101,7 @@ const AnswerDiv = styled.div`
 `
 
 const ItemStaffQna = (props) => {
-    const { id, userId, title, body } = props;
+    const { id, userId, title, body, onTrashClick } = props;
     const navigate = useNavigate();
     const [showAnswer, setShowAnswer] = useState(false);
 
@@ -123,6 +123,12 @@ const ItemStaffQna = (props) => {
         }
     };
 
+    const handleTrashClick = () => {
+        if (onTrashClick) {
+            onTrashClick(id);
+        }
+    };
+
     return (
         <ItemContainer>
             <LeftContainer>
@@ -130,7 +136,7 @@ const ItemStaffQna = (props) => {
                 <QP2>{title}</QP2>
             </LeftContainer>
             <RightContainer>
-                <TrashImg src={Trash1} alt="trash" />
+                <TrashImg src={Trash1} alt="trash" onClick={handleTrashClick}/>
                 <AnswerDiv showanswer={showAnswer.toString()} onClick={handleAnswerAction}>
                     {showAnswer ? "답변수정" : "답변하기"}
                 </AnswerDiv>
