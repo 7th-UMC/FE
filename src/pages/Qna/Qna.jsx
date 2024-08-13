@@ -4,8 +4,8 @@ import styled from "styled-components";
 import colors from "../../styles/colors";
 import NotQna from "../../components/Qna/NotQna/NotQna";
 import ListFilter from "../../components/Qna/Filter/HomeFilter/list-filter";
-import InputQna from "../../components/Qna/QnaHome/input-qna";
-import ButtonPost from "../../components/Qna/QnaHome/button-post";
+import InputQna from "../../components/Qna/QnaHome/Input/input-qna";
+import ButtonPost from "../../components/Qna/QnaHome/Button/button-post";
 import ListQna from "../../components/Qna/QnaHome/list-qna";
 
 const QnaContainer = styled.div`
@@ -61,7 +61,7 @@ const Qna = () => {
     // 필터링 & 검색 코드
     useEffect(() => {
         const filtered = qna
-            //.filter(qna => qna.userId === selectedId)
+            .filter(qna => qna.userId === selectedId)
             .filter(qna => qna.title.toLowerCase().includes(searchTerm.toLowerCase()));
         setFilteredPosts(filtered);
     }, [searchTerm, selectedId, qna]);

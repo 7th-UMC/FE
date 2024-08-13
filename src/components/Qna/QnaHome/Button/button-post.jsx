@@ -1,7 +1,8 @@
 import styled from "styled-components";
-import colors from "../../../styles/colors";
-import Post1 from "../../../assets/images/Qna/post1.png";
-import Post2 from "../../../assets/images/Qna/post2.png";
+import colors from "../../../../styles/colors";
+import { useNavigate } from "react-router-dom";
+import Post1 from "../../../../assets/images/Qna/post1.png";
+import Post2 from "../../../../assets/images/Qna/post2.png";
 
 const ButtonContainer = styled.div`
     width: 20.4rem;
@@ -46,8 +47,14 @@ const ButtonP = styled.p`
 `
 
 const ButtonPost = () => {
+    const navigate = useNavigate();
+
+    const handlePost = () => {
+        navigate("/post");
+    }
+
     return (
-        <ButtonContainer>
+        <ButtonContainer onClick={handlePost}>
             <ButtonImg src={Post1} alt="post" />
             <ButtonP>질문 작성하기</ButtonP>
         </ButtonContainer>

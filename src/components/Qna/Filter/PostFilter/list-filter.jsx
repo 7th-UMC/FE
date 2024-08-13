@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import FilterData from "../../../../utils/Qna/filterData";
+import FilterData from "../../../../utils/Qna/filterData2";
 import ItemFilter from "./item-filter";
 
 const ListContainer = styled.div`
-    margin-top: 7rem;
+    margin-top: 4rem;
     width: 100%;
     display: flex;
     gap: 2rem;
@@ -18,7 +18,7 @@ const ListContainer = styled.div`
     -ms-overflow-style: none;
 
     @media screen and (max-width: 430px) {
-        margin-top: 2.6rem;
+        margin-top: 2rem;
         gap: 0.8rem;
     }
 `;
@@ -46,7 +46,7 @@ const ListFilter = ({ selectedId, onSelect }) => {
                 />
             ))}
         </ListContainer>
-    );
-};
+    )
+}
 
 export default ListFilter;

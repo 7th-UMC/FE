@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import colors from "../../../styles/colors";
+import { useNavigate } from "react-router-dom";
 
 const ItemContainer = styled.div`
     width: 100%;
@@ -44,6 +45,11 @@ const QP2 = styled.p`
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    cursor: pointer;
+
+    &:hover {
+        text-decoration: underline;
+    }
 
     @media screen and (max-width: 430px) {
         font-size: 1.3rem;
@@ -77,14 +83,20 @@ const AnswerDiv = styled.div`
 
 const ItemQna = (props) => {
     const { id, userId, title, body } = props;
+    const navigate = useNavigate();
+
     // 나중에 백엔드랑 연결하면, 답변 여부 t/f에 따라 뜨도록 조건부 렌더링 할 것
     const showAnswer = id === userId;
+
+    const handleQnaDetail = () => {
+        navigate(`/qna/${id}`);
+    }
 
     return (
         <ItemContainer>
             <LeftContainer>
                 <QP>Q</QP>
-                <QP2>{title}</QP2>
+                <QP2 onClick={handleQnaDetail}>{title}</QP2>
             </LeftContainer>
             {showAnswer && <AnswerDiv>답변완료</AnswerDiv>}
         </ItemContainer>
