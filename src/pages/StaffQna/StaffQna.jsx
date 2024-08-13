@@ -5,7 +5,7 @@ import colors from "../../styles/colors";
 import NotQna from "../../components/Qna/NotQna/NotQna";
 import ListFilter from "../../components/Qna/Filter/HomeFilter/list-filter";
 import InputQna from "../../components/Qna/QnaHome/Input/input-qna";
-import ListQna from "../../components/Qna/StaffQna/list-qna";
+import ListStaffQna from "../../components/Qna/StaffQna/list-staffQna";
 
 const QnaContainer = styled.div`
     width: 60%;
@@ -102,7 +102,7 @@ const StaffQna = () => {
                     value={searchTerm}
                     onChange={handleSearchChange}
                 />
-                <ListQna
+                <ListStaffQna
                     data={filteredPosts}
                     currentPage={currentPage}
                     currentSet={currentSet}
