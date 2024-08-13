@@ -100,7 +100,7 @@ const AnswerDiv = styled.div`
     }
 `
 
-const ItemQna = (props) => {
+const ItemStaffQna = (props) => {
     const { id, userId, title, body } = props;
     const navigate = useNavigate();
     const [showAnswer, setShowAnswer] = useState(false);
@@ -139,4 +139,4 @@ const ItemQna = (props) => {
     )
 }
 
-export default ItemQna;
+export default ItemStaffQna;

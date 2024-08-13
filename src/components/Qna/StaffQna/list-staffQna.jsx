@@ -94,7 +94,7 @@ const ArrowImg = styled.img`
     }
 `;
 
-const ListQna = ({ data, currentPage, currentSet, onPageChange, onSetChange }) => {
+const ListStaffQna = ({ data, currentPage, currentSet, onPageChange, onSetChange }) => {
     const postsPerPage = 10;
     const maxPagesToShow = 3;
 
@@ -163,4 +163,4 @@ const ListQna = ({ data, currentPage, currentSet, onPageChange, onSetChange }) =
     );
 };
 
-export default ListQna;
+export default ListStaffQna;
