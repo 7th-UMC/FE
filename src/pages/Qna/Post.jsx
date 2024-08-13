@@ -97,7 +97,7 @@ const UploadButton = styled.button`
 `;
 
 const Post = () => {
-    const [selectedId, setSelectedId] = useState(2);
+    const [selectedId, setSelectedId] = useState(1);
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
     const isButtonDisabled = !selectedId || !title.trim() || !content.trim();

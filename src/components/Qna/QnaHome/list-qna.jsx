@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import colors from "../../../styles/colors";
 import ItemQna from "./item-qna";
@@ -94,9 +94,7 @@ const ArrowImg = styled.img`
     }
 `;
 
-const ListQna = ({ data }) => {
-    const [currentPage, setCurrentPage] = useState(1);
-    const [currentSet, setCurrentSet] = useState(1);
+const ListQna = ({ data, currentPage, currentSet, onPageChange, onSetChange }) => {
     const postsPerPage = 10;
     const maxPagesToShow = 3;
 
@@ -107,18 +105,11 @@ const ListQna = ({ data }) => {
     const currentPosts = data.slice(indexOfFirstPost, indexOfLastPost);
 
     const handlePageChange = (pageNumber) => {
-        setCurrentPage(pageNumber);
-        const newSet = Math.ceil(pageNumber / maxPagesToShow);
-        setCurrentSet(newSet);
+        onPageChange(pageNumber);
     };
 
     const handleSetChange = (direction) => {
-        const newSet = currentSet + direction;
-        if (newSet > 0 && newSet <= Math.ceil(totalPages / maxPagesToShow)) {
-            setCurrentSet(newSet);
-            const newPage = (newSet - 1) * maxPagesToShow + 1;
-            setCurrentPage(newPage);
-        }
+        onSetChange(direction);
     };
 
     const renderPagination = () => {

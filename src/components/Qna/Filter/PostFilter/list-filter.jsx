@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import FilterData from "../../../../utils/Qna/filterData2";
+import FilterData from "../../../../utils/Qna/filterData";
 import ItemFilter from "./item-filter";
 
 const ListContainer = styled.div`
@@ -27,7 +27,8 @@ const ListFilter = ({ selectedId, onSelect }) => {
     const [filterData, setFilterData] = useState([]);
 
     useEffect(() => {
-        setFilterData(FilterData);
+        const filteredData = FilterData.filter(item => item.id >= 1);
+        setFilterData(filteredData);
     }, []);
 
     const handleButtonClick = (id) => {
@@ -36,9 +37,9 @@ const ListFilter = ({ selectedId, onSelect }) => {
 
     return (
         <ListContainer>
-            {filterData.map((item, index) => (
+            {filterData.map((item) => (
                 <ItemFilter
-                    key={index}
+                    key={item.id}
                     id={item.id}
                     name={item.name}
                     isSelected={item.id === selectedId}
@@ -46,7 +47,7 @@ const ListFilter = ({ selectedId, onSelect }) => {
                 />
             ))}
         </ListContainer>
-    )
-}
+    );
+};
 
 export default ListFilter;
