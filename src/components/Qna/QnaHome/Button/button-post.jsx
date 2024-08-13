@@ -36,7 +36,7 @@ const ButtonImg = styled.img`
 
 const ButtonP = styled.p`
     font-size: 2.2rem;
-    font-weight: 600;
+    font-weight: 500;
     line-height: 2.625rem;
     color: ${colors.recruitColor6};
 
