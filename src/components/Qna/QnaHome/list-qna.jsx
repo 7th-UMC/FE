@@ -28,7 +28,7 @@ const PaginationContainer = styled.div`
     }
 `;
 
-const PageButton = styled.button`
+const PageButton = styled.div`
     width: 4.8rem;
     height: 4.8rem;
     border-radius: 0.6rem;
