@@ -37,6 +37,7 @@ const FeelP = styled.p`
 `
 
 const PartDiv = styled.div`
+    width: fit-content;
     padding: 0.8rem 2rem;
     border: 0.1rem solid ${colors.white};
     border-radius: 50rem;
