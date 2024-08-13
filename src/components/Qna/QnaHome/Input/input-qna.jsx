@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import colors from "../../../styles/colors";
-import Input1 from "../../../assets/images/Qna/input1.png";
-import Input2 from "../../../assets/images/Qna/input2.png";
+import colors from "../../../../styles/colors";
+import Input1 from "../../../../assets/images/Qna/input1.png";
+import Input2 from "../../../../assets/images/Qna/input2.png";
 
 const InputDiv = styled.div`
     width: 100%;
