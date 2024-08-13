@@ -40,7 +40,7 @@ const QP = styled.p`
 const QP2 = styled.p`
     font-size: 2.6rem;
     line-height: 3.103rem;
-    font-weight: 600;
+    font-weight: 500;
     color: ${colors.introColor};
     white-space: nowrap;
     overflow: hidden;
