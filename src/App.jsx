@@ -16,6 +16,8 @@ import Recruit from './pages/Recruit/Recruit';
 
 import StaffLogin from "./pages/StaffLogin/StaffLogin";
 import StaffQna from "./pages/StaffQna/StaffQna";
+import StaffAnswer from './pages/StaffQna/StaffAnswer';
+import StaffEdit from './pages/StaffQna/StaffEdit';
 
 function App() {
   return (
@@ -35,6 +37,8 @@ function App() {
 
           <Route path="/stafflogin" element={<StaffLogin />} />
           <Route path="/staffqna" element={<StaffQna />} />
+          <Route path="/staffanswer/:id" element={<StaffAnswer />} />
+          <Route path="/staffedit/:id" element={<StaffEdit />} />
         </Routes>
         <Footer />
       </Router>
