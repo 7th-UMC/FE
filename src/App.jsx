@@ -28,7 +28,7 @@ function App() {
           <Route path="/project" element={<Project />} />
           <Route path="/project/:id" element={<ProjectDetail />} />
           <Route path="/qna" element={<Qna />} />
-          <Route path="/qna:id" element={<QnaDetail />} />
+          <Route path="/qna/:id" element={<QnaDetail />} />
           <Route path="/post" element={<Post />} />
           <Route path="/photo" element={<Photo />} />
           <Route path="/recruit" element={<Recruit />} />
