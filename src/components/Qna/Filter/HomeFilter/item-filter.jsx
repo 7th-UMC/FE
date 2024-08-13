@@ -2,6 +2,7 @@ import styled from "styled-components";
 import colors from "../../../../styles/colors";
 
 const ItemButton = styled.div`
+    width: fit-content;
     padding: 0.8rem 2rem;
     border: ${({ selected }) => selected ? "none" : `0.1rem solid ${colors.recruitColor6}`};
     border-radius: 50rem;

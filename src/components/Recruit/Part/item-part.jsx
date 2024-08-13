@@ -2,6 +2,7 @@ import styled from "styled-components";
 import colors from "../../../styles/colors";
 
 const ItemContainer = styled.div`
+    width: fit-content;
     padding: 0.8rem 2rem;
     border: 0.1rem solid ${colors.white};
     border-radius: 50rem;

@@ -56,6 +56,7 @@ const CircleContainer = styled.div`
 
 const CircleDiv = styled.div`
     border: 0.1rem solid ${colors.white};
+    width: fit-content;
     padding: 2.4rem 4rem;
     border-radius: 5rem;
     font-size: 2.8rem;
