@@ -36,7 +36,7 @@ const RecruitContainer = styled.div`
     }
 `
 
-const RecruitButton = styled.button`
+const RecruitButton = styled.div`
     width: 60rem;
     height: 10rem;
     border: none;

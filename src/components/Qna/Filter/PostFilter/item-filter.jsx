@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import colors from "../../../../styles/colors";
 
-const ItemButton = styled.button`
+const ItemButton = styled.div`
     padding: 0.8rem 2rem;
     border: ${({ selected }) => selected ? "none" : `0.1rem solid ${colors.recruitColor6}`};
     border-radius: 50rem;
@@ -10,7 +10,6 @@ const ItemButton = styled.button`
     align-items: center;
     text-align: center;
     background-color: ${({ selected }) => selected ? colors.recruitColor6 : "none"};
-    font-family: Pretendard;
     font-size: 2.8rem;
     font-weight: 500;
     line-height: 3.341rem;

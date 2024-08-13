@@ -50,7 +50,7 @@ const TitleP = styled.p`
 
 const BodyP = styled.p`
     width: 100%;
-    min-height: 26.4rem;
+    max-height: 26.4rem;
     font-size: 2.8rem;
     font-weight: 300;
     line-height: 4.4rem;
@@ -60,7 +60,7 @@ const BodyP = styled.p`
     @media screen and (max-width: 430px) {
         font-size: 1.4rem;
         line-height: 2.2rem;
-        min-height: 13.2rem;
+        max-height: 13.2rem;
     }
 `
 
@@ -125,14 +125,13 @@ const ButtonContainer = styled.div`
     }
 `;
 
-const QnaButton = styled.button`
+const QnaButton = styled.div`
     width: 60rem;
     height: 10rem;
     border: none;
     border-radius: 0.8rem;
     background: ${colors.white};
     color: ${colors.footerColor};
-    font-family: Pretendard;
     font-size: 3.2rem;
     font-weight: 800;
     line-height: 3.819rem;
