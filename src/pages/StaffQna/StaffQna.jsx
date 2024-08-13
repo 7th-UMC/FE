@@ -6,6 +6,7 @@ import NotQna from "../../components/Qna/NotQna/NotQna";
 import ListFilter from "../../components/Qna/Filter/HomeFilter/list-filter";
 import InputQna from "../../components/Qna/QnaHome/Input/input-qna";
 import ListStaffQna from "../../components/Qna/StaffQna/list-staffQna";
+import Modal from "../../components/Qna/StaffQna/Modal";
 
 const QnaContainer = styled.div`
     width: 60%;
@@ -29,6 +30,15 @@ const QnaP = styled.p`
     }
 `;
 
+const Button = styled.button`
+    background: ${props => (props.primary ? 'green' : 'red')};
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    margin: 0.5rem;
+`;
+
 const StaffQna = () => {
     const [qna, setQna] = useState([]);
     const [filteredPosts, setFilteredPosts] = useState([]);
@@ -37,6 +47,8 @@ const StaffQna = () => {
     const [searchTerm, setSearchTerm] = useState("");
     const [currentPage, setCurrentPage] = useState(1);
     const [currentSet, setCurrentSet] = useState(1);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [modalId, setModalId] = useState(null);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -92,6 +104,16 @@ const StaffQna = () => {
         }
     };
 
+    const handleTrashClick = (id) => {
+        setModalId(id);
+        setIsModalOpen(true);
+    };
+
+    const handleCloseModal = () => {
+        setIsModalOpen(false);
+        setModalId(null);
+    };
+
     return (
         <div className="pageContainer" style={{ display: "flex", justifyContent: "center" }}>
             <QnaContainer>
@@ -108,7 +130,11 @@ const StaffQna = () => {
                     currentSet={currentSet}
                     onPageChange={handlePageChange}
                     onSetChange={handleSetChange}
+                    onTrashClick={handleTrashClick}
                 />
+                {isModalOpen && (
+                    <Modal onClose={handleCloseModal} id={modalId}/>
+                )}
             </QnaContainer>
         </div>
     );
