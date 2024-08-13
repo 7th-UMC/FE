@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import colors from "../../../styles/colors";
-import ItemQna from "./item-qna";
+import ItemStaffQna from "./item-staffQna";
 import Arrow1 from "../../../assets/images/Qna/arrow1.png";
 import Arrow2 from "../../../assets/images/Qna/arrow2.png";
 
@@ -139,7 +139,7 @@ const ListQna = ({ data, currentPage, currentSet, onPageChange, onSetChange }) =
         <div>
             <ListContainer>
                 {currentPosts.map((item) => (
-                    <ItemQna
+                    <ItemStaffQna
                         key={item.id}
                         userId={item.userId}
                         id={item.id}
