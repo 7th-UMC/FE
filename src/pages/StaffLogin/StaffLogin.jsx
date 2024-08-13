@@ -82,7 +82,7 @@ const StaffLoginInput = styled.input`
     }
 `
 
-const LoginButton = styled.button`
+const LoginButton = styled.div`
     width: 100%;
     height: 10rem;
     border: none;

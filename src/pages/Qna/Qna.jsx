@@ -54,6 +54,10 @@ const Qna = () => {
         fetchData();
     }, []);
 
+    if (error) {
+        return <NotQna />;
+    }
+
     useEffect(() => {
         if (selectedId === 0) {
             setFilteredPosts(qna.filter(q => q.title.toLowerCase().includes(searchTerm.toLowerCase())));
