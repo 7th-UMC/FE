@@ -19,9 +19,7 @@ const NotQnaP = styled.p`
 
 const NotPhoto = () => {
     return (
-        <div className="pageContainer" style={{display: "flex", justifyContent: "center"}}>
-            <NotQnaP>photo는 웹 버전에서만 사용 가능합니다!</NotQnaP>
-        </div>
+            <NotQnaP>UMC 부스에서 체험할 수 있습니다!</NotQnaP>
     )
 }
 
