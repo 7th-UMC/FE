@@ -16,28 +16,20 @@ const ImgContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
 `;
 
 const FrameContainer = styled.img`
     width: 100%;
-    height: 100%;
 `;
 
 const PhotoGallery = styled.div`
-    width: 80%;
-    height: 100%;
+    width: 72%;
     grid-template-columns: repeat(2, 1fr);
     display: grid;
     position: absolute;
-    margin-top: -1%;
     z-index: -1;
 `;
 
-const PhotoImgContainer = styled.div`
-    transform: ${({ translateY }) => translateY || 'none'};
-    z-index: ${({ zIndex }) => zIndex || 'none'};
-`
 
 const PhotoImg = styled.img`
     width: 100%;
@@ -111,17 +103,12 @@ const PhotoResult = () => {
                     <FrameContainer src={selectedFrame} alt="Frame" />
                     <PhotoGallery>
                         {state.photos.map((photo, index) => (
-                            <PhotoImgContainer
-                                translateY={(index === 2 || index === 3) ? 'translateY(-30%)' : 'none'}
-                                    zIndex={(index === 2 || index === 3) ? '-2' : 'none'}
-                            >
                                 <PhotoImg
                                     key={index}
                                     src={photo}
                                     alt={`Photo ${index + 1}`}
                                     
                                 />
-                            </PhotoImgContainer>
                         ))}
                     </PhotoGallery>
                 </ImgContainer>
