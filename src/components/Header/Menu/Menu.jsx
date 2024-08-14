@@ -82,7 +82,7 @@ const Menu = ({ onClose }) => {
         { path: "/", name: "About UMC" },
         { path: "/project", name: "Project" },
         { path: isLoggedIn ? "/staffqna" : "/qna", name: "Q&A", relatedPaths: ["/staffqna", "/staffanswer", "/staffedit", "/qna", "/qna/:id", "/post"] },
-        { path: "/photo", name: "UMC Frame Photo" },
+        { path: "/photo", name: "UMC Frame Photo", relatedPaths: ["/photo", "/photoresult"] }, // Updated to include /photoresult
         { path: "/recruit", name: "Recruit" }
     ];
 
@@ -106,6 +106,15 @@ const Menu = ({ onClose }) => {
                 return route.relatedPaths.some(path => {
                     if (path === "/qna/:id") {
                         return /^\/qna(\/\d+)?$/.test(currentPath);
+                    }
+                    return currentPath.startsWith(path);
+                });
+            }
+
+            if (route.relatedPaths) {
+                return route.relatedPaths.some(path => {
+                    if (path === "/photoresult") {
+                        return /^\/photoresult/.test(currentPath);
                     }
                     return currentPath.startsWith(path);
                 });
