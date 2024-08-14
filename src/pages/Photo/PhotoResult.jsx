@@ -43,6 +43,7 @@ const PhotoGallery = styled.div`
 
 const PhotoImg = styled.img`
     width: 100%;
+    transform: scaleX(-1);
 `;
 
 const FrameButtonContainer = styled.div`
@@ -118,7 +119,7 @@ const PhotoResult = () => {
             html2canvas(imgContainerRef.current).then(canvas => {
                 const link = document.createElement('a');
                 link.href = canvas.toDataURL('image/png');
-                link.download = 'photo-result.png';
+                link.download = 'umc-photo.png';
                 link.click();
             });
         }
@@ -127,7 +128,7 @@ const PhotoResult = () => {
     return (
         <div className="pageContainer" style={{ display: 'flex', flexDirection: "column", alignItems: 'center' }}>
             <ResultContainer>
-                <ImgContainer ref={imgContainerRef} rotate={rotate}>
+                <ImgContainer ref={imgContainerRef}>
                     <FrameContainer src={selectedFrame} alt="Frame" />
                     <PhotoGallery>
                         {state.photos.map((photo, index) => (

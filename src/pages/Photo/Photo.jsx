@@ -40,7 +40,7 @@ const PhotoContainer = styled.div`
 
 const Video = styled.video`
     width: 100%;
-    object-fit: cover;
+    height: 100%;
     transform: scaleX(-1);
 `;
 
@@ -102,12 +102,12 @@ const PhotoDiv = styled.div`
     display: flex;
     width: 60%;
     justify-content: flex-start;
-    ${(props) =>
+    ${props =>
         props.fadein &&
         css`
             animation: ${fadein} 0.3s ease-out forwards;
         `}
-    ${(props) =>
+    ${props =>
         props.fadeout &&
         css`
             animation: ${fadeout} 0.3s ease-out forwards;
@@ -191,12 +191,6 @@ const Photo = () => {
                     setTimeout(() => {
                         setFadeIn(false);
                     }, 500);
-
-                    video.style.display = 'none';
-
-                    setTimeout(() => {
-                        video.style.display = 'block';
-                    }, 500);
                 }, 500);
             } else {
                 setPhotos(prevPhotos => [...prevPhotos, dataURL]);
@@ -206,7 +200,7 @@ const Photo = () => {
 
                 setTimeout(() => {
                     setFadeIn(false);
-                }, 500);
+                }, 500);  // Fade-in animation duration
             }
 
             setClickCount(prevCount => {
@@ -231,7 +225,7 @@ const Photo = () => {
                 </CaptureButton>
 
                 {photos.length > 0 && visiblePhotoIndex !== null && (
-                    <PhotoDiv fadein={fadeIn ? 1 : 0} fadeout={fadeOut ? 1 : 0}>
+                    <PhotoDiv fadein={fadeIn} fadeout={fadeOut}>
                         <PhotoImg src={photos[visiblePhotoIndex]} alt="Capture" />
                     </PhotoDiv>
                 )}
