@@ -7,6 +7,12 @@ import html2canvas from 'html2canvas';
 
 const ResultContainer = styled.div`
     width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
 `;
 
 const ImgContainer = styled.div`
@@ -16,10 +22,14 @@ const ImgContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    border: ${(props) => 
+        props.isSelectedFrame3 ? `1.85rem solid rgba(255, 255, 255, 0)`: `1.85rem solid ${colors.white}`
+    };
 `;
 
 const FrameContainer = styled.img`
     width: 100%;
+    height: auto;
 `;
 
 const PhotoGallery = styled.div`
@@ -28,6 +38,8 @@ const PhotoGallery = styled.div`
     display: grid;
     position: absolute;
     z-index: -1;
+    padding: 0;
+    margin: 0;
 `;
 
 
@@ -43,7 +55,7 @@ const FrameButtonContainer = styled.div`
     display: flex;
     align-items: center;
     gap: 1.2rem;
-    margin-top: ${({ isselectedframe3 }) => (isselectedframe3 === "true" ? '6.5rem' : '4.841rem')};
+    margin-top: 4.841rem;
 `;
 
 const FrameButton = styled.div`
@@ -77,7 +89,6 @@ const PhotoResult = () => {
     const location = useLocation();
     const state = location.state || { photos: [] };
     const [selectedFrame, setSelectedFrame] = useState(FrameData[0].frameWeb);
-    const [rotate, setRotate] = useState(false);
     const imgContainerRef = useRef(null);
     const isSelectedFrame3 = FrameData.find(frame => frame.frameWeb === selectedFrame)?.id === 3;
 
@@ -87,11 +98,16 @@ const PhotoResult = () => {
 
     const handleSubmit = () => {
         if (imgContainerRef.current) {
+            const originalBorder = imgContainerRef.current.style.border;
+            imgContainerRef.current.style.border = 'none';
+
             html2canvas(imgContainerRef.current).then(canvas => {
                 const link = document.createElement('a');
                 link.href = canvas.toDataURL('image/png');
                 link.download = 'umc-photo.png';
                 link.click();
+
+                imgContainerRef.current.style.border = originalBorder;
             });
         }
     };
@@ -99,7 +115,7 @@ const PhotoResult = () => {
     return (
         <div className="pageContainer" style={{ display: 'flex', flexDirection: "column", alignItems: 'center' }}>
             <ResultContainer>
-                <ImgContainer ref={imgContainerRef}>
+                <ImgContainer ref={imgContainerRef} isSelectedFrame3={isSelectedFrame3}>
                     <FrameContainer src={selectedFrame} alt="Frame" />
                     <PhotoGallery>
                         {state.photos.map((photo, index) => (
@@ -114,7 +130,7 @@ const PhotoResult = () => {
                 </ImgContainer>
             </ResultContainer>
             
-            <FrameButtonContainer isselectedframe3={isSelectedFrame3.toString()}>
+            <FrameButtonContainer>
                 {FrameData.map((frameData) => (
                     <FrameButton
                         key={frameData.id}

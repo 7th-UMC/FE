@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled, { keyframes, css } from 'styled-components';
-import colors from "../../styles/colors";
+import colors from '../../styles/colors';
 
 const fadein = keyframes`
     from {
@@ -25,7 +25,6 @@ const fadeout = keyframes`
     }
 `;
 
-// 스타일 정의
 const PhotoContainer = styled.div`
     width: 100%;
     height: calc(100vh - 6rem);
@@ -86,7 +85,6 @@ const CaptureButton = styled.div`
     opacity: ${props => (props.disabled ? 0.6 : 1)};
 `;
 
-// 조건부 애니메이션 적용을 위한 스타일
 const PhotoDiv = styled.div`
     position: absolute;
     display: flex;
@@ -104,7 +102,7 @@ const PhotoImg = styled.img`
     margin-top: 4rem;
 `;
 
-const PhotoYes = () => {
+const Photo = () => {
     const videoRef = useRef(null);
     const [photos, setPhotos] = useState([]);
     const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
@@ -120,15 +118,10 @@ const PhotoYes = () => {
                 const stream = await navigator.mediaDevices.getUserMedia({ video: true });
                 if (videoRef.current) {
                     videoRef.current.srcObject = stream;
-
-                    try {
-                        await videoRef.current.play();
-                    } catch (error) {
-                        console.error('Error playing video:', error);
-                    }
+                    videoRef.current.play();
                 }
             } catch (error) {
-                console.error('Error accessing user media:', error);
+                console.error('Error:', error);
             }
         };
 
@@ -143,12 +136,14 @@ const PhotoYes = () => {
         };
     }, []);
 
-    const capturePhoto = () => {
+    useEffect(() => {
         if (clickCount >= 4) {
             navigate('/photoresult', { state: { photos } });
-            return;
+            window.location.reload();
         }
+    }, [clickCount, navigate, photos]);
 
+    const capturePhoto = () => {
         const canvas = document.createElement('canvas');
         const context = canvas.getContext('2d');
         const video = videoRef.current;
@@ -156,65 +151,51 @@ const PhotoYes = () => {
         if (video && context) {
             canvas.width = video.videoWidth;
             canvas.height = video.videoHeight;
-
             context.drawImage(video, 0, 0, canvas.width, canvas.height);
-
             const dataURL = canvas.toDataURL('image/png');
 
-            if (photos.length > 0) {
-                setFadeOut(true);
-
-                setTimeout(() => {
-                    setPhotos(prevPhotos => [...prevPhotos, dataURL]);
-                    setCurrentPhotoIndex(prevIndex => prevIndex + 1);
-                    setVisiblePhotoIndex(photos.length);
-                    setFadeOut(false);
-                    setFadeIn(true);
-
-                    setTimeout(() => {
-                        setFadeIn(false);
-                    }, 500);
-                }, 500);
-            } else {
-                setPhotos(prevPhotos => [...prevPhotos, dataURL]);
+            setPhotos(prevPhotos => {
+                const newPhotos = [...prevPhotos, dataURL];
                 setCurrentPhotoIndex(prevIndex => prevIndex + 1);
-                setVisiblePhotoIndex(0);
-                setFadeIn(true);
+                setVisiblePhotoIndex(newPhotos.length - 1);
 
-                setTimeout(() => {
-                    setFadeIn(false);
-                }, 500);
-            }
-
-            setClickCount(prevCount => {
-                const newCount = prevCount + 1;
-                if (newCount >= 4) {
-                    navigate('/photoresult', { state: { photos: [...photos, dataURL] } });
+                if (prevPhotos.length > 0) {
+                    setFadeOut(true);
+                    setTimeout(() => {
+                        setPhotos(newPhotos);
+                        setFadeOut(false);
+                        setFadeIn(true);
+                        setTimeout(() => setFadeIn(false), 500);
+                    }, 500);
+                } else {
+                    setPhotos(newPhotos);
+                    setFadeIn(true);
+                    setTimeout(() => setFadeIn(false), 500);
                 }
-                return newCount;
+
+                return newPhotos;
             });
+
+            setClickCount(prevCount => prevCount + 1);
         }
     };
 
     return (
-        <>
-            <PhotoContainer>
-                <PhotoNumberDiv>
-                    <PhotoNumber>{currentPhotoIndex + 1}/4</PhotoNumber>
-                </PhotoNumberDiv>
-                <Video ref={videoRef} />
-                <CaptureButton onClick={capturePhoto} disabled={clickCount >= 4}>
-                    촬영하기
-                </CaptureButton>
-
-                {photos.length > 0 && visiblePhotoIndex !== null && (
-                    <PhotoDiv fadein={fadeIn.toString()} fadeout={fadeOut.toString()}>
-                        <PhotoImg src={photos[visiblePhotoIndex]} alt="Capture" />
-                    </PhotoDiv>
-                )}
-            </PhotoContainer>
-        </>
+        <PhotoContainer>
+            <PhotoNumberDiv>
+                <PhotoNumber>{currentPhotoIndex + 1}/4</PhotoNumber>
+            </PhotoNumberDiv>
+            <Video ref={videoRef} />
+            <CaptureButton onClick={capturePhoto} disabled={clickCount >= 4}>
+                촬영하기
+            </CaptureButton>
+            {photos.length > 0 && visiblePhotoIndex !== null && (
+                <PhotoDiv fadein={fadeIn.toString()} fadeout={fadeOut.toString()}>
+                    <PhotoImg src={photos[visiblePhotoIndex]} alt="Capture" />
+                </PhotoDiv>
+            )}
+        </PhotoContainer>
     );
 };
 
-export default PhotoYes;
+export default Photo;
