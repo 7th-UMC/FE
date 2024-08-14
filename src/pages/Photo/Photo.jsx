@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled, { keyframes, css } from 'styled-components';
 import colors from '../../styles/colors';
+import PhotoNot from '../../components/Photo/PhotoNot';
 
 const fadein = keyframes`
     from {
@@ -32,10 +33,6 @@ const PhotoContainer = styled.div`
     justify-content: center;
     position: relative;
     background: ${colors.photoColor};
-
-    @media screen and (max-width: 430px) {
-        min-height: calc(100vh - 7.659rem);
-    }
 `;
 
 const Video = styled.video`
@@ -52,10 +49,6 @@ const PhotoNumberDiv = styled.div`
     display: flex;
     justify-content: flex-end;
     margin-top: 4rem;
-
-    @media screen and (max-width: 430px) {
-        width: 92%;
-    }
 `;
 
 const PhotoNumber = styled.div`
@@ -91,11 +84,6 @@ const CaptureButton = styled.div`
     line-height: 3.819rem;
     color: ${colors.footerColor};
     opacity: ${props => (props.disabled ? 0.6 : 1)};
-
-    @media screen and (max-width: 430px) {
-        width: 30rem;
-        height: 8rem;
-    }
 `;
 
 const PhotoDiv = styled.div`
@@ -113,10 +101,6 @@ const PhotoDiv = styled.div`
         css`
             animation: ${fadeout} 0.3s ease-out forwards;
         `}
-
-    @media screen and (max-width: 430px) {
-        width: 92%;
-    }
 `;
 
 const PhotoImg = styled.img`
@@ -135,7 +119,17 @@ const Photo = () => {
     const [fadeOut, setFadeOut] = useState(false);
     const [visiblePhotoIndex, setVisiblePhotoIndex] = useState(null);
     const [clickCount, setClickCount] = useState(0);
+    const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
     const navigate = useNavigate();
+
+    useEffect(() => {
+        const handleResize = () => setViewportWidth(window.innerWidth);
+
+        window.addEventListener('resize', handleResize);
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
 
     useEffect(() => {
         const startVideo = async () => {
@@ -201,7 +195,7 @@ const Photo = () => {
 
                 setTimeout(() => {
                     setFadeIn(false);
-                }, 500);  // Fade-in animation duration
+                }, 500);
             }
 
             setClickCount(prevCount => {
@@ -213,6 +207,10 @@ const Photo = () => {
             });
         }
     };
+
+    if (viewportWidth <= 1023) {
+        return <PhotoNot />;
+    }
 
     return (
         <div className="pageContainer" style={{ display: "flex", justifyContent: "center" }}>
