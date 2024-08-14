@@ -33,10 +33,6 @@ const PhotoContainer = styled.div`
     justify-content: center;
     position: relative;
     background: ${colors.photoColor};
-
-    @media screen and (max-width: 430px) {
-        min-height: calc(100vh - 7.659rem);
-    }
 `;
 
 const Video = styled.video`
@@ -53,10 +49,6 @@ const PhotoNumberDiv = styled.div`
     display: flex;
     justify-content: flex-end;
     margin-top: 4rem;
-
-    @media screen and (max-width: 430px) {
-        width: 92%;
-    }
 `;
 
 const PhotoNumber = styled.div`
@@ -92,11 +84,6 @@ const CaptureButton = styled.div`
     line-height: 3.819rem;
     color: ${colors.footerColor};
     opacity: ${props => (props.disabled ? 0.6 : 1)};
-
-    @media screen and (max-width: 430px) {
-        width: 30rem;
-        height: 8rem;
-    }
 `;
 
 const PhotoDiv = styled.div`
@@ -114,10 +101,6 @@ const PhotoDiv = styled.div`
         css`
             animation: ${fadeout} 0.3s ease-out forwards;
         `}
-
-    @media screen and (max-width: 430px) {
-        width: 92%;
-    }
 `;
 
 const PhotoImg = styled.img`
@@ -212,7 +195,7 @@ const Photo = () => {
 
                 setTimeout(() => {
                     setFadeIn(false);
-                }, 500);  // Fade-in animation duration
+                }, 500);
             }
 
             setClickCount(prevCount => {

@@ -7,10 +7,6 @@ import html2canvas from 'html2canvas';
 
 const ResultContainer = styled.div`
     width: 60%;
-
-    @media screen and (max-width: 430px) {
-        width: 92%;
-    }
 `;
 
 const ImgContainer = styled.div`
@@ -21,10 +17,6 @@ const ImgContainer = styled.div`
     justify-content: center;
     align-items: center;
     overflow: hidden;
-
-    @media screen and (max-width: 430px) {
-        margin-top: 4rem;
-    }
 `;
 
 const FrameContainer = styled.img`
@@ -34,15 +26,20 @@ const FrameContainer = styled.img`
 
 const PhotoGallery = styled.div`
     width: 80%;
+    height: 100%;
     grid-template-columns: repeat(2, 1fr);
     display: grid;
     position: absolute;
+    margin-top: -1%;
     z-index: -1;
-    background: pink;
+    transform: scaleX(-1);
 `;
 
 const PhotoImg = styled.img`
     width: 100%;
+    height: 100%;
+    transform: ${({ translateY }) => translateY || 'none'};
+    z-index: ${({ zIndex }) => zIndex || 'none'};
 `;
 
 const FrameButtonContainer = styled.div`
@@ -52,11 +49,6 @@ const FrameButtonContainer = styled.div`
     align-items: center;
     gap: 1.2rem;
     margin-top: ${({ isselectedframe3 }) => (isselectedframe3 === "true" ? '6.5rem' : '4.841rem')};
-
-    @media screen and (max-width: 430px) {
-        margin-top: ${({ isselectedframe3 }) => (isselectedframe3 === "true" ? '3rem' : '2.42rem')};
-        gap: 0.6rem;
-    }
 `;
 
 const FrameButton = styled.div`
@@ -66,11 +58,6 @@ const FrameButton = styled.div`
     border-radius: 50%;
     background: ${({ isselected }) => (isselected === "true" ? colors.white : colors.photoColor3)};
     cursor: pointer;
-
-    @media screen and (max-width: 430px) {
-        width: 1rem;
-        height: 1rem;
-    }
 `;
 
 const SubmitButton = styled.div`
@@ -89,15 +76,6 @@ const SubmitButton = styled.div`
     color: ${colors.footerColor};
     background: ${colors.white};
     margin: 10.246rem 0 8rem 0;
-
-    @media screen and (max-width: 430px) {
-        width: 30rem;
-        height: 5rem;
-        border-radius: 0.4rem;
-        font-size: 1.6rem;
-        line-height: 1.9rem;
-        margin-top: 5rem;
-    }
 `;
 
 const PhotoResult = () => {
@@ -114,7 +92,6 @@ const PhotoResult = () => {
 
     const handleSubmit = () => {
         if (imgContainerRef.current) {
-
             html2canvas(imgContainerRef.current).then(canvas => {
                 const link = document.createElement('a');
                 link.href = canvas.toDataURL('image/png');
@@ -131,7 +108,13 @@ const PhotoResult = () => {
                     <FrameContainer src={selectedFrame} alt="Frame" />
                     <PhotoGallery>
                         {state.photos.map((photo, index) => (
-                            <PhotoImg key={index} src={photo} alt={`Photo ${index + 1}`} />
+                            <PhotoImg
+                                key={index}
+                                src={photo}
+                                alt={`Photo ${index + 1}`}
+                                translateY={(index === 2 || index === 3) ? 'translateY(-30%)' : 'none'}
+                                zIndex={(index === 2 || index === 3) ? '-2' : 'none'}
+                            />
                         ))}
                     </PhotoGallery>
                 </ImgContainer>
@@ -139,7 +122,11 @@ const PhotoResult = () => {
             
             <FrameButtonContainer isselectedframe3={isSelectedFrame3.toString()}>
                 {FrameData.map((frameData) => (
-                    <FrameButton key={frameData.id} onClick={() => handleFrameChange(frameData.frameWeb)} isselected={(frameData.frameWeb === selectedFrame).toString()}/>
+                    <FrameButton
+                        key={frameData.id}
+                        onClick={() => handleFrameChange(frameData.frameWeb)}
+                        isselected={(frameData.frameWeb === selectedFrame).toString()}
+                    />
                 ))}
             </FrameButtonContainer>
 
