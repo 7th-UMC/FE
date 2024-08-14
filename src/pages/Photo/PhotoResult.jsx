@@ -17,7 +17,7 @@ const ResultContainer = styled.div`
 
 const ImgContainer = styled.div`
     width: 100%;
-    margin-top: 8.678rem;
+    margin-top: 8.211rem;
     position: relative;
     display: flex;
     justify-content: center;
@@ -55,7 +55,7 @@ const FrameButtonContainer = styled.div`
     display: flex;
     align-items: center;
     gap: 1.2rem;
-    margin-top: 4.841rem;
+    margin-top: 4.88rem;
 `;
 
 const FrameButton = styled.div`
@@ -82,7 +82,7 @@ const SubmitButton = styled.div`
     line-height: 3.819rem;
     color: ${colors.footerColor};
     background: ${colors.white};
-    margin: 10.246rem 0 8rem 0;
+    margin: 5.255rem 0 8rem 0;
 `;
 
 const PhotoResult = () => {
