@@ -43,7 +43,6 @@ const PhotoGallery = styled.div`
 
 const PhotoImg = styled.img`
     width: 100%;
-    transform: scaleX(-1);
 `;
 
 const FrameButtonContainer = styled.div`

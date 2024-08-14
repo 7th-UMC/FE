@@ -42,6 +42,7 @@ const Video = styled.video`
     width: 100%;
     height: 100%;
     transform: scaleX(-1);
+    object-fit: cover;
 `;
 
 const PhotoNumberDiv = styled.div`
