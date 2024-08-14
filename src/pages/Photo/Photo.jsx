@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import styled, { keyframes, css } from 'styled-components';
 import colors from '../../styles/colors';
 
-const fadeIn = keyframes`
+const fadein = keyframes`
     from {
         opacity: 0;
         transform: scale(0.9);
@@ -14,7 +14,7 @@ const fadeIn = keyframes`
     }
 `;
 
-const fadeOut = keyframes`
+const fadeout = keyframes`
     from {
         opacity: 1;
         transform: scale(1);
@@ -103,14 +103,14 @@ const PhotoDiv = styled.div`
     width: 60%;
     justify-content: flex-start;
     ${(props) =>
-        props.fadeIn &&
+        props.fadein &&
         css`
-            animation: ${fadeIn} 0.3s ease-out forwards;
+            animation: ${fadein} 0.3s ease-out forwards;
         `}
     ${(props) =>
-        props.fadeOut &&
+        props.fadeout &&
         css`
-            animation: ${fadeOut} 0.3s ease-out forwards;
+            animation: ${fadeout} 0.3s ease-out forwards;
         `}
 
     @media screen and (max-width: 430px) {
@@ -191,6 +191,12 @@ const Photo = () => {
                     setTimeout(() => {
                         setFadeIn(false);
                     }, 500);
+
+                    video.style.display = 'none';
+
+                    setTimeout(() => {
+                        video.style.display = 'block';
+                    }, 500);
                 }, 500);
             } else {
                 setPhotos(prevPhotos => [...prevPhotos, dataURL]);
@@ -200,7 +206,7 @@ const Photo = () => {
 
                 setTimeout(() => {
                     setFadeIn(false);
-                }, 500);  // Fade-in animation duration
+                }, 500);
             }
 
             setClickCount(prevCount => {
@@ -225,7 +231,7 @@ const Photo = () => {
                 </CaptureButton>
 
                 {photos.length > 0 && visiblePhotoIndex !== null && (
-                    <PhotoDiv fadeIn={fadeIn} fadeOut={fadeOut}>
+                    <PhotoDiv fadein={fadeIn ? 1 : 0} fadeout={fadeOut ? 1 : 0}>
                         <PhotoImg src={photos[visiblePhotoIndex]} alt="Capture" />
                     </PhotoDiv>
                 )}

@@ -19,9 +19,8 @@ const ImgContainer = styled.div`
     position: relative;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     overflow: hidden;
-    transition: transform 0.3s;
 
     @media screen and (max-width: 430px) {
         margin-top: 4rem;
@@ -30,24 +29,20 @@ const ImgContainer = styled.div`
 
 const FrameContainer = styled.img`
     width: 100%;
-    height: 80%;
+    height: 100%;
 `;
 
 const PhotoGallery = styled.div`
     width: 80%;
-    background: pink;
     grid-template-columns: repeat(2, 1fr);
     display: grid;
-    justify-content: center;
-    align-items: flex-end;
     position: absolute;
     z-index: -1;
-    margin-top: -2%;
+    background: pink;
 `;
 
 const PhotoImg = styled.img`
     width: 100%;
-    height: 100%;
 `;
 
 const FrameButtonContainer = styled.div`
