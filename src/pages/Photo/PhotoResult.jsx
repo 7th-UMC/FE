@@ -32,14 +32,17 @@ const PhotoGallery = styled.div`
     position: absolute;
     margin-top: -1%;
     z-index: -1;
-    transform: scaleX(-1);
 `;
+
+const PhotoImgContainer = styled.div`
+    transform: ${({ translateY }) => translateY || 'none'};
+    z-index: ${({ zIndex }) => zIndex || 'none'};
+`
 
 const PhotoImg = styled.img`
     width: 100%;
     height: 100%;
-    transform: ${({ translateY }) => translateY || 'none'};
-    z-index: ${({ zIndex }) => zIndex || 'none'};
+    transform: scaleX(-1);
 `;
 
 const FrameButtonContainer = styled.div`
@@ -108,13 +111,17 @@ const PhotoResult = () => {
                     <FrameContainer src={selectedFrame} alt="Frame" />
                     <PhotoGallery>
                         {state.photos.map((photo, index) => (
-                            <PhotoImg
-                                key={index}
-                                src={photo}
-                                alt={`Photo ${index + 1}`}
+                            <PhotoImgContainer
                                 translateY={(index === 2 || index === 3) ? 'translateY(-30%)' : 'none'}
-                                zIndex={(index === 2 || index === 3) ? '-2' : 'none'}
-                            />
+                                    zIndex={(index === 2 || index === 3) ? '-2' : 'none'}
+                            >
+                                <PhotoImg
+                                    key={index}
+                                    src={photo}
+                                    alt={`Photo ${index + 1}`}
+                                    
+                                />
+                            </PhotoImgContainer>
                         ))}
                     </PhotoGallery>
                 </ImgContainer>
