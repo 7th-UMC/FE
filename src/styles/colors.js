@@ -42,6 +42,10 @@ const colors = {
     modalColor: "#1E1E1E",
     modalColor2: "#E3E3E3",
 
+    photoColor: "#3B3B3B",
+    photoColor2: "#78E5D8",
+    photoColor3: "#3D405D",
+
     white: "#FFFFFF",
     black: "#000000"
 };
