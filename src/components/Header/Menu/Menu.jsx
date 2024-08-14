@@ -81,7 +81,7 @@ const Menu = ({ onClose }) => {
     const routes = [
         { path: "/", name: "About UMC" },
         { path: "/project", name: "Project" },
-        { path: isLoggedIn ? "/staffqna" : "/qna", name: "Q&A" },
+        { path: isLoggedIn ? "/staffqna" : "/qna", name: "Q&A", relatedPaths: ["/staffqna", "/staffanswer", "/staffedit", "/qna", "/qna/:id", "/post"] },
         { path: "/photo", name: "UMC Frame Photo" },
         { path: "/recruit", name: "Recruit" }
     ];
@@ -96,9 +96,24 @@ const Menu = ({ onClose }) => {
 
     useEffect(() => {
         const currentPath = location.pathname;
-        const index = routes.findIndex(route => 
-            currentPath === route.path
-        );
+
+        const index = routes.findIndex(route => {
+            if (currentPath === route.path) return true;
+
+            if (route.path === "/project" && /^\/project(\/.*)?$/.test(currentPath)) return true;
+
+            if (route.path === (isLoggedIn ? "/staffqna" : "/qna")) {
+                return route.relatedPaths.some(path => {
+                    if (path === "/qna/:id") {
+                        return /^\/qna(\/\d+)?$/.test(currentPath);
+                    }
+                    return currentPath.startsWith(path);
+                });
+            }
+
+            return false;
+        });
+
         setActiveIndex(index);
     }, [location.pathname]);
 
