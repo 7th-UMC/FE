@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled, { keyframes, css } from 'styled-components';
 import colors from '../../styles/colors';
+import PhotoNot from '../../components/Photo/PhotoNot';
 
 const fadein = keyframes`
     from {
@@ -135,7 +136,17 @@ const Photo = () => {
     const [fadeOut, setFadeOut] = useState(false);
     const [visiblePhotoIndex, setVisiblePhotoIndex] = useState(null);
     const [clickCount, setClickCount] = useState(0);
+    const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
     const navigate = useNavigate();
+
+    useEffect(() => {
+        const handleResize = () => setViewportWidth(window.innerWidth);
+
+        window.addEventListener('resize', handleResize);
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
 
     useEffect(() => {
         const startVideo = async () => {
@@ -213,6 +224,10 @@ const Photo = () => {
             });
         }
     };
+
+    if (viewportWidth <= 1023) {
+        return <PhotoNot />;
+    }
 
     return (
         <div className="pageContainer" style={{ display: "flex", justifyContent: "center" }}>
