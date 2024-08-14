@@ -82,7 +82,6 @@ const CaptureButton = styled.div`
     font-weight: 800;
     line-height: 3.819rem;
     color: ${colors.footerColor};
-    opacity: ${props => (props.disabled ? 0.6 : 1)};
 `;
 
 const PhotoDiv = styled.div`
