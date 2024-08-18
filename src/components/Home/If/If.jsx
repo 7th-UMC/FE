@@ -1,7 +1,9 @@
+import { useState, useEffect } from "react";
 import styled from "styled-components";
 import IfBackground1 from "../../../assets/images/Home/If/ifBackground1.png";
 import IfBackground2 from "../../../assets/images/Home/If/ifBackground2.png";
-import IfContent from "./IfContent";
+import ListIf from "./list-if";
+import HomeData from "../../../utils/Home/homeData";
 
 const IfContainer = styled.div`
     width: 100%;
@@ -32,13 +34,19 @@ const BackgroundImg = styled.img`
 `
 
 const If = () => {
+    const [homeData, setHomeData] = useState(HomeData);
+
+    useEffect(() => {
+        setHomeData(HomeData);
+    }, []);
+
     return (
         <IfContainer>
             <BackgroundContainer>
                 <BackgroundImg src={IfBackground1} alt="if" />
             </BackgroundContainer>
 
-            <IfContent />
+            <ListIf data={homeData}/>
         </IfContainer>
     )
 }

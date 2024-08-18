@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import colors from "../../../styles/colors";
-import HomeData from "../../../utils/Home/homeData";
+import ItemIf from "./item-if";
 
 const IfContainer = styled.div`
     width: 100%;
@@ -67,64 +67,7 @@ const IfP2 = styled.p`
     }
 `
 
-const IfP3 = styled.p`
-    font-size: 2.8rem;
-    font-weight: 600;
-    line-height: 3.341rem;
-    color: ${colors.white};
-
-    @media screen and (max-width: 430px) {
-        font-size: 1.4rem;
-        line-height: 1.671rem;
-    }
-`
-
-const IfP4 = styled.p`
-    font-size: 2.2rem;
-    font-weight: 400;
-    line-height: 3.5rem;
-    text-align: justified;
-    color: ${colors.white};
-
-    @media screen and (max-width: 430px) {
-        font-size: 1.1rem;
-        line-height: 1.5rem;
-    }
-`
-
-const IfInnerBox = styled.div`
-    width: 100%;
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-`
-
-const IfInnerImg = styled.img`
-    width: 50rem;
-    border-radius: 0.6rem;
-
-    @media screen and (max-width: 430px) {
-        width: 16rem;
-        border-radius: 0.4rem;
-    }
-`
-
-const RightContainer = styled.div`
-    width: 36.2rem;
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-    gap: 1.6rem;
-    padding-top: 1.1rem;
-
-    @media screen and (max-width: 430px) {
-        width: 18.1rem;
-        gap: 0.598rem;
-        padding-top: 0.422rem;
-    }
-`  
-
-const IfContent = () => {
+const ListIf = ({ data }) => {
     return (
         <IfContainer>
             <IfBox>
@@ -133,18 +76,19 @@ const IfContent = () => {
             </IfBox>
 
             <IfBox2>
-                {HomeData.map((item) => (
-                    <IfInnerBox key={item.id}>
-                        <IfInnerImg src={item.homeWeb} alt={item.title} />
-                        <RightContainer>
-                            <IfP3>{item.title}</IfP3>
-                            <IfP4>{item.explain}</IfP4>
-                        </RightContainer>
-                    </IfInnerBox>
+                {data.map((item) => (
+                    <ItemIf
+                        key={item.id}
+                        id={item.id}
+                        homeWeb={item.homeWeb}
+                        homeMobile={item.homeMobile}
+                        title={item.title}
+                        explain={item.explain}
+                    />
                 ))}
             </IfBox2>
         </IfContainer>
     )
 }
 
-export default IfContent;
+export default ListIf;
