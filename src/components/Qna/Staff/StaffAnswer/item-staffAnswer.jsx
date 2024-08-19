@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import styled from "styled-components";
-import colors from "../../../styles/colors";
+import colors from "../../../../styles/colors";
 
 const ItemContainer = styled.div`
     width: 100%;

@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
-import colors from "../../../styles/colors";
+import colors from "../../../../styles/colors";
 import ItemStaffQna from "./item-staffQna";
-import Arrow1 from "../../../assets/images/Qna/arrow1.png";
-import Arrow2 from "../../../assets/images/Qna/arrow2.png";
+import Arrow1 from "../../../../assets/images/Qna/arrow1.png";
+import Arrow2 from "../../../../assets/images/Qna/arrow2.png";
 
 const ListContainer = styled.div`
     width: 100%;

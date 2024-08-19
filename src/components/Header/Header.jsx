@@ -104,7 +104,7 @@ const HeaderRightImg2 = styled.img`
 const Header = () => {
     const [menuOpen, setMenuOpen] = useState(false);
     const navigate = useNavigate();
-    const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+    const isLogin = localStorage.getItem('isLogin') === 'true';
 
     const handleHomeClick = () => {
         navigate("/");
@@ -121,7 +121,7 @@ const Header = () => {
     };
 
     const handleLogout = () => {
-        localStorage.removeItem('isLoggedIn');
+        localStorage.removeItem('isLogin');
         alert("로그아웃 되었습니다.");
         navigate('/');
     };
@@ -135,7 +135,7 @@ const Header = () => {
                         <HeaderLeftP>HSU UMC</HeaderLeftP>
                     </HeaderLeft>
                     <RightContainer>
-                        {isLoggedIn && (
+                        {isLogin && (
                             <LogoutP onClick={handleLogout}>로그아웃</LogoutP>
                         )}
                         {menuOpen ? (

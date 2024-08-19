@@ -118,11 +118,11 @@ const StaffLogin = () => {
         try {
             const response = await axios.post('https://jsonplaceholder.typicode.com/users', { userId, password });
             console.log(response.data);
-            localStorage.setItem('isLoggedIn', 'true');
+            localStorage.setItem('isLogin', 'true');
             navigate("/");
         } catch (error) {
             console.error('로그인 오류:', error);
-            localStorage.setItem('isLoggedIn', 'false');
+            localStorage.setItem('isLogin', 'false');
         }
     };
 
