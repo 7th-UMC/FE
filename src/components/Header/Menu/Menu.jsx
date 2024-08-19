@@ -76,13 +76,13 @@ const Menu = ({ onClose }) => {
     const [activeIndex, setActiveIndex] = useState(null);
     const navigate = useNavigate();
     const location = useLocation();
-    const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+    const isLogin = localStorage.getItem('isLogin') === 'true';
 
     const routes = [
         { path: "/", name: "About UMC" },
         { path: "/project", name: "Project" },
-        { path: isLoggedIn ? "/staffqna" : "/qna", name: "Q&A", relatedPaths: ["/staffqna", "/staffanswer", "/staffedit", "/qna", "/qna/:id", "/post"] },
-        { path: "/photo", name: "UMC Frame Photo", relatedPaths: ["/photo", "/photoresult"] }, // Updated to include /photoresult
+        { path: isLogin ? "/staffqna" : "/qna", name: "Q&A", relatedPaths: ["/staffqna", "/staffanswer", "/staffedit", "/qna", "/qna/:id", "/post"] },
+        { path: "/photo", name: "UMC Frame Photo", relatedPaths: ["/photo", "/photoresult"] },
         { path: "/recruit", name: "Recruit" }
     ];
 
@@ -102,7 +102,7 @@ const Menu = ({ onClose }) => {
 
             if (route.path === "/project" && /^\/project(\/.*)?$/.test(currentPath)) return true;
 
-            if (route.path === (isLoggedIn ? "/staffqna" : "/qna")) {
+            if (route.path === (isLogin ? "/staffqna" : "/qna")) {
                 return route.relatedPaths.some(path => {
                     if (path === "/qna/:id") {
                         return /^\/qna(\/\d+)?$/.test(currentPath);

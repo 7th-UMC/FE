@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
 import colors from "../../styles/colors";
-import { useParams } from "react-router-dom";
-import axios from "axios";
-import ListStaffEdit from "../../components/Qna/StaffEdit/list-staffEdit";
+import StaffEditYes from "../../components/Qna/Staff/StaffEdit/StaffEditYes";
+import StaffNot from "../../components/Qna/Staff/StaffNot";
 
 const DetailContainer = styled.div`
     width: 60%;
@@ -29,29 +28,14 @@ const QnaP = styled.p`
 
 
 const StaffEdit = () => {
-    const { id } = useParams();
-    const [post, setPost] = useState("");
-    //console.log(id);
-
-    useEffect(() => {
-        const fetchUser = async () => {
-            try {
-                const response = await axios.get(`https://jsonplaceholder.typicode.com/posts/${id}`);
-                setPost(response.data);
-            } catch (err) {
-                console.error("Error:", err);
-            }
-        };
-
-        fetchUser();
-    }, [id]);
+    const isLogin = localStorage.getItem("isLogin") === "true";
 
     return (
         <div className="pageContainer" style={{display: "flex", justifyContent: "center"}}>
             <DetailContainer>
                 <QnaP>Q&A</QnaP>
-
-                <ListStaffEdit data={post} />
+                
+                {isLogin ? <StaffEditYes /> : <StaffNot />}
             </DetailContainer>
         </div>
     )

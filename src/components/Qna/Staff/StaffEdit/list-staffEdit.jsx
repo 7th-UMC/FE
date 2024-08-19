@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import FilterData from "../../../utils/Qna/filterData";
+import FilterData from "../../../../utils/Qna/filterData";
 import ItemStaffEdit from "./item-staffEdit";
 
 const ListContainer = styled.div`

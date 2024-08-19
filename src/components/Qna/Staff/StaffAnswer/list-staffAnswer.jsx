@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import ItemStaffAnswer from "./item-staffAnswer";
-import FilterData from "../../../utils/Qna/filterData";
+import FilterData from "../../../../utils/Qna/filterData";
 
 const ListContainer = styled.div`
     width: 100%;

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import colors from "../../../styles/colors";
+import colors from "../../../../styles/colors";
 import { useNavigate } from "react-router-dom";
-import Trash1 from "../../../assets/images/Qna/trash1.png";
-import Trash2 from "../../../assets/images/Qna/trash2.png";
+import Trash1 from "../../../../assets/images/Qna/trash1.png";
+import Trash2 from "../../../../assets/images/Qna/trash2.png";
 
 const ItemContainer = styled.div`
     width: 100%;
@@ -19,6 +19,7 @@ const ItemContainer = styled.div`
 
 const LeftContainer = styled.div`
     max-width: 70%;
+    overflow: hidden;
     display: flex;
     align-items: center;
     gap: 1.8rem;
