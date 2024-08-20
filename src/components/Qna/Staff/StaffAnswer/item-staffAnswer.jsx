@@ -1,11 +1,17 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import React, { useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { API } from "../../../../api/axios";
 import styled from "styled-components";
 import colors from "../../../../styles/colors";
+import FilterData from "../../../../utils/Qna/filterData";
 
 const ItemContainer = styled.div`
     width: 100%;
+    margin-top: 7rem;
+
+    @media screen and (max-width: 430px) {
+        margin-top: 2.6rem;
+    }
 `
 
 const PartDiv = styled.div`
@@ -149,8 +155,10 @@ const QnaButton = styled.div`
     }
 `
 
-const ItemStaffAnswer = (props) => {
-    const { id, userId, title, body, category } = props;
+const ItemStaffAnswer = ({ data }) => {
+    const category = FilterData.find(item => item.id === data.categoryId);
+    const categoryName = category ? category.name : '';
+    const { id } = useParams();
     //console.log(category);
 
     //const [explain, setExplain] = useState("");
@@ -180,8 +188,8 @@ const ItemStaffAnswer = (props) => {
     const handleAnswer = async () => {
         if (answer.trim()) {
             try {
-                const response = await axios.post(`https://jsonplaceholder.typicode.com/posts`, {
-                    answer
+                const response = await API.post(`api/answer/admin/${id}`, {
+                    content: answer
                 });
                 alert("답변 작성이 완료되었습니다.");
                 console.log(response);
@@ -194,9 +202,9 @@ const ItemStaffAnswer = (props) => {
 
     return (
         <ItemContainer>
-            <PartDiv>{category}</PartDiv>
-            <TitleP>{title}</TitleP>
-            <BodyP>{body}</BodyP>
+            <PartDiv>{categoryName}</PartDiv>
+            <TitleP>{data.title}</TitleP>
+            <BodyP>{data.content}</BodyP>
 
             <AnswerContainer>
                 <AnswerP>답변</AnswerP>

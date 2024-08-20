@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import axios from "axios";
-import ListStaffEdit from "./list-staffEdit";
+import { API } from "../../../../api/axios";
+import ItemStaffEdit from "./item-staffEdit";
 
 const StaffEditYes = () => {
     const { id } = useParams();
@@ -11,8 +11,9 @@ const StaffEditYes = () => {
     useEffect(() => {
         const fetchUser = async () => {
             try {
-                const response = await axios.get(`https://jsonplaceholder.typicode.com/posts/${id}`);
-                setPost(response.data);
+                const response = await API.get(`api/question/${id}`);
+                setPost(response.data.result);
+                console.log(post);
             } catch (err) {
                 console.error("Error:", err);
             }
@@ -22,7 +23,9 @@ const StaffEditYes = () => {
     }, [id]);
 
     return (
-        <ListStaffEdit data={post} />
+        <>
+            <ItemStaffEdit data={post} />
+        </>
     )
 }
 

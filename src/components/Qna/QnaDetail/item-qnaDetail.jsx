@@ -1,11 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import styled from "styled-components";
 import colors from "../../../styles/colors";
+import FilterData from "../../../utils/Qna/filterData";
 
 const ItemContainer = styled.div`
     width: 100%;
+    margin-top: 7rem;
+
+    @media screen and (max-width: 430px) {
+        margin-top: 2.6rem;
+    }
 `
 
 const PartDiv = styled.div`
@@ -155,33 +160,12 @@ const QnaButton = styled.div`
     }
 `
 
-const ItemQnaDetail = (props) => {
-    const { id, userId, title, body, category } = props;
+const ItemQnaDetail = ({ data }) => {
+    const category = FilterData.find(item => item.id === data.categoryId);
+    const categoryName = category ? category.name : '';
     //console.log(category);
 
-    const [explain, setExplain] = useState("");
-    const [showAnswerContainer, setShowAnswerContainer] = useState(false);
     const navigate = useNavigate();
-
-    useEffect(() => {
-        if (id === userId) {
-            setShowAnswerContainer(true);
-        }
-
-        //console.log('ID:', id);
-        if (id) {
-            const fetchExplain = async () => {
-                try {
-                    const response = await axios.get(`https://jsonplaceholder.typicode.com/posts/${id}`);
-                    setExplain(response.data.body);
-                } catch (error) {
-                    console.error("Error:", error);
-                }
-            };
-
-            fetchExplain();
-        }
-    }, [id, userId]);
 
     const handleQna = () => {
         navigate("/qna");
@@ -189,20 +173,20 @@ const ItemQnaDetail = (props) => {
 
     return (
         <ItemContainer>
-            <PartDiv>{category}</PartDiv>
-            <TitleP>{title}</TitleP>
-            <BodyP>{body}</BodyP>
+            <PartDiv>{categoryName}</PartDiv>
+            <TitleP>{data.title}</TitleP>
+            <BodyP>{data.content}</BodyP>
 
-            {showAnswerContainer && (
+            { data.answered && (
                 <AnswerContainer>
                     <AnswerP>답변</AnswerP>
                     <AnswerDiv>
-                        <ExplainP>{explain}</ExplainP>
+                        <ExplainP>{data.answer.content}</ExplainP>
                     </AnswerDiv>
                 </AnswerContainer>
             )}
 
-            <ButtonContainer showanswercontainer={showAnswerContainer.toString()}>
+            <ButtonContainer>
                 <QnaButton onClick={handleQna}>목록으로</QnaButton>
             </ButtonContainer>
         </ItemContainer>

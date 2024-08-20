@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import { API } from "../../api/axios";
 import styled from "styled-components";
 import colors from "../../styles/colors";
 import NotQna from "../../components/Qna/NotQna/NotQna";
@@ -42,28 +42,30 @@ const Qna = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('https://jsonplaceholder.typicode.com/posts');
-                setQna(response.data);
+                const response = await API.get('api/question/');
+                console.log(response.data.result);
+                if (Array.isArray(response.data.result)) {
+                    setQna(response.data.result);
+                } else {
+                    throw new Error('Response data is not an array');
+                }
                 setError(false);
             } catch (error) {
-                setError(true);
                 console.error("Error:", error);
+                setQna([]);
+                setError(true);
             }
         };
 
         fetchData();
     }, []);
 
-    if (error) {
-        return <NotQna />;
-    }
-
     useEffect(() => {
         if (selectedId === 0) {
             setFilteredPosts(qna.filter(q => q.title.toLowerCase().includes(searchTerm.toLowerCase())));
         } else {
             const filtered = qna
-                .filter(qna => qna.userId === selectedId)
+                .filter(qna => qna.categoryId === selectedId)
                 .filter(qna => qna.title.toLowerCase().includes(searchTerm.toLowerCase()));
             setFilteredPosts(filtered);
         }
@@ -92,6 +94,10 @@ const Qna = () => {
             setCurrentPage(newPage);
         }
     };
+
+    if (error) {
+        return <NotQna />;
+    }
 
     return (
         <div className="pageContainer" style={{ display: "flex", justifyContent: "center" }}>

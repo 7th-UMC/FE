@@ -82,11 +82,8 @@ const AnswerDiv = styled.div`
 `
 
 const ItemQna = (props) => {
-    const { id, userId, title, body } = props;
+    const { id, title, answered } = props;
     const navigate = useNavigate();
-
-    // 나중에 백엔드랑 연결하면, 답변 여부 t/f에 따라 뜨도록 조건부 렌더링 할 것
-    const showAnswer = id === userId;
 
     const handleQnaDetail = () => {
         navigate(`/qna/${id}`);
@@ -98,7 +95,7 @@ const ItemQna = (props) => {
                 <QP>Q</QP>
                 <QP2 onClick={handleQnaDetail}>{title}</QP2>
             </LeftContainer>
-            {showAnswer && <AnswerDiv>답변완료</AnswerDiv>}
+            {answered && <AnswerDiv>답변완료</AnswerDiv>}
         </ItemContainer>
     )
 }

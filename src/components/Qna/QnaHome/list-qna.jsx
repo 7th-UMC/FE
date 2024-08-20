@@ -138,13 +138,13 @@ const ListQna = ({ data, currentPage, currentSet, onPageChange, onSetChange }) =
     return (
         <div>
             <ListContainer>
-                {currentPosts.map((item) => (
+                {currentPosts.map((item, index) => (
                     <ItemQna
-                        key={item.id}
-                        userId={item.userId}
-                        id={item.id}
+                        key={index}
+                        categoryId={item.categoryId}
+                        answered={item.answered}
+                        id={item.questionId}
                         title={item.title}
-                        body={item.body}
                     />
                 ))}
             </ListContainer>

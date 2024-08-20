@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import axios from "axios";
-import ListStaffAnswer from "./list-staffAnswer";
+import { API } from "../../../../api/axios";
+import ItemStaffAnswer from "./item-staffAnswer";
 
 
 const StaffAnswerYes = () => {
@@ -12,8 +12,8 @@ const StaffAnswerYes = () => {
     useEffect(() => {
         const fetchUser = async () => {
             try {
-                const response = await axios.get(`https://jsonplaceholder.typicode.com/posts/${id}`);
-                setPost(response.data);
+                const response = await API.get(`api/question/${id}`);
+                setPost(response.data.result);
             } catch (err) {
                 console.error("Error:", err);
             }
@@ -23,7 +23,7 @@ const StaffAnswerYes = () => {
     }, [id]);
 
     return (
-        <ListStaffAnswer data={post} />
+        <ItemStaffAnswer data={post} />
     )
 }
 

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import axios from "axios";
+import { API } from "../../api/axios";
 import styled from "styled-components";
 import colors from "../../styles/colors";
 import { useNavigate } from "react-router-dom";
@@ -110,18 +110,19 @@ const LoginButton = styled.div`
 `
 
 const StaffLogin = () => {
-    const [userId, setUserId] = useState('');
+    const [loginId, setLoginId] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
 
     const handleLogin = async () => {
         try {
-            const response = await axios.post('https://jsonplaceholder.typicode.com/users', { userId, password });
+            const response = await API.post('user/login', { loginId, password });
             console.log(response.data);
             localStorage.setItem('isLogin', 'true');
             navigate("/");
         } catch (error) {
             console.error('로그인 오류:', error);
+            alert("아이디 또는 비밀번호가 맞지 않습니다.");
             localStorage.setItem('isLogin', 'false');
         }
     };
@@ -133,8 +134,8 @@ const StaffLogin = () => {
                 <InputContainer1>
                     <StaffLoginP2>아이디</StaffLoginP2>
                     <StaffLoginInput 
-                        value={userId} 
-                        onChange={(e) => setUserId(e.target.value)} 
+                        value={loginId} 
+                        onChange={(e) => setLoginId(e.target.value)} 
                     />
                 </InputContainer1>
 
