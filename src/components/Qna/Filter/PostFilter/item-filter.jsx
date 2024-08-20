@@ -15,6 +15,7 @@ const ItemButton = styled.div`
     font-weight: 500;
     line-height: 3.341rem;
     color: ${({ selected }) => selected ? colors.footerColor : colors.recruitColor6};
+    cursor: pointer;
 
     @media screen and (max-width: 430px) {
         border: ${({ selected }) => selected ? "none" : `0.05rem solid ${colors.recruitColor6}`};
