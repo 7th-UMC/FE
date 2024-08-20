@@ -98,11 +98,13 @@ const ListQna = ({ data, currentPage, currentSet, onPageChange, onSetChange }) =
     const postsPerPage = 10;
     const maxPagesToShow = 3;
 
+    const sortedData = [...data].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+
     // Pagination
-    const totalPages = Math.ceil(data.length / postsPerPage);
+    const totalPages = Math.ceil(sortedData.length / postsPerPage);
     const indexOfLastPost = currentPage * postsPerPage;
     const indexOfFirstPost = indexOfLastPost - postsPerPage;
-    const currentPosts = data.slice(indexOfFirstPost, indexOfLastPost);
+    const currentPosts = sortedData.slice(indexOfFirstPost, indexOfLastPost);
 
     const handlePageChange = (pageNumber) => {
         onPageChange(pageNumber);
