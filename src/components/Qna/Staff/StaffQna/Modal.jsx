@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import colors from "../../../../styles/colors";
-import axios from 'axios';
+import { API } from "../../../../api/axios";
 
 const Overlay = styled.div`
     position: fixed;
@@ -98,10 +98,11 @@ const Modal = ({ id, onClose }) => {
 
     const handleConfirmDelete = async () => {
         try {
-            const response = await axios.delete(`https://jsonplaceholder.typicode.com/posts/${id}`);
+            const response = await API.delete(`api/question/admin/${id}`);
             console.log(response);
             alert("질문이 삭제되었습니다.");
             onClose();
+            window.location.reload();
         } catch (error) {
             console.error("Error:", error);
         }

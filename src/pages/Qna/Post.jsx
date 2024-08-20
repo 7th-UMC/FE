@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import { API } from "../../api/axios";
 import styled from "styled-components";
 import colors from "../../styles/colors";
 import ListFilter from "../../components/Qna/Filter/PostFilter/list-filter";
@@ -119,10 +119,10 @@ const Post = () => {
     
     const handleUpload = async () => {
         try {
-            const response = await axios.post('https://jsonplaceholder.typicode.com/users', {
-                selectedId,
-                title,
-                content
+            const response = await API.post('api/question', {
+                categoryId: selectedId,
+                title: title,
+                content: content
             });
             console.log(response.data);
             alert("질문이 등록되었습니다.");

@@ -138,14 +138,14 @@ const ListStaffQna = ({ data, currentPage, currentSet, onPageChange, onSetChange
     return (
         <div>
             <ListContainer>
-                {currentPosts.map((item) => (
+                {currentPosts.map((item, index) => (
                     <ItemStaffQna
-                        key={item.id}
-                        userId={item.userId}
-                        id={item.id}
+                        key={index}
+                        categoryId={item.categoryId}
+                        id={item.questionId}
                         title={item.title}
-                        body={item.body}
                         onTrashClick={onTrashClick}
+                        answered={item.answered}
                     />
                 ))}
             </ListContainer>

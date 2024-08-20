@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import { API } from "../../../../api/axios";
 import styled from "styled-components";
 import NotQna from "../../NotQna/NotQna";
 import ListFilter from "../../Filter/HomeFilter/list-filter";
@@ -30,8 +30,8 @@ const StaffQnaYes = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('https://jsonplaceholder.typicode.com/posts');
-                setQna(response.data);
+                const response = await API.get('api/question/');
+                setQna(response.data.result);
                 setError(false);
             } catch (error) {
                 setError(true);
@@ -51,7 +51,7 @@ const StaffQnaYes = () => {
             setFilteredPosts(qna.filter(q => q.title.toLowerCase().includes(searchTerm.toLowerCase())));
         } else {
             const filtered = qna
-                .filter(qna => qna.userId === selectedId)
+                .filter(qna => qna.categoryId === selectedId)
                 .filter(qna => qna.title.toLowerCase().includes(searchTerm.toLowerCase()));
             setFilteredPosts(filtered);
         }
@@ -82,6 +82,7 @@ const StaffQnaYes = () => {
     };
 
     const handleTrashClick = (id) => {
+        console.log(id);
         setModalId(id);
         setIsModalOpen(true);
     };

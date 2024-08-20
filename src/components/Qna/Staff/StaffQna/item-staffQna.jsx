@@ -81,7 +81,7 @@ const AnswerDiv = styled.div`
     height: 4.9rem;
     border: none;
     border-radius: 0.4rem;
-    background-color: ${({ showanswer }) => (showanswer === "true" ? colors.footerColor : colors.white)};
+    background-color: ${({ answered }) => (answered === "true" ? colors.footerColor : colors.white)};
     display: flex;
     justify-content: center;
     align-items: center;
@@ -90,7 +90,7 @@ const AnswerDiv = styled.div`
     line-height: 2.864rem;
     font-weight: 600;
     cursor: pointer;
-    color: ${({ showanswer }) => (showanswer === "true" ? colors.white : colors.footerColor)};
+    color: ${({ answered }) => (answered === "true" ? colors.white : colors.footerColor)};
 
     @media screen and (max-width: 430px) {
         width: 7.15rem;
@@ -102,22 +102,11 @@ const AnswerDiv = styled.div`
 `
 
 const ItemStaffQna = (props) => {
-    const { id, userId, title, body, onTrashClick } = props;
+    const { id, answered, title, onTrashClick } = props;
     const navigate = useNavigate();
-    const [showAnswer, setShowAnswer] = useState(false);
-
-    // 나중에 백엔드랑 연결하면, 답변 여부 t/f에 따라 뜨도록 조건부 렌더링 할 것
-    useEffect(() => {
-        if (id === userId) {
-            setShowAnswer(true);
-        } else {
-            setShowAnswer(false);
-        }
-    }, [id, userId]);
-
 
     const handleAnswerAction = () => {
-        if (showAnswer) {
+        if (answered) {
             navigate(`/staffedit/${id}`);
         } else {
             navigate(`/staffanswer/${id}`);
@@ -138,8 +127,8 @@ const ItemStaffQna = (props) => {
             </LeftContainer>
             <RightContainer>
                 <TrashImg src={Trash1} alt="trash" onClick={handleTrashClick}/>
-                <AnswerDiv showanswer={showAnswer.toString()} onClick={handleAnswerAction}>
-                    {showAnswer ? "답변수정" : "답변하기"}
+                <AnswerDiv answered={answered.toString()} onClick={handleAnswerAction}>
+                    {answered ? "답변수정" : "답변하기"}
                 </AnswerDiv>
             </RightContainer>
         </ItemContainer>
