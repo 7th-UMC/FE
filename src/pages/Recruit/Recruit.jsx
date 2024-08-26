@@ -77,7 +77,7 @@ const Recruit = () => {
     }, []);
 
     const handleButtonClick = () => {
-        window.open("https://github.com/7th-UMC", "_blank", "noopener,noreferrer");
+        window.open("https://docs.google.com/forms/d/e/1FAIpQLSedke8PH5PUC7_dqcB215X22zqfVdOlREvpk7F6ThmoTuvmwA/closedform", "_blank", "noopener,noreferrer");
     }
 
     return (
