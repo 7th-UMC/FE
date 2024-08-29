@@ -10,7 +10,7 @@ const ProjectContainer = styled.div`
     }
 `
 
-const ProjectP = styled.p`
+const ProjectTitle = styled.p`
     font-size: 3.6rem;
     font-weight: 700;
     line-height: 4.296rem;
@@ -22,7 +22,7 @@ const ProjectP = styled.p`
     }
 `
 
-const ProjectP2 = styled.a`
+const ProjectDescription = styled.a`
     display: block;
     font-weight: 400;
     font-size: 2.8rem;
@@ -45,10 +45,10 @@ const ProjectP2 = styled.a`
 const Project = ({ data }) => {
     return (
         <ProjectContainer>
-            <ProjectP>프로젝트</ProjectP>
-            <ProjectP2 href={data.project} target="_blank" rel="noopener noreferrer">
+            <ProjectTitle>프로젝트</ProjectTitle>
+            <ProjectDescription href={data.project} target="_blank" rel="noopener noreferrer">
                 {data.project}
-            </ProjectP2>
+            </ProjectDescription>
         </ProjectContainer>
     )
 }
