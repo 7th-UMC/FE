@@ -35,7 +35,7 @@ const Intro = ({ data }) => {
     return (
         <IntroContainer>
             <IntroP>{data.title}</IntroP>
-            <IntroP2>{data.explain}</IntroP2>
+            <IntroP2>{data.detailExplain}</IntroP2>
         </IntroContainer>
     )
 }
