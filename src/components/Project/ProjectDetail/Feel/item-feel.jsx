@@ -1,3 +1,4 @@
+import React from "react";
 import styled from "styled-components";
 import colors from "../../../../styles/colors";
 
@@ -78,7 +79,14 @@ const ItemFeel = ({ feel }) => {
                 <FeelP>{feel.nickname}/{feel.name}</FeelP>
                 <PartDiv>{feel.part}</PartDiv>
             </PeopleContainer>
-            <FeelP2>{feel.explain}</FeelP2>
+            <FeelP2>
+                {feel.explain.split('\n').map((line, index) => (
+                    <React.Fragment key={index}>
+                        {line}
+                        <br />
+                    </React.Fragment>
+                ))}
+            </FeelP2>
         </ItemContainer>
     )
 }

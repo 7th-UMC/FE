@@ -5,6 +5,7 @@ import ProjectData from '../../utils/Project/projectData';
 import Intro from '../../components/Project/ProjectDetail/Intro/Intro';
 import People from '../../components/Project/ProjectDetail/People/People';
 import Feel from '../../components/Project/ProjectDetail/Feel/Feel';
+import Project from '../../components/Project/ProjectDetail/Project/Project'; 
 
 const DetailContainer = styled.div`
     width: 100%;
@@ -37,6 +38,7 @@ const ProjectDetail = () => {
                 <BackgroundImg src={window.innerWidth <= 430 ? project.projectDetailMobile : project.projectDetailWeb} alt="project" />
                 <DetailContainer2>
                     <Intro data={project} />
+                    {project.project && <Project data={project} />} 
                     <People data={project} />
                     <Feel data={project} />
                 </DetailContainer2>
