@@ -53,64 +53,66 @@ const ProjectData = [
     },
     { 
         "id": 2, 
-        "projectWeb": images['project1'],
-        "projectMobile": images['project2'],
-        "projectDetailWeb": images['projectDetail1'],
-        "projectDetailMobile": images['projectDetail2'],
-        "title": "서비스명2",
-        "explain": "서비스2의 설명입니다.",
+        "projectWeb": images['stepperWeb'],
+        "projectMobile": images['stepperMobile'],
+        "projectDetailWeb": images['stepperDetailWeb'],
+        "projectDetailMobile": images['stepperDetailMobile'],
+        "title": "STEPPER",
+        "explain": "나만의 재활 루틴으로  한 단계씩 나의 회복을 찾는 서비스", // 서비스 설명
+        "detailExplain": "딱 맞는 운동 루틴을  만들어 빠르게 회복할 수 있으며, AI를 활용한 통증 부위에 맞는 운동 추천 서비스부터 운동 컨디션 평가까지 만능 재활 맞춤 서비스입니다.",
+        "project": "https://github.com/UMC-Stepper/Stepper_FE",
         "people": [
             {
                 "id": 1,
-                "part": "기획",
+                "part": "디자인",
                 "name": [
-                    "윤길동"
+                    "전세원"
                 ]
             },
             {
                 "id": 2,
-                "part": "디자인",
+                "part": "안드로이드",
                 "name": [
-                    "임길동"
+                    "박지원",
+                    "김성민"
                 ]
             },
             {
                 "id": 3,
-                "part": "웹",
-                "name": [
-                    "홍길동",
-                    "김길동"
-                ]
-            },
-            {
-                "id": 4,
                 "part": "서버",
                 "name": [
-                    "이길동"
+                    "민경빈"
                 ]
-            }
+            },
         ],
         "feel": [
             {
                 "id": 1,
-                "nickname": "에리얼",
-                "name": "임채현",
+                "nickname": "아리",
+                "name": "전세원",
                 "part": "DESIGN",
-                "explain": "실제 상용화된다고 생각하고 디자인 작업을 진행하였습니다. 기획자와 개발자와 협업하여, 더욱 사용자에게 편리한 접근성이 무엇인지 진지하게 고민해보는 시간이 되었습니다. 또한 서비스의 컨셉과 무드를 고민하여, 이미지 제작을 했던 시간이 가장 기억에 남았고, 이러한 점이 더욱 차별화된 서비스를 만든다는 것을 알게 되었습니다."
+                "explain": "프로젝트에서 디자이너 역할을 맡았습니다. 앱디자인은 처음이라 선택과 집중을 하였는데 사용자가 사용하는데 불편함을 느끼지 않도록 집중하며 디자인을 하였습니다. 그래서 사용자가 서비스를 이용하는데 있어서 익숙한 환경이 무엇인지, 시각적으로 불편함이 없는지를 고민하며 디자인하였습니다. 또한PM님이 열심히 완성한 기획을 의도한대로 결과물이 나오는 것에도 집중하였습니다. 프로젝트를 진행하면서 기획자, 개발자와 협업을 할 수 있었던 계기가 되었으며, 그 과정에서 어떻게 소통을 해야할지 배울 수 있었습니다. 그리고 진로를 uiux 디자이너로 갈지 고민하였는데 그 고민을 결정하는 데, 도움이 되었습니다."
             },
             {
                 "id": 2,
-                "nickname": "이즈",
-                "name": "양인서",
-                "part": "WEB",
-                "explain": "웹 파트 짱~"
+                "nickname": "루피",
+                "name": "박지원",
+                "part": "ANDROID",
+                "explain": "안드로이드 화면설계 및 api연결, 내부 기능을 담당했습니다. 너무 즐거운 프로젝트였고, 기초를 더 탄탄하게 할수 있었습니다. 무엇보다도 협업 능력을 기를 수 있고, 프로젝트 기간도 여유로워 다양한 기술 스택을 배울 수 있었습니다. 기초를 탄탄하게 다져나가고 싶거나, 처음부터 제대로 배워보고 싶었는데 모두 이룬 것 같아 200퍼센트 만족했습니다!"
             },
             {
                 "id": 3,
-                "nickname": "사이다",
-                "name": "강다현",
-                "part": "SERVER",
-                "explain": "서버 파트 재밌네요."
+                "nickname": "미니",
+                "name": "김성민",
+                "part": "ANDROID",
+                "explain": "기간이 아주 길지는 않았지만 좋은 기획과 좋은 팀원들과 프로젝트를 할 수 있어서 정말 좋은 경험이었습니다. 기획도 정말 마음에 들었고 8명이나 되는 팀원 중 전부 다 마음에 드는 좋은 사람들이어서 정말 즐겁게 할 수 있어서 좋았습니다."
+            },
+            {
+                "id": 4,
+                "nickname": "빈트",
+                "name": "민경빈",
+                "part": "SPRINGBOOT",
+                "explain": "백 스프링부트 헤더로써 프로젝트를 진행했습니다. 많은 인원과 함께하는 프로젝트 진행이여서 매우 새롭고 재밌었습니다. 팀원분들이 다 잘 따라와주셔서 매우 원활히 진행 할수 있었습니다. 매우 좋은 기회였습니다!"
             }
         ]
     },
