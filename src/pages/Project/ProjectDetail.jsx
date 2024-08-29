@@ -38,7 +38,7 @@ const ProjectDetail = () => {
                 <BackgroundImg src={window.innerWidth <= 430 ? project.projectDetailMobile : project.projectDetailWeb} alt="project" />
                 <DetailContainer2>
                     <Intro data={project} />
-                    <Project data={project} /> 
+                    {project.project && <Project data={project} />} 
                     <People data={project} />
                     <Feel data={project} />
                 </DetailContainer2>
