@@ -58,7 +58,7 @@ const ProjectData = [
         "projectDetailWeb": images['stepperDetailWeb'],
         "projectDetailMobile": images['stepperDetailMobile'],
         "title": "STEPPER",
-        "explain": "나만의 재활 루틴으로  한 단계씩 나의 회복을 찾는 서비스", // 서비스 설명
+        "explain": "나만의 재활 루틴으로  한 단계씩 나의 회복을 찾는 서비스", 
         "detailExplain": "딱 맞는 운동 루틴을  만들어 빠르게 회복할 수 있으며, AI를 활용한 통증 부위에 맞는 운동 추천 서비스부터 운동 컨디션 평가까지 만능 재활 맞춤 서비스입니다.",
         "project": "https://github.com/UMC-Stepper/Stepper_FE",
         "people": [
@@ -123,7 +123,7 @@ const ProjectData = [
         "projectDetailWeb": images['wesaveDetailWeb'],
         "projectDetailMobile": images['wesaveDetailMobile'],
         "title": "WE SAVE",
-        "explain": "비건의 진입장벽을 낮추고 보다 쉬운 비건 라이프스타일을 즐길 수 있도록 도와주는 서비스", // 서비스 설명
+        "explain": "비건의 진입장벽을 낮추고 보다 쉬운 비건 라이프스타일을 즐길 수 있도록 도와주는 서비스", 
         "detailExplain": "우리 주변에 발생하는 사건, 사고들을 직접 제보하고 공유하여 우리 주변의 이웃들을 구하는 서비스입니다.",
         "people": [
             {
@@ -155,6 +155,63 @@ const ProjectData = [
                 "name": "임창수",
                 "part": "ANDROID",
                 "explain": "ui 구성 및 api연결을 하였습니다. 처음해보는 활동이지만 너무 뜻깊었고 많은 것을 배워갈 수 있는 활동이었다고 생각합니다!!"
+            }
+        ]
+    },
+    { 
+        "id": 4, 
+        "projectWeb": images['seokbakjiWeb'],
+        "projectMobile": images['seokbakjiMobile'],
+        "projectDetailWeb": images['seokbakjiDetailWeb'],
+        "projectDetailMobile": images['seokbakjiDetailMobile'],
+        "title": "석박지",
+        "project": "https://github.com/SukBakJi/SukBakJi-iOS",
+        "explain": "대학원, 대학원생, 졸업생을 모두 아울러 정보를 효과적으로 공유할 수 있는 커뮤니티 및 멘토링 서비스 ", 
+        "detailExplain": "대학원 진학 희망자, 대학원생, 졸업생을 모두 아울러 정보를 효과적으로 공유할 수 있는 커뮤니티 및 멘토링 서비스입니다.",
+        "people": [
+            {
+                "id": 1,
+                "part": "디자인",
+                "name": [
+                    "고하늘"
+                ]
+            },
+            {
+                "id": 2,
+                "part": "iOS",
+                "name": [
+                    "김경민"
+                ]
+            },
+            {
+                "id": 3,
+                "part": "서버",
+                "name": [
+                    "임수진"
+                ]
+            }
+        ],
+        "feel": [
+            {
+                "id": 1,
+                "nickname": "미락",
+                "name": "고하늘",
+                "part": "DESIGN",
+                "explain": "전체적인 앱 디자인 및 데모데이 굿즈 디자인을 하였으며, 디자인 완성도가 높게 나와서 만족했습니다!"
+            },
+            {
+                "id": 2,
+                "nickname": "하키",
+                "name": "김경민",
+                "part": "IOS",
+                "explain": "대학원 커뮤니티 서비스 석박지에서 게시판 파트와 디렉토리 파트를 맡아 UI/UX 개발 및 여러 버튼의 기능 구현과 백엔드 서버에서 구현된 API들을 프론트 개발과 연동했습니다. 다양한 사람들과 협업을 진행하면서 나눠진 파트에 따라 개발을 해볼 수 있는 좋은 경험이 될 수 있었습니다. 처음 해보는 협업 프로젝트인데, 팀원들 중 누구의 탈주도 없이 끝까지 노력하여 결과물을 발표할 수 있을 때 굉장한 성취감을 느낄 수 있었습니다. 이번 UMC 6기 활동을 하면서 스터디 진행을 위해 스스로 워크북을 채우는 과정에서도 스스로 정보를 수집하고 이해하는 부분에서 한 단계 더 성장할 수 있었습니다. 또한, 어떻게 해야할지 모르는 나로서, 데모데이 프로젝트를 직접 해보고 나니, 자신감도 생기게 되었고 앞으로도 더 많은 프로젝트를 해보고 싶다는 생각이 들었습니다. 단순히 기초 지식과 개념만 가지고 시작해서 ‘과연 내가 프로젝트를 할 수 있을까?’라는 걱정을 많이 했었지만, 직접 해보면서 배우기도 하고 스스로 공부하게 되는 좋은 영향 덕분에 잘 마무리 할 수 있었습니다."
+            },
+            {
+                "id": 3,
+                "nickname": "레이첼",
+                "name": "임수진",
+                "part": "SERVER",
+                "explain": "석박지(석사 박사 지원부터 취업정보까지)의 서버 파트로 참여하게 되었는데 이번에 처음 스프링부트를 접하고 하게 된 프로젝트입니다. 아직 부족한데 잘 할 수 있을까 걱정이 많이 됐었는데 좋은 팀원들을 만나서 서로에게 도움이 되기도 하고, 기대했던 결과물을 만들어낼 수 있어서 행복했어요!\n\n저번 기수 iOS 파트에 이어 이번 6기 UMC에도 활동하게 되었는데, 매주 스터디를 통해 역량을 기르면서 공부할 수 있는 시간을 가질 수 있다는 게 좋았어요. 그리고 기획, 디자인, 프론트엔드, 백엔드 다양한 파트가 모여 약 두달간 개발을 진행하여 완성도 있는 프로젝트를 경험해볼 수 있는데요. 데모데이까지 거치게 되면 정말 많이 배우고 성장해있는 모습을 발견하실 수 있을 거예요!"
             }
         ]
     },
