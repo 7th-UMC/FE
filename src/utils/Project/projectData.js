@@ -118,58 +118,43 @@ const ProjectData = [
     },
     { 
         "id": 3, 
-        "projectWeb": images['project1'],
-        "projectMobile": images['project2'],
-        "projectDetailWeb": images['projectDetail1'],
-        "projectDetailMobile": images['projectDetail2'],
-        "title": "서비스명3",
-        "explain": "서비스3의 설명입니다.",
+        "projectWeb": images['wesaveWeb'],
+        "projectMobile": images['wesaveMobile'],
+        "projectDetailWeb": images['wesaveDetailWeb'],
+        "projectDetailMobile": images['wesaveDetailMobile'],
+        "title": "WE SAVE",
+        "explain": "비건의 진입장벽을 낮추고 보다 쉬운 비건 라이프스타일을 즐길 수 있도록 도와주는 서비스", // 서비스 설명
+        "detailExplain": "우리 주변에 발생하는 사건, 사고들을 직접 제보하고 공유하여 우리 주변의 이웃들을 구하는 서비스입니다.",
         "people": [
             {
                 "id": 1,
                 "part": "기획",
                 "name": [
-                    "윤길동"
+                    "김지은"
                 ]
             },
             {
                 "id": 2,
-                "part": "디자인",
+                "part": "안드로이드",
                 "name": [
-                    "임길동"
-                ]
-            },
-            {
-                "id": 3,
-                "part": "iOS",
-                "name": [
-                    "홍길동",
-                    "김길동"
-                ]
-            },
-            {
-                "id": 4,
-                "part": "서버",
-                "name": [
-                    "양길동",
-                    "강길동"
+                    "임창수"
                 ]
             }
         ],
         "feel": [
             {
                 "id": 1,
-                "nickname": "사이다",
-                "name": "강다현",
-                "part": "SERVER",
-                "explain": "서버 파트에서 많은 걸 배워갑니다."
+                "nickname": "지니",
+                "name": "김지은",
+                "part": "PLAN",
+                "explain": "PM으로써 서비스를 기획하고, 프로젝트 과정과 팀원들의 일정 등 전반적인 제작 과정을 총괄하였으며, 간단한 디자인 및 비용 관리, 데모데이 부스 준비 등의 활동을 하였습니다. 처음 해보는 역할이어서 어려운 점이 많았지만 그만큼 배운 것도 많았던 활동이었던 것 같습니다."
             },
             {
                 "id": 2,
-                "nickname": "핸",
-                "name": "윤혜성",
-                "part": "WEB",
-                "explain": "다음 기수엔 웹 스터디장 할래요~"
+                "nickname": "칼트",
+                "name": "임창수",
+                "part": "ANDROID",
+                "explain": "ui 구성 및 api연결을 하였습니다. 처음해보는 활동이지만 너무 뜻깊었고 많은 것을 배워갈 수 있는 활동이었다고 생각합니다!!"
             }
         ]
     },
