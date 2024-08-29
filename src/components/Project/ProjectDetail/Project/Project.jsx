@@ -1,0 +1,56 @@
+import styled from "styled-components";
+import colors from "../../../../styles/colors";
+
+const ProjectContainer = styled.div`
+    width: 100%;
+    margin-top: 12rem;
+
+    @media screen and (max-width: 430px) {
+        margin-top: 5rem;
+    }
+`
+
+const ProjectP = styled.p`
+    font-size: 3.6rem;
+    font-weight: 700;
+    line-height: 4.296rem;
+    color: ${colors.introColor};
+
+    @media screen and (max-width: 430px) {
+        font-size: 2rem;
+        line-height: 2.387rem;
+    }
+`
+
+const ProjectP2 = styled.a`
+    display: block;
+    font-weight: 400;
+    font-size: 2.8rem;
+    line-height: 4.6rem;
+    color: ${colors.introColor};
+    margin-top: 1.6rem;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+
+    @media screen and (max-width: 430px) {
+        font-size: 1.4rem;
+        line-height: 2rem;
+        margin-top: 1.2rem;
+    }
+`
+
+const Project = ({ data }) => {
+    return (
+        <ProjectContainer>
+            <ProjectP>프로젝트</ProjectP>
+            <ProjectP2 href={data.project} target="_blank" rel="noopener noreferrer">
+                {data.project}
+            </ProjectP2>
+        </ProjectContainer>
+    )
+}
+
+export default Project;
