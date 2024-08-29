@@ -312,6 +312,34 @@ const ProjectData = [
                 "explain": "추후 추가 예정"
             }
         ]
+    },
+    { 
+        "id": 7, 
+        "projectWeb": images['plancapsuleWeb'],
+        "projectMobile": images['plancapsuleMobile'],
+        "projectDetailWeb": images['plancapsuleDetailWeb'],
+        "projectDetailMobile": images['plancapsuleDetailMobile'],
+        "title": "플랜캡슐",
+        "explain": "목표 관리의 빈틈을 채워줄 서비스", 
+        "detailExplain": "흐지부지 잊어버리게 되는 목표를  지속적으로 리마인드 해 이를 이룰 수 있도록 하며, 목표 관리의 빈틈을 채워줄 수 있는 서비스입니다.",
+        "people": [
+            {
+                "id": 1,
+                "part": "디자인",
+                "name": [
+                    "양유진"
+                ]
+            }
+        ],
+        "feel": [
+            {
+                "id": 1,
+                "nickname": "닉네임",
+                "name": "양유진",
+                "part": "DESIGN",
+                "explain": "추후 추가 예정"
+            }
+        ]
     }
 ]
 
