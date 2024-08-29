@@ -27,9 +27,6 @@ const ProjectP = styled.p`
     line-height: 3.341rem;
     color: ${colors.introColor};
     margin-top: 4rem;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
 
     @media screen and (max-width: 430px) {
         font-size: 1.6rem;
@@ -44,9 +41,6 @@ const ProjectP2 = styled.p`
     line-height: 2.864rem;
     color: ${colors.introColor};
     margin-top: 0.8rem;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
 
     @media screen and (max-width: 430px) {
         font-size: 1.4rem;
@@ -58,7 +52,6 @@ const ItemProject = ({ id, projectMobile, projectWeb, title, explain }) => {
     const navigate = useNavigate();
 
     const handleDetail = () => {
-        //console.log(id);
         navigate(`/project/${id}`);
     };
 
