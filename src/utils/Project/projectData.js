@@ -4,12 +4,12 @@ const ProjectData = [
     { 
         "id": 1, 
         "projectWeb": images['veganingWeb'],   // "/project" 주소에 나오는 웹버전 이미지
-        "projectMobile": images['project2'],    // "/project" 주소에 나오는 모바일버전 이미지
+        "projectMobile": images['veganingMobile'],    // "/project" 주소에 나오는 모바일버전 이미지
         "projectDetailWeb": images['veganingDetailWeb'],   // "project/1" 주소에 나오는 웹버전 이미지
-        "projectDetailMobile": images['projectDetail2'],    // "project/1" 주소에 나오는 모바일버전 이미지
+        "projectDetailMobile": images['veganingDetailMobile'],    // "project/1" 주소에 나오는 모바일버전 이미지
         "title": "비거닝",   // 서비스명
         "explain": "비건의 진입장벽을 낮추고 보다 쉬운 비건 라이프스타일을 즐길 수 있도록 도와주는 서비스", // 서비스 설명
-        "detailExplain": "비건의 진입 장벽을 낮추고자 기획되었으며, 비건의 진입장벽을 보다 쉬운 비건 라이프스타일을 즐길 수 있도록 비건 레시피/식당 정보 및 레시피 공모기능, 개인맞춤 비건 영양 정보 그래프 분석 제공 서비스입니다.", // 서비스 설명
+        "detailExplain": "비건의 진입 장벽을 낮추고자 기획되었으며, 비건의 진입장벽을 보다 쉬운 비건 라이프스타일을 즐길 수 있도록 비건 레시피/식당 정보 및 레시피 공모기능, 개인맞춤 비건 영양 정보 그래프 분석 제공 서비스입니다.", // "project/1" 주소에 나오는 서비스 설명
         "people": [ // 참여 인원
             {
                 "id": 1,
@@ -40,7 +40,7 @@ const ProjectData = [
                 "nickname": "에리얼",
                 "name": "임채현",
                 "part": "DESIGN",
-                "explain": "비건을 본인만의 라이프스타일로 만들고 싶은 MZ세대이 주요 타겟임을 고려하여, UI 디자인을 세련되고 트렌디하게 함으로써 더욱 비건을 시도해볼 수 있도록 디자인하였습니다. 자신만의 비건 레시피를 공유하고 만들어 볼 수 있어, 더욱 감성적으로 접근했습니다. 좋은 팀원분들을 만나, 디자인 화면들을 실제로 구현해볼 수 있어 뜻깊은 활동이였습니다."
+                "explain": "비건을 본인만의 라이프스타일로 만들고 싶은 MZ세대가 주요 타겟임을 고려하여, UI 디자인을 세련되고 트렌디하게 함으로써 더욱 비건을 시도해볼 수 있도록 디자인하였습니다. 자신만의 비건 레시피를 공유하고 만들어 볼 수 있어, 더욱 감성적으로 접근했습니다. 좋은 팀원분들을 만나, 디자인 화면들을 실제로 구현해볼 수 있어 뜻깊은 활동이였습니다."
             },
             {
                 "id": 2,
