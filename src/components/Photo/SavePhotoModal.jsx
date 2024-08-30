@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { QRCodeCanvas } from 'qrcode.react'; 
+import { fadeIn } from '../../styles/animations';
 
 const Overlay = styled.div`
     position: fixed;
@@ -16,8 +17,9 @@ const Overlay = styled.div`
 
 const ModalContainer = styled.div`
     width: 115rem;  
-    height: 50rem; 
-    padding: 3rem 0;
+    height: 45rem; 
+    flex-shrink: 0;
+    padding-top: 4.5rem;
     background-color: #fff;
     border: none;
     border-radius: 0.5rem;
@@ -27,6 +29,7 @@ const ModalContainer = styled.div`
     align-items: center;
     justify-content: center;
     gap: 5rem;
+    animation: ${fadeIn} 0.3s ease-out forwards;
 `;
 
 const ModalP = styled.p`
@@ -34,8 +37,9 @@ const ModalP = styled.p`
     color: #000629;
     font-family: Pretendard;
     font-size: 2.5rem;
+    font-style: normal;
     font-weight: 600;
-    line-height: 3.1825rem;
+    line-height: normal;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -43,8 +47,9 @@ const ModalP = styled.p`
 `;
 
 const QRcontainer = styled.div`
-    width: 16.6667rem;
-    height: 16.6667rem;
+    width: 15rem;
+    height: 15rem;
+    flex-shrink: 0;
     background: #d9d9d9;
     display: flex;
     justify-content: center;
@@ -52,21 +57,24 @@ const QRcontainer = styled.div`
 `;
 
 const ButtonDiv = styled.div`
-    width: 30rem;
+    width: 25rem;
     height: 5rem;
+    flex-shrink: 0;
     border: none;
     border-radius: 0.5rem;
-    color: #fff;
     background: #000629;
+    color: #FFF;
     font-family: Pretendard;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
+    font-style: normal;
     font-weight: 600;
-    line-height: 2.1875rem;
+    line-height: normal;
     display: flex;
     justify-content: center;
     text-align: center;
     align-items: center;
     cursor: pointer;
+    margin-top: 1rem;
 `;
 
 const SavePhotoModal = ({ onClose, photoURL }) => {
