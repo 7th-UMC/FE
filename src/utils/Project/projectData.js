@@ -266,10 +266,10 @@ const ProjectData = [
     },
     { 
         "id": 6, 
-        "projectWeb": images['project1'],
-        "projectMobile": images['project2'],
-        "projectDetailWeb": images['projectDetail1'],
-        "projectDetailMobile": images['projectDetail2'],
+        "projectWeb": images['routeporterWeb'],
+        "projectMobile": images['routeporterMobile'],
+        "projectDetailWeb": images['routeporterDetailWeb'],
+        "projectDetailMobile": images['routeporterDetailMobile'],
         "title": "루트포터",
         "explain": "AI가 추천해주는 맘에 쏙 드는 내 여행지 추천 서비스", 
         "detailExplain": "AI와 간단한 질문들에 문답을 하며, 취향 기반으로 다양한 여행지를 추천하는 기능을 가지고 있습니다. 바쁜 일상 속에서 여유를 찾을 수 있도록, AI가 추천해주는 맘에 쏙 드는 내 여행지 추천 서비스입니다.",
@@ -295,14 +295,7 @@ const ProjectData = [
                 "nickname": "진",
                 "name": "송의진",
                 "part": "DESIGN",
-                "explain": "추후 추가 예정"
-            },
-            {
-                "id": 2,
-                "nickname": "닉네임",
-                "name": "윤상혁",
-                "part": "WEB",
-                "explain": "추후 추가 예정"
+                "explain": "UXUI, 화면 전체 디자인 / 와이어프레임 설계 및 일부 기획 / 굿즈 디자인을 했습니다.\n매주 진행되는 파트별 스터디를 통해 꾸준히 실력을 향상시킬 수 있었고, 직접 프로젝트에 참여하면서 데모데이까지 완수하게 되어 매우 뿌듯합니다. 디자인 뿐 아니라 개발자 및 기획자 등 다른 파트 챌린저들과 협업한 경험은 후에 필드에 나가서도 큰 도움이 될 것 같습니다. 즐겁고 유익한 경험이었습니다. UMC 앞으로도 파이팅-!"
             }
         ]
     },
