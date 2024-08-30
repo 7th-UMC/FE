@@ -217,10 +217,10 @@ const ProjectData = [
     },
     { 
         "id": 5, 
-        "projectWeb": images['project1'],
-        "projectMobile": images['project2'],
-        "projectDetailWeb": images['projectDetail1'],
-        "projectDetailMobile": images['projectDetail2'],
+        "projectWeb": images['kiokiWeb'],
+        "projectMobile": images['kiokiMobile'],
+        "projectDetailWeb": images['kiokiDetailWeb'],
+        "projectDetailMobile": images['kiokiDetailMobile'],
         "title": "키오키",
         "explain": "키오스크 이용의 어려움을 해결하기 위해 이용법을 볼 수 있는 서비스", 
         "detailExplain": "키오스크 이용의 어려움을 해결하기 위해 실제 브랜드의 키오스크 화면을 제공하고 언제든지 이용법을 볼 수 있는 서비스입니다.",
@@ -253,7 +253,7 @@ const ProjectData = [
                 "nickname": "센",
                 "name": "박세은",
                 "part": "PLAN",
-                "explain": "추후 추가 예정"
+                "explain": "서비스 기획 및 디자인 공동작업, 각 팀원의 의견 전달 및 진도 확인 후 일정 계획을 했습니다. 기획자로 처음 참여한 프로젝트, 기획자는 기획만 끝내면 되는 것이 아닌 팀 전체를 이끌어가며 자신이 생각한 방향으로 프로젝트가 잘 진행될 수 있게 조율해야하기 때문에 책임감을 가져야 한다고 느꼈습니다."
             },
             {
                 "id": 2,
@@ -261,22 +261,15 @@ const ProjectData = [
                 "name": "정예빈",
                 "part": "ANDROID",
                 "explain": "안드로이드 파트로 활동하면서 정말 많은 것을 배울 수 있었습니다. 처음에는 안드로이드에 대해 아무것도 몰랐지만, 워크북과 클론코딩을 통해 기본 개념을 다질 수 있었습니다. 세션 때마다 안드로이드 팀원들과 모르는 것을 서로 물어보고 고치는 과정이 큰 도움이 되었습니다. 이러한 경험 덕분에 데모데이 때 안드로이드 프로젝트를 무사히 진행할 수 있었습니다:)"
-            },
-            {
-                "id": 3,
-                "nickname": "닉네임",
-                "name": "이지연",
-                "part": "SERVER",
-                "explain": "추후 추가 예정"
             }
         ]
     },
     { 
         "id": 6, 
-        "projectWeb": images['project1'],
-        "projectMobile": images['project2'],
-        "projectDetailWeb": images['projectDetail1'],
-        "projectDetailMobile": images['projectDetail2'],
+        "projectWeb": images['routeporterWeb'],
+        "projectMobile": images['routeporterMobile'],
+        "projectDetailWeb": images['routeporterDetailWeb'],
+        "projectDetailMobile": images['routeporterDetailMobile'],
         "title": "루트포터",
         "explain": "AI가 추천해주는 맘에 쏙 드는 내 여행지 추천 서비스", 
         "detailExplain": "AI와 간단한 질문들에 문답을 하며, 취향 기반으로 다양한 여행지를 추천하는 기능을 가지고 있습니다. 바쁜 일상 속에서 여유를 찾을 수 있도록, AI가 추천해주는 맘에 쏙 드는 내 여행지 추천 서비스입니다.",
@@ -302,14 +295,7 @@ const ProjectData = [
                 "nickname": "진",
                 "name": "송의진",
                 "part": "DESIGN",
-                "explain": "추후 추가 예정"
-            },
-            {
-                "id": 2,
-                "nickname": "닉네임",
-                "name": "윤상혁",
-                "part": "WEB",
-                "explain": "추후 추가 예정"
+                "explain": "UXUI, 화면 전체 디자인 / 와이어프레임 설계 및 일부 기획 / 굿즈 디자인을 했습니다.\n매주 진행되는 파트별 스터디를 통해 꾸준히 실력을 향상시킬 수 있었고, 직접 프로젝트에 참여하면서 데모데이까지 완수하게 되어 매우 뿌듯합니다. 디자인 뿐 아니라 개발자 및 기획자 등 다른 파트 챌린저들과 협업한 경험은 후에 필드에 나가서도 큰 도움이 될 것 같습니다. 즐겁고 유익한 경험이었습니다. UMC 앞으로도 파이팅-!"
             }
         ]
     },
