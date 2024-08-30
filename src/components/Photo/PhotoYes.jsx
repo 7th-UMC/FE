@@ -143,6 +143,8 @@ const Photo = () => {
     }, [clickCount, navigate, photos]);
 
     const capturePhoto = () => {
+        if (clickCount >= 4) return;
+
         const canvas = document.createElement('canvas');
         const context = canvas.getContext('2d');
         const video = videoRef.current;
@@ -174,9 +176,8 @@ const Photo = () => {
 
                 return newPhotos;
             });
-            setCurrentPhotoIndex(prevIndex => prevIndex + 1);
-
-            setClickCount(prevCount => prevCount + 1);
+        setCurrentPhotoIndex(prevIndex => (prevIndex < 3 ? prevIndex + 1 : 3));
+        setClickCount(prevCount => (prevCount < 4 ? prevCount + 1 : 4));
         }
     };
 
