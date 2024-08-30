@@ -53,7 +53,7 @@ const RecruitData = [
                 "name": "1차 서류 지원",
                 "start": "2024.09.02(월)",
                 "bar": "-",
-                "end": "2024.09.08(일)"
+                "end": "09.08(일) 오후 6시"
             },
             {
                 "id": 2,
@@ -75,7 +75,7 @@ const RecruitData = [
             {
                 "id": 5,
                 "name": "전체 OT",
-                "start": "2024.09.20(금)"
+                "start": "2024.09.20(금) 18시"
             }
         ],
         "content": [
