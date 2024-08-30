@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import GlobalStyle from './styles/globalStyles';
 
 import Header from "./components/Header/Header";
@@ -23,6 +24,12 @@ import StaffEdit from './pages/StaffQna/StaffEdit';
 function App() {
   return (
     <>
+      <Helmet>
+        <link 
+          href="https://fonts.googleapis.com/css2?family=Shippori+Antique+B1&display=swap" 
+          rel="stylesheet" 
+        />
+      </Helmet>
       <GlobalStyle />
       <Router>
         <Header />
