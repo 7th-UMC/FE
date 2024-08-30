@@ -103,21 +103,30 @@ const HeaderRightImg2 = styled.img`
 
 const Header = () => {
     const [menuOpen, setMenuOpen] = useState(false);
+    const [closing, setClosing] = useState(false); 
     const navigate = useNavigate();
     const isLogin = localStorage.getItem('isLogin') === 'true';
 
     const handleHomeClick = () => {
         navigate("/");
         if (menuOpen) 
-            setMenuOpen(false);
+            closeMenu();
     };
 
     const toggleMenu = () => {
-        setMenuOpen(prev => !prev);
+        if (menuOpen) {
+            closeMenu();
+        } else {
+            setMenuOpen(true);
+        }
     };
 
     const closeMenu = () => {
-        setMenuOpen(false);
+        setClosing(true);
+        setTimeout(() => {
+            setMenuOpen(false);
+            setClosing(false);
+        }, 500);
     };
 
     const handleLogout = () => {
@@ -147,7 +156,7 @@ const Header = () => {
                 </HeaderInnerContainer>
             </HeaderContainer>
 
-            {menuOpen && <Menu onClose={closeMenu} />}
+            {menuOpen && <Menu onClose={closeMenu} closing={closing}/>}
         </>
     );
 };

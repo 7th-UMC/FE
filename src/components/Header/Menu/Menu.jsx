@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import colors from "../../../styles/colors";
+import { slideDown, slideUp, fadeIn } from "../../../../src/styles/animations";
 
 import MenuOff1 from "../../../assets/images/Header/Menu/menuOff1.png";
 import MenuOff2 from "../../../assets/images/Header/Menu/menuOff2.png";
@@ -23,6 +24,7 @@ const MenuContainer = styled.div`
     z-index: 9999;
     display: flex;
     justify-content: center;
+    animation: ${({ closing }) => (closing ? slideUp : slideDown)} 0.7s ease-out forwards;
 `;
 
 const MenuContainer2 = styled.div`
@@ -57,6 +59,9 @@ const MenuDetailContainer = styled.div`
     font-weight: 500;
     line-height: 2.188rem;
     color: ${({ isactive, ishovered }) => (isactive === 'true' || ishovered === 'true' ? colors.white : colors.menuColor)};
+    opacity: 0;
+    animation: ${fadeIn} 1s ease-out forwards;
+    animation-delay: ${({ index }) => index * 0.25}s;
 
     &:hover {
         color: ${colors.white};
@@ -71,12 +76,19 @@ const MenuIcon = styled.img`
     width: 2.2rem;
 `;
 
-const Menu = ({ onClose }) => {
+const Menu = ({ onClose, closing }) => {
     const [hoveredIndex, setHoveredIndex] = useState(null);
     const [activeIndex, setActiveIndex] = useState(null);
     const navigate = useNavigate();
     const location = useLocation();
     const isLogin = localStorage.getItem('isLogin') === 'true';
+    useEffect(() => {
+        document.body.style.overflow = 'hidden';
+
+        return () => {
+            document.body.style.overflow = 'auto';
+        };
+    }, []);
 
     const routes = [
         { path: "/", name: "About UMC" },
@@ -90,8 +102,10 @@ const Menu = ({ onClose }) => {
     const iconsOn = [MenuOn1, MenuOn2, MenuOn3, MenuOn4, MenuOn5];
 
     const handleMenu = (index) => {
-        navigate(routes[index].path);
         onClose();
+        setTimeout(() => {
+            navigate(routes[index].path);
+        }, 500);
     };
 
     useEffect(() => {
@@ -127,12 +141,13 @@ const Menu = ({ onClose }) => {
     }, [location.pathname]);
 
     return (
-        <MenuContainer>
+        <MenuContainer closing={closing}>
             <MenuContainer2>
                 <MenuInnerContainer>
                     {routes.map((route, index) => (
                         <MenuDetailContainer
                             key={index}
+                            index={index}
                             onMouseEnter={() => setHoveredIndex(index)}
                             onMouseLeave={() => setHoveredIndex(null)}
                             onClick={() => handleMenu(index)}
