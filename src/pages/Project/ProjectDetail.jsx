@@ -6,7 +6,7 @@ import Intro from '../../components/Project/ProjectDetail/Intro/Intro';
 import People from '../../components/Project/ProjectDetail/People/People';
 import Feel from '../../components/Project/ProjectDetail/Feel/Feel';
 import Project from '../../components/Project/ProjectDetail/Project/Project';
-import Spinner from '../../components/common/Spinner';
+import Spinner from '../../components/Common/Spinner';
 import useImageLoader from '../../hooks/Project/useImageLoader';
 
 const DetailContainer = styled.div`

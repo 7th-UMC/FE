@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styled from "styled-components";
 import colors from "../../styles/colors";
 import ListProject from "../../components/Project/Project/list-project";
-import Spinner from "../../components/common/Spinner";
+import Spinner from "../../components/Common/Spinner";
 import ProjectData from "../../utils/Project/projectData.js";
 import useImageLoader from '../../hooks/Project/useImageLoader';
 
