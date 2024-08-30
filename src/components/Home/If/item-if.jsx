@@ -34,7 +34,8 @@ const IfInnerBox = styled.div`
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  
+  opacity: 0;
+
   &.visible {
     opacity: 1;
     transform: translateY(0);
