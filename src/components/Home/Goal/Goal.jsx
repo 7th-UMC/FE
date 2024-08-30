@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import colors from "../../../styles/colors";
+import { fadeInUp } from "../../../styles/animations";
+import useScrollAnimation from "../../../hooks/Home/useScrollAnimation";
 
 const GoalContainer = styled.div`
     width: 100%;
@@ -52,6 +54,26 @@ const CircleContainer = styled.div`
     @media screen and (max-width: 430px) {
         gap: 1rem;
     }
+
+    &.visible > div:nth-child(1) {
+        opacity: 0;
+        animation: ${fadeInUp} 1s 0.3s ease-out forwards;
+    }
+
+    &.visible > div:nth-child(2) {
+        opacity: 0;
+        animation: ${fadeInUp} 1s 0.6s ease-out forwards;
+    }
+
+    &.visible > div:nth-child(3) {
+        opacity: 0;
+        animation: ${fadeInUp} 1s 0.9s ease-out forwards;
+    }
+
+    &.hidden > div {
+        opacity: 0;
+        transform: translateY(20px);
+    }
 `
 
 const CircleDiv = styled.div`
@@ -78,11 +100,13 @@ const CircleDiv = styled.div`
 `
 
 const Goal = () => {
+    const { elementRef } = useScrollAnimation(); 
+
     return (
-        <GoalContainer>
+        <GoalContainer ref={elementRef}>
             <GoalInnerContainer>
                 <GoalP>함께 성장하는 UMC의 목표는,</GoalP>
-                <CircleContainer>
+                <CircleContainer className={elementRef.current?.classList.contains('visible') ? 'visible' : 'hidden'}>
                     <CircleDiv>CHALLENGE</CircleDiv>
                     <CircleDiv>EQUALITY</CircleDiv>
                     <CircleDiv>CONFIDENCE</CircleDiv>
