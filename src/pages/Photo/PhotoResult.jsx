@@ -4,6 +4,8 @@ import colors from '../../styles/colors';
 import FrameData from '../../utils/Photo/frameData';
 import { useLocation } from 'react-router-dom';
 import html2canvas from 'html2canvas';
+import SavePhotoModal from '../../components/Photo/SavePhotoModal';
+import { API } from '../../api/axios';
 
 const ResultContainer = styled.div`
     width: 60%;
@@ -17,7 +19,9 @@ const ResultContainer = styled.div`
 
 const ImgContainer = styled.div`
     width: 100%;
-    margin-top: 8.211rem;
+    margin: 8.211rem 0 0 0;
+    padding: 0;
+    box-shadow: none;
     position: relative;
     display: flex;
     justify-content: center;
@@ -30,6 +34,8 @@ const ImgContainer = styled.div`
 const FrameContainer = styled.img`
     width: 100%;
     height: auto;
+    padding: 0;
+    margin: 0;
 `;
 
 const PhotoGallery = styled.div`
@@ -91,9 +97,28 @@ const PhotoResult = () => {
     const [selectedFrame, setSelectedFrame] = useState(FrameData[0].frameWeb);
     const imgContainerRef = useRef(null);
     const isSelectedFrame3 = FrameData.find(frame => frame.frameWeb === selectedFrame)?.id === 3;
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [photoURL, setPhotoURL] = useState('');
 
     const handleFrameChange = (frame) => {
         setSelectedFrame(frame);
+    };
+
+    const uploadImage = async (imageFile) => {
+        const formData = new FormData();
+        formData.append('photoPicture', imageFile);
+
+        try {
+            const response = await API.post('/api/photo/', formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
+            });
+            return response.data.result.photoUrl;
+        } catch (error) {
+            console.error('Error during the image upload:', error.response?.data || error.message);
+            throw error;
+        }
     };
 
     const handleSubmit = () => {
@@ -101,15 +126,36 @@ const PhotoResult = () => {
             const originalBorder = imgContainerRef.current.style.border;
             imgContainerRef.current.style.border = 'none';
 
-            html2canvas(imgContainerRef.current).then(canvas => {
-                const link = document.createElement('a');
-                link.href = canvas.toDataURL('image/png');
-                link.download = 'umc-photo.png';
-                link.click();
+            html2canvas(imgContainerRef.current, { 
+                scale: 3, 
+                backgroundColor: null,
+                width: imgContainerRef.current.clientWidth,
+                height: imgContainerRef.current.clientHeight
+            }).then(async (canvas) => {
+                canvas.toBlob(async (blob) => {
+                    //console.log('파일 크기:', blob.size / 1024 / 1024, 'MB');
+                    try {
+                        const uploadedUrl = await uploadImage(blob);
+                        setPhotoURL(uploadedUrl);
+                        //console.log(uploadedUrl);
+                        const link = document.createElement('a');
+                        link.href = canvas.toDataURL('image/png');
+                        link.download = 'umc-photo.png';
+                        link.click();
 
+                        setIsModalOpen(true);
+                    } catch (error) {
+                        console.error('Error during the image upload:', error);
+                    }
+                }, 'image/png');
+            }).finally(() => {
                 imgContainerRef.current.style.border = originalBorder;
             });
         }
+    };
+
+    const handleModalClose = () => {
+        setIsModalOpen(false);
     };
 
     return (
@@ -141,6 +187,13 @@ const PhotoResult = () => {
             </FrameButtonContainer>
 
             <SubmitButton onClick={handleSubmit}>전송하기</SubmitButton>
+        
+            {isModalOpen && (
+                <SavePhotoModal 
+                    onClose={handleModalClose} 
+                    photoURL={photoURL}
+                />
+            )}
         </div>
     );
 };
