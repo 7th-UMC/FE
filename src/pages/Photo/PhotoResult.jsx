@@ -19,7 +19,9 @@ const ResultContainer = styled.div`
 
 const ImgContainer = styled.div`
     width: 100%;
-    margin-top: 8.211rem;
+    margin: 8.211rem 0 0 0;
+    padding: 0;
+    box-shadow: none;
     position: relative;
     display: flex;
     justify-content: center;
@@ -32,6 +34,8 @@ const ImgContainer = styled.div`
 const FrameContainer = styled.img`
     width: 100%;
     height: auto;
+    padding: 0;
+    margin: 0;
 `;
 
 const PhotoGallery = styled.div`
@@ -122,7 +126,12 @@ const PhotoResult = () => {
             const originalBorder = imgContainerRef.current.style.border;
             imgContainerRef.current.style.border = 'none';
 
-            html2canvas(imgContainerRef.current).then(async (canvas) => {
+            html2canvas(imgContainerRef.current, { 
+                scale: 3, 
+                backgroundColor: null,
+                width: imgContainerRef.current.clientWidth,
+                height: imgContainerRef.current.clientHeight
+            }).then(async (canvas) => {
                 canvas.toBlob(async (blob) => {
                     //console.log('파일 크기:', blob.size / 1024 / 1024, 'MB');
                     try {
@@ -134,7 +143,6 @@ const PhotoResult = () => {
                         link.download = 'umc-photo.png';
                         link.click();
 
-                        //imgContainerRef.current.style.border = originalBorder;
                         setIsModalOpen(true);
                     } catch (error) {
                         console.error('Error during the image upload:', error);

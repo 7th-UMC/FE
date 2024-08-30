@@ -155,7 +155,7 @@ const Photo = () => {
 
             setPhotos(prevPhotos => {
                 const newPhotos = [...prevPhotos, dataURL];
-                setCurrentPhotoIndex(prevIndex => prevIndex + 1);
+
                 setVisiblePhotoIndex(newPhotos.length - 1);
 
                 if (prevPhotos.length > 0) {
@@ -174,6 +174,7 @@ const Photo = () => {
 
                 return newPhotos;
             });
+            setCurrentPhotoIndex(prevIndex => prevIndex + 1);
 
             setClickCount(prevCount => prevCount + 1);
         }
