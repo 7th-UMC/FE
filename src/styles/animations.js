@@ -43,3 +43,28 @@ export const revealFromLeft = keyframes`
     clip-path: inset(0 0 0 0);
   }
 `;
+
+export const slideDown = keyframes`
+    0% {
+      opacity: 0;
+      clip-path: inset(0 0 100% 0);
+    }
+
+    100% {
+      opacity: 1;
+      clip-path: inset(0 0 0 0);
+    }
+`;
+
+
+export const slideUp = keyframes`
+    0% {
+      opacity: 1;
+      clip-path: inset(0 0 0 0);
+    }
+
+    100% {
+      opacity: 0;
+      clip-path: inset(0 0 100% 0);
+    }
+`;
