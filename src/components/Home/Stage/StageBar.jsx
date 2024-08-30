@@ -4,16 +4,30 @@ import StageBar1 from "../../../assets/images/Home/Stage/stageBar1.png";
 import StageBar2 from "../../../assets/images/Home/Stage/stageBar2.png";
 import StagePeople1 from "../../../assets/images/Home/Stage/stagePeople1.png";
 import StagePeople2 from "../../../assets/images/Home/Stage/stagePeople2.png";
+import useScrollAnimation from "../../../hooks/Home/useScrollAnimation";
+import { revealFromLeft, fadeInUp } from "../../../styles/animations";
 
 const StageBarContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    &.visible > img {
+        animation: ${revealFromLeft} 2s ease-out forwards;
+    }
+
+    &.hidden > img {
+        opacity: 0;
+        clip-path: inset(0 100% 0 0);
+    }
 `
 
 const StageBarImg = styled.img`
     width: 80.4rem;
     margin-top: 5.1rem;
+    opacity: 0;
+    clip-path: inset(0 100% 0 0);
+    transition: opacity 0.6s ease-out, clip-path 2s ease-out;
 
     @media screen and (max-width: 430px) {
         width: 36.2rem;
@@ -33,6 +47,26 @@ const StageDetailContainer = styled.div`
     @media screen and (max-width: 430px) {
         width: 37.759rem;
         margin-top: 1.642rem;
+    }
+
+    &.visible > div:nth-child(1) {
+        opacity: 0;
+        animation: ${fadeInUp} 1.2s 0.4s ease-out forwards;
+    }
+
+    &.visible > div:nth-child(2) {
+        opacity: 0;
+        animation: ${fadeInUp} 1.2s 0.8s ease-out forwards;
+    }
+
+    &.visible > div:nth-child(3) {
+        opacity: 0;
+        animation: ${fadeInUp} 1.2s 1.2s ease-out forwards;
+    }
+
+    &.hidden > div {
+        opacity: 0;
+        transform: translateY(20px);
     }
 `
 
@@ -155,11 +189,13 @@ const People2 = styled.p`
 `
 
 const StageBar = () => {
+    const { elementRef } = useScrollAnimation(); 
+
     return (
-        <StageBarContainer>
+        <StageBarContainer ref={elementRef}> 
             <StageBarImg src={StageBar1} alt="stageBar" />
 
-            <StageDetailContainer>
+            <StageDetailContainer className={elementRef.current?.classList.contains('visible') ? 'visible' : 'hidden'}>
                 <DetailContainer>
                     <StageBarP1>2023.09</StageBarP1>
                     <StageBarP2>5TH UMC</StageBarP2>

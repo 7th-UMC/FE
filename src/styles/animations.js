@@ -32,3 +32,14 @@ export const fadeIn = keyframes`
     transform: scale(1);
   }
 `;
+
+export const revealFromLeft = keyframes`
+  0% {
+    opacity: 0;
+    clip-path: inset(0 100% 0 0);
+  }
+  100% {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+  }
+`;
