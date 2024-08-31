@@ -20,7 +20,7 @@ const MenuContainer = styled.div`
     width: 100%;
     height: 100vh;
     background-color: ${colors.menuBackground};
-    position: absolute;
+    position: fixed;
     z-index: 9999;
     display: flex;
     justify-content: center;
@@ -80,11 +80,11 @@ const Menu = ({ onClose, closing }) => {
     const [hoveredIndex, setHoveredIndex] = useState(null);
     const [activeIndex, setActiveIndex] = useState(null);
     const navigate = useNavigate();
-    const location = useLocation();
+    const location = useLocation();  
     const isLogin = localStorage.getItem('isLogin') === 'true';
+
     useEffect(() => {
         document.body.style.overflow = 'hidden';
-
         return () => {
             document.body.style.overflow = 'auto';
         };
