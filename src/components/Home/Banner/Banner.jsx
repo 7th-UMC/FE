@@ -98,16 +98,18 @@ const LightImg = styled.img`
         bottom: 30%; 
         right: 21%;  
     }
-
     @media screen and (max-width: 430px) {
         width: 10%;  
         bottom: 33%; 
         right: 26%;  
     }
-
+    @media screen and (max-width: 400px) {
+        right: 22%;  
+    }
     @media screen and (max-width: 375px) {
         right: 24%;  
     }
+
 `
 
 const LightImg2 = styled.img`
@@ -121,13 +123,14 @@ const LightImg2 = styled.img`
         bottom: 46%; 
         left: 21%;  
     }
-
     @media screen and (max-width: 430px) {
         width: 10%;  
         bottom: 51%; 
         left: 25%;  
     }
-
+    @media screen and (max-width: 400px) {
+        left: 22%;  
+    }
     @media screen and (max-width: 375px) {
         left: 23%;  
     }
