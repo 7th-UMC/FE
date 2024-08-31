@@ -23,10 +23,12 @@ const BackgroundImg = styled.img`
 const DetailContainer2 = styled.div`
     width: 60%;
     margin-top: 4rem;
+    margin-bottom: ${(props) => (props.hasFeel ? '0' : '9.37rem')}; 
 
     @media screen and (max-width: 430px) {
         width: 92%;
         margin-top: 1.641rem;
+        margin-bottom: ${(props) => (props.hasFeel ? '0' : '1.641rem')};
     }
 `;
 
@@ -41,6 +43,8 @@ const ProjectDetail = () => {
         window.scrollTo(0, 0);
     }, [id]);
 
+    const hasFeel = Boolean(project.feel);
+
     return (
         <div className="pageContainer">
             {isLoading ? (
@@ -48,11 +52,11 @@ const ProjectDetail = () => {
             ) : (
                 <DetailContainer>
                     <BackgroundImg src={imageSrc} alt="project" />
-                    <DetailContainer2>
+                    <DetailContainer2 hasFeel={hasFeel}>
                         <Intro data={project} />
                         {project.project && <Project data={project} />}
                         <People data={project} />
-                        <Feel data={project} />
+                        {hasFeel && <Feel data={project} />}
                     </DetailContainer2>
                 </DetailContainer>
             )}
