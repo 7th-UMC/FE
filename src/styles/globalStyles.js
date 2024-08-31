@@ -163,6 +163,7 @@ const GlobalStyle = createGlobalStyle`
 
     .pageContainer {
         min-height: calc(100vh - 22rem);
+        margin-top: 8.0625rem;
 
         @media screen and (max-width: 430px) {
             min-height: calc(100vh - 17.659rem);
