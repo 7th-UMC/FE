@@ -97,3 +97,51 @@ export const bounceOut = keyframes`
         opacity: 0;
     }
 `;
+
+export const sparkle = keyframes`
+  0%, 100% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.5);
+  }
+`;
+
+export const sparkleText = keyframes`
+  0%, 100% {
+    text-shadow: 0 0 2.5px rgba(255, 255, 255, 0.5), 0 0 5px rgba(255, 255, 255, 0.7);
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.5);
+  }
+  50% {
+    text-shadow: 0 0 5px rgba(255, 255, 255, 1), 0 0 10px rgba(255, 255, 255, 1);
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 1);
+  }
+`;
+
+export const sparkleImg = keyframes`
+  0%, 100% {
+    opacity: 1;
+    filter: brightness(1);
+  }
+  25% {
+    opacity: 0.3;
+    filter: brightness(1.25);
+  }
+  50% {
+    opacity: 0.6;
+    filter: brightness(1.5);
+  }
+  75% {
+    opacity: 0.3;
+    filter: brightness(1.25);
+  }
+`;
+
+export const twinkling = keyframes`
+    0%, 100% {
+      opacity: 0.3;
+    }
+    50% {
+      opacity: 1;
+    }
+`;
