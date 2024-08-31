@@ -35,13 +35,11 @@ const IfInnerBox = styled.div`
   align-items: flex-start;
   justify-content: space-between;
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease-out, transform 1s ease-out;
 
   &.visible {
     opacity: 1;
     transform: translateY(0);
-    animation: ${fadeInUp} 0.85s ease-out forwards;
+    animation: ${fadeInUp} 0.6s ease-out forwards;
   }
 
   &.hidden {

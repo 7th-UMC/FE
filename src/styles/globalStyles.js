@@ -80,7 +80,11 @@ const GlobalStyle = createGlobalStyle`
         background: linear-gradient(179.93deg, ${colors.background1} -11.2%, ${colors.background2} 67.48%, ${colors.background3} 90.93%);
         background-size: cover;
         background-repeat: no-repeat;
+        overflow: auto;
+    }
 
+    ::-webkit-scrollbar {
+        display: none;
     }
 
     @media screen and (max-width:1799px) {
