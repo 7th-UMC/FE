@@ -27,7 +27,7 @@ const fadeout = keyframes`
 
 const PhotoContainer = styled.div`
     width: 100%;
-    height: calc(100vh - 6rem);
+    height: calc(100vh - 8.3rem);
     display: flex;
     justify-content: center;
     position: relative;
