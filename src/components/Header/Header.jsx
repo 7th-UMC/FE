@@ -1,22 +1,30 @@
-import { useNavigate } from "react-router-dom";
-import React, { useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import colors from "../../styles/colors";
-
 import HeaderLogo1 from "../../assets/images/Header/headerLogo1.png";
 import HeaderLogo2 from "../../assets/images/Header/headerLogo2.png";
-import HeaderBar1 from "../../assets/images/Header/headerBar1.png";
-import HeaderBar2 from "../../assets/images/Header/headerBar2.png";
-import HeaderMenu1 from "../../assets/images/Header/headerMenu1.png";
-import HeaderMenu2 from "../../assets/images/Header/headerMenu2.png";
-
+import DesktopHeader from "./DesktopHeader";
+import MobileHeader from "./MobileHeader";
 import Menu from "./Menu/Menu";
+import colors from "../../styles/colors";
 
 const HeaderContainer = styled.div`
     width: 100%;
-    height: 6rem;
     display: flex;
     justify-content: center;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    height: 8.3rem;
+    background: ${({ scrolled, menuOpen }) =>
+        menuOpen
+            ? `${colors.headerBackground}`
+            : scrolled
+            ? 'var(--, linear-gradient(270deg, rgba(255, 255, 255, 0.00) -26.79%, rgba(0, 0, 0, 0.20) -6.82%, rgba(22, 22, 22, 0.18) 11.15%, rgba(255, 255, 255, 0.04) 123.81%))'
+            : 'transparent'};
+    background-blend-mode: overlay;
+    backdrop-filter: ${({ scrolled, menuOpen }) => (scrolled || menuOpen ? 'blur(75px)' : 'none')};
+    transition: background 0.3s ease-in-out, backdrop-filter 0.3s ease-in-out;
 
     @media screen and (max-width: 430px) {
         height: 7.659rem;
@@ -50,67 +58,28 @@ const HeaderLeftLogoImg = styled.img`
     }
 `;
 
-const HeaderLeftP = styled.p`
-    font-weight: 700;
-    font-size: 1.6rem;
-    line-height: 1.909rem;
-    color: ${colors.white};
-`;
-
-const RightContainer = styled.div`
-    display: flex;
-    gap: 3.822rem;
-    align-items: center;
-
-    @media screen and (max-width: 430px) {
-        gap: 2.04rem;
-    }
-`;
-
-const LogoutP = styled.p`
-    cursor: pointer;
-    color: ${colors.white};
-    font-size: 1.6rem;
-    line-height: 1.909rem;
-    font-weight: 600;
-
-    @media screen and (max-width: 430px) {
-        font-size: 1.4rem;
-        line-height: 2rem;
-        font-weight: 400;
-    }
-`;
-
-const HeaderRightImg = styled.img`
-    cursor: pointer;
-    width: 4rem;
-
-    @media screen and (max-width: 430px) {
-        width: 3.6rem;
-        content: url(${HeaderBar2});
-    }
-`;
-
-const HeaderRightImg2 = styled.img`
-    cursor: pointer;
-    width: 4rem;
-
-    @media screen and (max-width: 430px) {
-        width: 3.6rem;
-        content: url(${HeaderMenu2});
-    }
-`;
-
 const Header = () => {
     const [menuOpen, setMenuOpen] = useState(false);
-    const [closing, setClosing] = useState(false); 
+    const [scrolled, setScrolled] = useState(false);
     const navigate = useNavigate();
+    const location = useLocation();
     const isLogin = localStorage.getItem('isLogin') === 'true';
+    const isStaffLogin = location.pathname === '/stafflogin';
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrolled(window.scrollY > 50);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
 
     const handleHomeClick = () => {
         navigate("/");
-        if (menuOpen) 
-            closeMenu();
+        if (menuOpen) closeMenu();
     };
 
     const toggleMenu = () => {
@@ -122,11 +91,7 @@ const Header = () => {
     };
 
     const closeMenu = () => {
-        setClosing(true);
-        setTimeout(() => {
-            setMenuOpen(false);
-            setClosing(false);
-        }, 500);
+        setMenuOpen(false);
     };
 
     const handleLogout = () => {
@@ -137,26 +102,24 @@ const Header = () => {
 
     return (
         <>
-            <HeaderContainer>
+            <HeaderContainer scrolled={scrolled} menuOpen={menuOpen}>
                 <HeaderInnerContainer>
                     <HeaderLeft onClick={handleHomeClick}>
                         <HeaderLeftLogoImg src={HeaderLogo1} alt="logo" />
-                        <HeaderLeftP>HSU UMC</HeaderLeftP>
                     </HeaderLeft>
-                    <RightContainer>
-                        {isLogin && (
-                            <LogoutP onClick={handleLogout}>로그아웃</LogoutP>
-                        )}
-                        {menuOpen ? (
-                            <HeaderRightImg2 src={HeaderMenu1} alt="headerMenu" onClick={toggleMenu} />
-                        ) : (
-                            <HeaderRightImg src={HeaderBar1} alt="headerBar" onClick={toggleMenu} />
-                        )}
-                    </RightContainer>
+
+                    <DesktopHeader isLogin={isLogin} handleLogout={handleLogout} />
+
+                    <MobileHeader
+                        isLogin={isLogin}
+                        menuOpen={menuOpen}
+                        toggleMenu={toggleMenu}
+                        handleLogout={handleLogout}
+                    />
                 </HeaderInnerContainer>
             </HeaderContainer>
 
-            {menuOpen && <Menu onClose={closeMenu} closing={closing}/>}
+            {menuOpen && <Menu onClose={closeMenu} />}
         </>
     );
 };
