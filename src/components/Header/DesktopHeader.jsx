@@ -47,8 +47,8 @@ const DesktopHeader = ({ isLogin, handleLogout }) => {
                 프로젝트
             </MenuItem>
             <MenuItem 
-                onClick={() => navigate("/qna")} 
-                active={location.pathname === "/qna"}
+                onClick={() => navigate(isLogin ? "/staffqna" : "/qna")} 
+                active={location.pathname === "/qna" || location.pathname === "/staffqna"}
             >
                 Q&A
             </MenuItem>
