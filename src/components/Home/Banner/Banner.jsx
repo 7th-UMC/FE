@@ -4,6 +4,8 @@ import BannerBackground1 from "../../../assets/images/Home/Banner/banner1.png";
 import BannerBackground2 from "../../../assets/images/Home/Banner/banner2.png";
 import BannerLogo1 from "../../../assets/images/Home/Banner/bannerLogo1.png";
 import BannerLogo2 from "../../../assets/images/Home/Banner/bannerLogo2.png";
+import Light from "../../../assets/images/Home/Banner/light.png";
+import { sparkle, sparkleText, sparkleImg, twinkling } from "../../../styles/animations";
 
 const BanenrContainer = styled.div`
     width: 100%;
@@ -27,6 +29,8 @@ const BannerBackImg = styled.img`
     @media screen and (max-width: 430px) {
         content: url(${BannerBackground2});
     }
+    
+    animation: ${sparkleImg} 5s infinite ease-in-out;      
 `
 
 const BannerInnerContainer = styled.div`
@@ -48,6 +52,7 @@ const BannerP = styled.p`
     text-align: center;
     font-family: Shippori Antique B1;
     color: ${colors.white};
+    animation: ${sparkleText} 2s infinite ease-in-out;
 
     @media screen and (max-width: 430px) {
         font-size: 1.8rem;
@@ -58,6 +63,7 @@ const BannerP = styled.p`
 const BannerImg = styled.img`
     width: 100%;
     margin-top: 0.793rem;
+    animation: ${sparkle} 2.5s infinite ease-in-out;
 
     @media screen and (max-width: 430px) {
         content: url(${BannerLogo2});
@@ -72,11 +78,58 @@ const BannerP2 = styled.p`
     color: ${colors.white};
     opacity: 0.95;
     margin-top: 0.799rem;
+    animation: ${sparkleText} 2s infinite ease-in-out;
 
     @media screen and (max-width: 430px) {
         font-size: 1.1rem;
         line-height: 1.313rem;
         margin-top: 0.849rem;
+    }
+`
+
+const LightImg = styled.img`
+    position: absolute;
+    bottom: 30%;
+    right: 27%;
+    width: 15%;
+    animation: ${twinkling} 2.5s infinite ease-in-out;
+
+    @media screen and (max-width: 1024px) { 
+        bottom: 30%; 
+        right: 21%;  
+    }
+
+    @media screen and (max-width: 430px) {
+        width: 10%;  
+        bottom: 33%; 
+        right: 26%;  
+    }
+
+    @media screen and (max-width: 375px) {
+        right: 24%;  
+    }
+`
+
+const LightImg2 = styled.img`
+    position: absolute;
+    bottom: 44%;
+    left: 26%;
+    width: 15%;
+    animation: ${twinkling} 2.5s infinite ease-in-out;
+
+    @media screen and (max-width: 1024px) { 
+        bottom: 46%; 
+        left: 21%;  
+    }
+
+    @media screen and (max-width: 430px) {
+        width: 10%;  
+        bottom: 51%; 
+        left: 25%;  
+    }
+
+    @media screen and (max-width: 375px) {
+        left: 23%;  
     }
 `
 
@@ -90,6 +143,8 @@ const Banner = () => {
                 <BannerImg src={BannerLogo1} alt="banner" />
                 <BannerP2>HSU_MAKE US CHALLENGE</BannerP2>
             </BannerInnerContainer>
+            <LightImg src={Light} alt="light effect" />
+            <LightImg2 src={Light} alt="light effect" />
         </BanenrContainer>
     )
 }
