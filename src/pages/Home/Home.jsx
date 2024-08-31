@@ -10,7 +10,7 @@ const HomeContainer = styled.div`
     min-height: calc(100vh - 22rem);
     margin-top: 0;
 
-    @media screen and (max-width: 430px) {
+    @media screen and (max-width: 768px) {
         min-height: calc(100vh - 17.659rem);
         margin-top: 7.659rem;
     }
