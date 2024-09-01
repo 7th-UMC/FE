@@ -316,15 +316,6 @@ const ProjectData = [
                     "양유진"
                 ]
             }
-        ],
-        "feel": [
-            {
-                "id": 1,
-                "nickname": "닉네임",
-                "name": "양유진",
-                "part": "DESIGN",
-                "explain": "추후 추가 예정"
-            }
         ]
     }
 ]

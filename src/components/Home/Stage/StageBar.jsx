@@ -222,7 +222,7 @@ const StageBar = () => {
                     <StageBarP1>2024.09</StageBarP1>
                     <StageBarP2>7TH UMC</StageBarP2>
                     <PeopleBox2>
-                        <People2>모집 예정</People2>
+                        <People2>모집 중</People2>
                     </PeopleBox2>
                 </DetailContainer>
             </StageDetailContainer>
