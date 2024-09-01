@@ -32,34 +32,39 @@ const DesktopHeader = ({ isLogin, handleLogout }) => {
     const navigate = useNavigate();
     const location = useLocation();
 
+    const handleNavigation = (path) => {
+        navigate(path);
+        window.scrollTo(0, 0);
+    };
+
     return (
         <DesktopMenuContainer>
             <MenuItem 
-                onClick={() => navigate("/")} 
+                onClick={() => handleNavigation("/")} 
                 active={location.pathname === "/"}
             >
                 소개
             </MenuItem>
             <MenuItem 
-                onClick={() => navigate("/project")} 
+                onClick={() => handleNavigation("/project")} 
                 active={location.pathname === "/project"}
             >
                 프로젝트
             </MenuItem>
             <MenuItem 
-                onClick={() => navigate(isLogin ? "/staffqna" : "/qna")} 
+                onClick={() => handleNavigation(isLogin ? "/staffqna" : "/qna")} 
                 active={location.pathname === "/qna" || location.pathname === "/staffqna"}
             >
                 Q&A
             </MenuItem>
             <MenuItem 
-                onClick={() => navigate("/photo")} 
+                onClick={() => handleNavigation("/photo")} 
                 active={location.pathname === "/photo"}
             >
                 UMC Frame Photo
             </MenuItem>
             <MenuItem 
-                onClick={() => navigate("/recruit")} 
+                onClick={() => handleNavigation("/recruit")} 
                 active={location.pathname === "/recruit"}
             >
                 지원하기
