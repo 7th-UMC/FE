@@ -11,7 +11,7 @@ const useScrollAnimation = (threshold = 0.6) => {
           setIsVisible(true);
           elementRef.current.classList.add('visible');
           elementRef.current.classList.remove('hidden');
-        } else if (!entry.isIntersecting && isVisible) {
+        } else if (!entry.isIntersecting && isVisible && entry.boundingClientRect.top > 0) {
           setIsVisible(false);
           elementRef.current.classList.remove('visible');
           elementRef.current.classList.add('hidden');
