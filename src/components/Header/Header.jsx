@@ -79,6 +79,7 @@ const Header = () => {
 
     const handleHomeClick = () => {
         navigate("/");
+        window.scrollTo(0, 0);
         if (menuOpen) closeMenu();
     };
 
