@@ -8,18 +8,19 @@ const ItemContainer = styled.div`
     display: flex;
     gap: 1.2rem;
     align-items: flex-start;
-    margin-bottom: 2rem;
+    margin-bottom: 0.8rem;
 
     @media screen and (max-width: 430px) {
         gap: 0.8rem;
-        margin-bottom: 1.4rem;
     }
 `
 
 const ItemImg = styled.img`
+    margin-top: 0.8rem;
     width: 2.4rem;
 
     @media screen and (max-width: 430px) {
+        margin-top: 0;
         width: 1.8rem;
         content: url(${Information2});
     }
@@ -28,12 +29,13 @@ const ItemImg = styled.img`
 const ItemP = styled.p`
     font-size: 2rem;
     font-weight: 300;
-    line-height: 2.387rem;
+    line-height: 4rem; /* 줄 간 간격을 넓게 설정 */
     color: ${colors.white};
+    margin: 0; /* 텍스트 위아래 여백 제거 */
 
     @media screen and (max-width: 430px) {
         font-size: 1.2rem;
-        line-height: 1.313rem;
+        line-height: 2rem; /* 모바일에서의 줄 간 간격 조정 */
     }
 `
 
