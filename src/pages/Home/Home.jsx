@@ -5,7 +5,6 @@ import Intro from "../../components/Home/Intro/Intro";
 import Goal from "../../components/Home/Goal/Goal";
 import Stage from "../../components/Home/Stage/Stage";
 import If from "../../components/Home/If/If";
-import Apply from "../../components/Home/Apply/Apply"; 
 
 const HomeContainer = styled.div`
     min-height: calc(100vh - 22rem);
@@ -25,7 +24,6 @@ const Home = () => {
             <Goal />
             <Stage />
             <If />
-            <Apply /> 
         </HomeContainer>
     )
 }
