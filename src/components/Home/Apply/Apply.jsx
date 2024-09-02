@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import Arrow from '../../../assets/images/Home/Apply/arrow.png'; 
 import colors from "../../../styles/colors";
-import ApplyBackground from '../../../assets/images/Home/Apply/applybg.png';
+import ApplyBackground from '../../../assets/images/Home/Apply/applybg2.png';
 
 const SectionContainer = styled.div`
   display: flex;
@@ -11,7 +11,7 @@ const SectionContainer = styled.div`
   height: 50rem;
   flex-direction: column;
   text-align: center;
-  overflow: hidden;  /* 이미지가 컨테이너 밖으로 나가지 않도록 함 */
+  overflow: hidden;
 
   @media screen and (max-width: 1024px) {
     height: 40rem;
@@ -32,7 +32,7 @@ const BackgroundImage = styled.img`
   top: 0;
   left: 0;
   width: 100%;
-  height: 50rem;  
+  height: 105%; 
   object-fit: top;
   z-index: -2;
 `;
@@ -44,8 +44,10 @@ const Overlay = styled.div`
   width: 100%;
   height: 100%;
   background: linear-gradient(180deg, rgba(13, 36, 127, 0.00) 3.45%, #00092A 118.96%);
+  /*
   backdrop-filter: blur(17.5px);
   -webkit-backdrop-filter: blur(17.5px);
+  */
   z-index: -1;
 `;
 
