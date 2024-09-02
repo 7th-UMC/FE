@@ -17,6 +17,7 @@ import MenuOn4 from "../../../assets/images/Header/Menu/menuOn4.png";
 import MenuOn5 from "../../../assets/images/Header/Menu/menuOn5.png";
 
 const MenuContainer = styled.div`
+    top: 7.659rem;
     width: 100%;
     height: 100vh;
     background-color: ${colors.menuBackground};

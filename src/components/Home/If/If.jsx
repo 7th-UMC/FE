@@ -10,6 +10,7 @@ const IfContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-bottom: 7rem;
 `
 
 const BackgroundContainer = styled.div`

@@ -12,7 +12,7 @@ const ItemButton = styled.div`
     text-align: center;
     background-color: ${({ selected }) => selected ? colors.recruitColor6 : "none"};
     font-size: 2.8rem;
-    font-weight: 500;
+    font-weight: ${({ selected }) => selected ? 600 : 500}; 
     line-height: 3.341rem;
     color: ${({ selected }) => selected ? colors.footerColor : colors.recruitColor6};
     cursor: pointer;
