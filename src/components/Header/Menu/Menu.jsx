@@ -17,7 +17,7 @@ import MenuOn4 from "../../../assets/images/Header/Menu/menuOn4.png";
 import MenuOn5 from "../../../assets/images/Header/Menu/menuOn5.png";
 
 const MenuContainer = styled.div`
-    top: 7.659rem;
+    top: 7.5rem;
     width: 100%;
     height: 100vh;
     background-color: ${colors.menuBackground};
@@ -85,11 +85,11 @@ const Menu = ({ onClose, closing }) => {
     const isLogin = localStorage.getItem('isLogin') === 'true';
 
     useEffect(() => {
-        document.body.style.overflow = 'hidden';
+        document.body.classList.add('no-scroll');
         return () => {
-            document.body.style.overflow = 'auto';
+            document.body.classList.remove('no-scroll');
         };
-    }, []);
+    }, []);    
 
     const routes = [
         { path: "/", name: "About UMC" },
