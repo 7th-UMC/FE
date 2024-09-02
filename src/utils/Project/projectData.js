@@ -123,7 +123,7 @@ const ProjectData = [
         "projectDetailWeb": images['wesaveDetailWeb'],
         "projectDetailMobile": images['wesaveDetailMobile'],
         "title": "WE SAVE",
-        "explain": "비건의 진입장벽을 낮추고 보다 쉬운 비건 라이프스타일을 즐길 수 있도록 도와주는 서비스", 
+        "explain": "우리 주변에 발생하는 사건, 사고들을 직접 제보하고 공유하여 주변의 이웃들을 구하는 서비스", 
         "detailExplain": "우리 주변에 발생하는 사건, 사고들을 직접 제보하고 공유하여 우리 주변의 이웃들을 구하는 서비스입니다.",
         "people": [
             {
