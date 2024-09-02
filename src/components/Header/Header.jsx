@@ -12,7 +12,6 @@ const HeaderContainer = styled.div`
     width: 100%;
     display: flex;
     justify-content: center;
-    position: fixed;
     top: 0;
     z-index: 1000;
     height: 8.3rem;

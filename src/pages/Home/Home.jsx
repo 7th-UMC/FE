@@ -13,7 +13,6 @@ const HomeContainer = styled.div`
 
     @media screen and (max-width: 768px) {
         min-height: calc(100vh - 17.659rem);
-        margin-top: 7.659rem;
     }
 `;
 

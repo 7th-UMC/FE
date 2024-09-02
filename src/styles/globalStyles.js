@@ -161,9 +161,15 @@ const GlobalStyle = createGlobalStyle`
         scrollbar-width: none; /* 파이어폭스 */
     }
 
+    .no-scroll {
+        overflow: hidden;
+        position: fixed;
+        width: 100%;
+    }
+    
     .pageContainer {
         min-height: calc(100vh - 22rem);
-        margin-top: 8.0625rem;
+
 
         @media screen and (max-width: 430px) {
             min-height: calc(100vh - 17.659rem);
