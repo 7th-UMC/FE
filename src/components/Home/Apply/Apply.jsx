@@ -1,19 +1,16 @@
 import styled from 'styled-components';
 import Arrow from '../../../assets/images/Home/Apply/Arrow.png'; 
-import ApplyBackground from '../../../assets/images/Home/Apply/applybackground.png';
+import colors from "../../../styles/colors";
+import ApplyBackground from '../../../assets/images/Home/Apply/applybg.png';
 
 const SectionContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  position: relative;
+  height: 75rem;
   flex-direction: column;
   text-align: center;
-  background: 
-    linear-gradient(180deg, rgba(0, 0, 0, 0.00) 33.41%, rgba(0, 0, 0, 0.70) 92.76%),
-    linear-gradient(180deg, #112679 0%, rgba(0, 0, 0, 0.00) 100%),
-    url(${ApplyBackground}) no-repeat center center;
-  background-size: cover;
 
   @media screen and (max-width: 430px) {
     height: 100vh;
@@ -21,8 +18,28 @@ const SectionContainer = styled.div`
   }
 `;
 
+const BackgroundImage = styled.img`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 75rem;
+  z-index: -2;
+`;
+
+const Overlay = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(13, 36, 127, 0.00) 3.45%, #00092A 118.96%);
+  backdrop-filter: blur(17.5px);
+  z-index: -1;
+`;
+
 const Title = styled.div`
-  color: #FFF;
+  color:  ${colors.white};
   font-family: Pretendard;
   font-size: 4.3rem;
   font-style: normal;
@@ -37,12 +54,12 @@ const Title = styled.div`
 `;
 
 const SubTitle = styled.div`
-  color: #9EA0A2;
+  color: ${colors.white};
   font-family: Pretendard;
   font-size: 2.7rem;
   font-style: normal;
-  font-weight: 500;
-  line-height: 2.875rem; /* 127.778% */
+  font-weight: 400;
+  line-height: 2.875rem;
   letter-spacing: -0.0675rem;
   margin-top: 3rem;
 
@@ -58,13 +75,13 @@ const Button = styled.button`
   height: 7.25rem;
   flex-shrink: 0;
   border-radius: 6.25rem;
-  background: #000;
-  color: #FFF;
+  background: ${colors.white};
+  color:  ${colors.black};
   font-family: Pretendard;
   font-size: 2.5rem;
   font-style: normal;
   font-weight: 600;
-  line-height: 2.875rem; /* 115% */
+  line-height: 2.875rem;
   letter-spacing: -0.075rem;
   margin-top: 7.75rem;
   display: flex;
@@ -113,6 +130,8 @@ const Apply = () => {
 
   return (
     <SectionContainer>
+      <BackgroundImage src={ApplyBackground} alt="Apply Background" />
+      <Overlay />
       <Title>UMC와 함께 꿈을 펼쳐 보세요!</Title>
       <SubTitle>새로운 도전과 기회를 UMC 한성대와 함께 경함해보세요</SubTitle>
       <Button onClick={handleButtonClick}>
