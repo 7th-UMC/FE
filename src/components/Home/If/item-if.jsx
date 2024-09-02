@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components";
 import colors from "../../../styles/colors";
-import { fadeInUp, fadeOutDown } from "../../../styles/animations";
-import useScrollAnimation from "../../../hooks/Home/useScrollAnimation";
+import { motion } from 'framer-motion';
 
 const IfP = styled.p`
   font-size: 2.8rem;
@@ -29,24 +28,11 @@ const IfP2 = styled.p`
   }
 `;
 
-const IfInnerBox = styled.div`
+const IfInnerBox = styled(motion.div)`
   width: 100%;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  opacity: 0;
-
-  &.visible {
-    opacity: 1;
-    transform: translateY(0);
-    animation: ${fadeInUp} 0.6s ease-out forwards;
-  }
-
-  &.hidden {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: ${fadeOutDown} 0.6s ease-out forwards;
-  }
 `;
 
 const IfInnerImg = styled.img`
@@ -76,7 +62,6 @@ const RightContainer = styled.div`
 
 const ItemIf = ({ id, homeWeb, homeMobile, title, explain }) => {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 430);
-  const { elementRef } = useScrollAnimation(); 
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth <= 430);
@@ -86,7 +71,14 @@ const ItemIf = ({ id, homeWeb, homeMobile, title, explain }) => {
   }, []);
 
   return (
-    <IfInnerBox ref={elementRef} key={id}>
+    <IfInnerBox
+      key={id}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 20 }}
+      transition={{ duration: 0.6 }}
+      viewport={{ once: false, amount: 0.6 }}
+    >
       <IfInnerImg src={isMobile ? homeMobile : homeWeb} alt={title} />
       <RightContainer>
         <IfP>{title}</IfP>
