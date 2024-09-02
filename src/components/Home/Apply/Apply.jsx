@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import Arrow from '../../../assets/images/Home/Apply/Arrow.png'; 
+import Arrow from '../../../assets/images/Home/Apply/arrow.png'; 
 import colors from "../../../styles/colors";
 import ApplyBackground from '../../../assets/images/Home/Apply/applybg.png';
 
