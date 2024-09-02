@@ -46,9 +46,10 @@ const QP = styled.div`
     color: #86FFF0;
 
     @media screen and (max-width: 430px) {
-        font-size: 1rem;
+        font-size: 1.3rem;
         padding: 0.25rem 0.625rem;
         border-radius: 15.625rem;
+        border: 0.5px solid #86FFF0;
     }
 `;
 
