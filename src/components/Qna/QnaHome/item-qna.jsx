@@ -25,7 +25,7 @@ const LeftContainer = styled.div`
 const CategoryTitleContainer = styled.div`
     display: flex;
     align-items: center;
-    width: 15rem; 
+    width: 17rem; 
     gap: 1.8rem;
 
     @media screen and (max-width: 430px) {
@@ -41,7 +41,7 @@ const QP = styled.div`
     align-items: center;
     border-radius: 31.25rem;
     border: 1px solid #86FFF0;
-    font-size: 2rem;
+    font-size: 2.5rem;
     font-weight: 500;
     color: #86FFF0;
 
