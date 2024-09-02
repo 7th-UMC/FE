@@ -8,13 +8,22 @@ const SectionContainer = styled.div`
   justify-content: center;
   align-items: center;
   position: relative;
-  height: 75rem;
+  height: 50rem;
   flex-direction: column;
   text-align: center;
+  overflow: hidden;  /* 이미지가 컨테이너 밖으로 나가지 않도록 함 */
+
+  @media screen and (max-width: 1024px) {
+    height: 40rem;
+  }
+
+  @media screen and (max-width: 768px) {
+    height: 35rem;
+  }
 
   @media screen and (max-width: 430px) {
-    height: 100vh;
-    padding: 0 1rem;
+    height: 30rem;
+    padding: 0 5rem;
   }
 `;
 
@@ -23,7 +32,8 @@ const BackgroundImage = styled.img`
   top: 0;
   left: 0;
   width: 100%;
-  height: 75rem;
+  height: 50rem;  
+  object-fit: top;
   z-index: -2;
 `;
 
@@ -35,6 +45,7 @@ const Overlay = styled.div`
   height: 100%;
   background: linear-gradient(180deg, rgba(13, 36, 127, 0.00) 3.45%, #00092A 118.96%);
   backdrop-filter: blur(17.5px);
+  -webkit-backdrop-filter: blur(17.5px);
   z-index: -1;
 `;
 
@@ -133,7 +144,7 @@ const Apply = () => {
       <BackgroundImage src={ApplyBackground} alt="Apply Background" />
       <Overlay />
       <Title>UMC와 함께 꿈을 펼쳐 보세요!</Title>
-      <SubTitle>새로운 도전과 기회를 UMC 한성대와 함께 경함해보세요</SubTitle>
+      <SubTitle>새로운 도전과 기회를 UMC 한성대와 함께 경험해보세요</SubTitle>
       <Button onClick={handleButtonClick}>
         <ButtonContent>
           <ButtonText>바로 지원하기</ButtonText>
