@@ -1,6 +1,8 @@
+import React from "react";
 import styled from "styled-components";
 import colors from "../../../styles/colors";
 import { useNavigate } from "react-router-dom";
+import FilterData from "../../../utils/Qna/filterData";
 
 const ItemContainer = styled.div`
     width: 100%;
@@ -15,27 +17,40 @@ const ItemContainer = styled.div`
 `
 
 const LeftContainer = styled.div`
-    max-width: 70%;
     display: flex;
     align-items: center;
+    width: 100%; 
+`;
+
+const CategoryTitleContainer = styled.div`
+    display: flex;
+    align-items: center;
+    width: 15rem; 
     gap: 1.8rem;
 
     @media screen and (max-width: 430px) {
+        width: 7.5rem; 
         gap: 0.85rem;
     }
-`
+`;
 
-const QP = styled.p`
-    font-size: 3rem;
-    font-weight: 600;
-    line-height: 3.58rem;
-    color: ${colors.introColor};
+const QP = styled.div`
+    display: inline-flex;
+    padding: 0.5rem 1.25rem;
+    justify-content: center;
+    align-items: center;
+    border-radius: 31.25rem;
+    border: 1px solid #86FFF0;
+    font-size: 2rem;
+    font-weight: 500;
+    color: #86FFF0;
 
     @media screen and (max-width: 430px) {
-        font-size: 1.5rem;
-        line-height: 1.79rem;
+        font-size: 1rem;
+        padding: 0.25rem 0.625rem;
+        border-radius: 15.625rem;
     }
-`
+`;
 
 const QP2 = styled.p`
     font-size: 2.6rem;
@@ -68,7 +83,6 @@ const AnswerDiv = styled.div`
     align-items: center;
     text-align: center;
     font-size: 2.4rem;
-    line-height: 2.864rem;
     font-weight: 600;
     color: ${colors.white};
 
@@ -77,13 +91,15 @@ const AnswerDiv = styled.div`
         height: 2.45rem;
         border-radius: 0.2rem;
         font-size: 1.2rem;
-        line-height: 1.432rem;
     }
 `
 
 const ItemQna = (props) => {
-    const { id, title, answered } = props;
+    const { id, title, answered, categoryId } = props;
     const navigate = useNavigate();
+
+    const category = FilterData.find(item => item.id === categoryId);
+    const categoryName = category ? category.name : '';
 
     const handleQnaDetail = () => {
         navigate(`/qna/${id}`);
@@ -92,7 +108,9 @@ const ItemQna = (props) => {
     return (
         <ItemContainer>
             <LeftContainer>
-                <QP>Q</QP>
+                <CategoryTitleContainer>
+                    <QP>{categoryName}</QP>
+                </CategoryTitleContainer>
                 <QP2 onClick={handleQnaDetail}>{title}</QP2>
             </LeftContainer>
             {answered && <AnswerDiv>답변완료</AnswerDiv>}
