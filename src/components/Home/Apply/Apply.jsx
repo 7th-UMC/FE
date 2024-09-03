@@ -30,11 +30,16 @@ const SectionContainer = styled.div`
 const BackgroundImage = styled.img`
   position: absolute;
   top: 0;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%); 
   width: 100%;
   height: 105%; 
   object-fit: top;
   z-index: -2;
+
+  @media screen and (max-width: 430px) {
+    width: 125%;
+  }
 `;
 
 const Overlay = styled.div`
