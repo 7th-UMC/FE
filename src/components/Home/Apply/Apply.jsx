@@ -119,7 +119,7 @@ const ButtonContent = styled.div`
 
 const ButtonText = styled.span`
   margin-right: 1rem; 
-
+  font-family: Pretendard;
   @media screen and (max-width: 430px) {
     margin-right: 0.5rem;
   }
