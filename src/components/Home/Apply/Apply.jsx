@@ -58,7 +58,6 @@ const Overlay = styled.div`
 
 const Title = styled.div`
   color:  ${colors.white};
-  font-family: Pretendard;
   font-size: 4.3rem;
   font-style: normal;
   font-weight: 600;
@@ -73,7 +72,6 @@ const Title = styled.div`
 
 const SubTitle = styled.div`
   color: ${colors.white};
-  font-family: Pretendard;
   font-size: 2.7rem;
   font-style: normal;
   font-weight: 400;
@@ -95,7 +93,6 @@ const Button = styled.button`
   border-radius: 6.25rem;
   background: ${colors.white};
   color:  ${colors.black};
-  font-family: Pretendard;
   font-size: 2.5rem;
   font-style: normal;
   font-weight: 600;
