@@ -6,6 +6,7 @@ import { useLocation } from 'react-router-dom';
 import html2canvas from 'html2canvas';
 import SavePhotoModal from '../../components/Photo/SavePhotoModal';
 import { API } from '../../api/axios';
+import Spinner from '../../components/Common/Spinner';
 
 const ResultContainer = styled.div`
     width: 60%;
@@ -99,6 +100,7 @@ const PhotoResult = () => {
     const isSelectedFrame3 = FrameData.find(frame => frame.frameWeb === selectedFrame)?.id === 3;
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [photoURL, setPhotoURL] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
 
     const handleFrameChange = (frame) => {
         setSelectedFrame(frame);
@@ -123,6 +125,7 @@ const PhotoResult = () => {
 
     const handleSubmit = () => {
         if (imgContainerRef.current) {
+            setIsLoading(true);
             const originalBorder = imgContainerRef.current.style.border;
             imgContainerRef.current.style.border = 'none';
 
@@ -150,6 +153,7 @@ const PhotoResult = () => {
                 }, 'image/png');
             }).finally(() => {
                 imgContainerRef.current.style.border = originalBorder;
+                setIsLoading(false);
             });
         }
     };
@@ -160,6 +164,8 @@ const PhotoResult = () => {
 
     return (
         <div className="pageContainer" style={{ display: 'flex', flexDirection: "column", alignItems: 'center' }}>
+            <Spinner isLoading={isLoading} />
+            
             <ResultContainer>
                 <ImgContainer ref={imgContainerRef} isSelectedFrame3={isSelectedFrame3}>
                     <FrameContainer src={selectedFrame} alt="Frame" />
