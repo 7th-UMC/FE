@@ -6,7 +6,7 @@ import { useLocation } from 'react-router-dom';
 import html2canvas from 'html2canvas';
 import SavePhotoModal from '../../components/Photo/SavePhotoModal';
 import { API } from '../../api/axios';
-import Spinner from '../../components/Common/Spinner';
+import Spinner from '../../components/Common/Spinner2';
 
 const ResultContainer = styled.div`
     width: 60%;
