@@ -129,7 +129,7 @@ const PeopleBox = styled.div`
 const PeopleBox2 = styled.div`
     width: 13rem;
     height: 5.4rem;
-    border: 0.1rem solid ${colors.stageColor2};
+    border: 0.1rem solid ${colors.white};
     border-radius: 0.4rem;
     display: flex;
     justify-content: center;
@@ -180,7 +180,7 @@ const People2 = styled.p`
     font-size: 2.4rem;
     font-weight: 500;
     line-height: 2.864rem;
-    color: ${colors.stageColor2};
+    color: ${colors.white};
 
     @media screen and (max-width: 430px) {
         font-size: 1.2rem;
