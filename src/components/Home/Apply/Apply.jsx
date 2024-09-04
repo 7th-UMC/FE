@@ -1,7 +1,9 @@
+import React from 'react';
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';  // useNavigate 훅 import
 import Arrow from '../../../assets/images/Home/Apply/arrow.png'; 
 import colors from "../../../styles/colors";
-import ApplyBackground from '../../../assets/images/Home/Apply/applybg2.png';
+import ApplyBackground from '../../../assets/images/Home/Apply/applybg.png';
 
 const SectionContainer = styled.div`
   display: flex;
@@ -30,16 +32,11 @@ const SectionContainer = styled.div`
 const BackgroundImage = styled.img`
   position: absolute;
   top: 0;
-  left: 50%;
-  transform: translateX(-50%); 
+  left: 0;
   width: 100%;
-  height: 105%; 
+  height: 50rem;  
   object-fit: top;
   z-index: -2;
-
-  @media screen and (max-width: 430px) {
-    width: 125%;
-  }
 `;
 
 const Overlay = styled.div`
@@ -49,15 +46,14 @@ const Overlay = styled.div`
   width: 100%;
   height: 100%;
   background: linear-gradient(180deg, rgba(13, 36, 127, 0.00) 3.45%, #00092A 118.96%);
-  /*
   backdrop-filter: blur(17.5px);
   -webkit-backdrop-filter: blur(17.5px);
-  */
   z-index: -1;
 `;
 
 const Title = styled.div`
   color:  ${colors.white};
+  font-family: Pretendard;
   font-size: 4.3rem;
   font-style: normal;
   font-weight: 600;
@@ -72,6 +68,7 @@ const Title = styled.div`
 
 const SubTitle = styled.div`
   color: ${colors.white};
+  font-family: Pretendard;
   font-size: 2.7rem;
   font-style: normal;
   font-weight: 400;
@@ -93,6 +90,7 @@ const Button = styled.button`
   border-radius: 6.25rem;
   background: ${colors.white};
   color:  ${colors.black};
+  font-family: Pretendard;
   font-size: 2.5rem;
   font-style: normal;
   font-weight: 600;
@@ -119,7 +117,7 @@ const ButtonContent = styled.div`
 
 const ButtonText = styled.span`
   margin-right: 1rem; 
-  font-family: Pretendard;
+
   @media screen and (max-width: 430px) {
     margin-right: 0.5rem;
   }
@@ -138,9 +136,10 @@ const ButtonImage = styled.img`
 `;
 
 const Apply = () => {
+  const navigate = useNavigate();  // useNavigate 훅 사용
 
   const handleButtonClick = () => {
-    window.open("https://docs.google.com/forms/d/e/1FAIpQLSedke8PH5PUC7_dqcB215X22zqfVdOlREvpk7F6ThmoTuvmwA/closedform", "_blank", "noopener,noreferrer");
+    navigate("/recruit");  // /recruit 경로로 이동
   }
 
   return (
